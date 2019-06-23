@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template</title>
+    <title>Linux</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content="Description">
     <meta name="viewport"
@@ -27,11 +27,11 @@
         loadSidebar: true,
         subMaxLevel: 3,
         // 在页面右上角渲染一个 GitHub Corner 挂件
-        repo: 'hello-world-example/Template',
+        repo: 'hello-world-example/Linux',
         plugins: [
             function (hook, vm) {
                 hook.beforeEach(function (html) {
-                    var url = 'https://github.com/hello-world-example/Template/edit/master/docs/' + vm.route.file
+                    var url = 'https://github.com/hello-world-example/Linux/edit/master/docs/' + vm.route.file
                     var editHtml = '<a class="" href="' + url + '" style="float: right;text-decoration: none">✍️编辑</a>';
 
                     return editHtml + "\n\n" + html

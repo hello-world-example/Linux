@@ -1,10 +1,10 @@
-# Template 
+# Linux 
 
 空的模版项目
 
-- cp -r Template <NewProject>
+- cp -r Linux <NewProject>
 - cd <NewProject>
-- rm Template.iml
-- sed -i '' 's/Template/<NewProject>/g' `grep Template --include=\*.{md,html,xml} -rl .`
+- rm Linux.iml
+- sed -i '' 's/Linux/<NewProject>/g' `grep Linux --include=\*.{md,html,xml} -rl .`
 - git remote set-url origin https://github.com/hello-world-example/<NewProject>.git
 
