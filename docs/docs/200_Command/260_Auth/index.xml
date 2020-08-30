@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>账户权限 on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/</link>
+    <description>Recent content in 账户权限 on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chattr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chattr/</guid>
+      <description>chattr chattr命令用来改变文件属性。这项指令可改变存放在ext2文件系统上的文件或目录属性，这些属性共有以下8种模式：
+属性  a：让文件或目录仅供追加用途； b：不更新文件或目录的最后存取时间； c：将文件或目录压缩后存放； d：将文件或目录排除在倾倒操作之外； i：不得任意更动文件或目录； s：保密性删除文件或目录，磁盘空间会被收回； S：即时更新文件或目录； u：预防意外删除，与s相反，删除后，数据内容还在磁盘上  选项  -R：递归处理，将指令目录下的所有文件及子目录一并处理； -v&amp;lt;版本编号&amp;gt;：设置文件或目录版本； -V：显示指令执行过程； +&amp;lt;属性&amp;gt;：开启文件或目录的该项属性； -&amp;lt;属性&amp;gt;：关闭文件或目录的该项属性； =&amp;lt;属性&amp;gt;：指定文件或目录的该项属性。  实例 禁止修改文件 chattr +i /etc/fstab 然后试一下rm、mv、rename等命令操作于该文件，都是得到Operation not permitted的结果。
+只能追加不能删除 chattr +a /data1/user_act.log Read More   chattr 命令 Linux的chattr与lsattr命令详解
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chgrp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chgrp/</guid>
+      <description>chgrp  chgrp命令用来改变文件或目录所属的用户组 组名可以是用户组的id，也可以是用户组的组名 文件名可以 是由空格分开的要改变属组的文件列表，也可以是由通配符描述的文件集合 如果用户不是该文件的文件主或超级用户(root)，则不能改变该文件的组 在UNIX系统家族里，文件或目录权限的掌控以拥有者及所属群组来管理  # 将目录 /usr/kail 及其下面的所有文件、子目录的 用户组 改成 yang： chgrp -R yang /usr/kail Read More   chgrp命令
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chmod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chmod/</guid>
+      <description>chmod chmod命令用来变更文件或目录的权限。
+在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。
+用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。
+符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。
+权限范围  u User，即文件或目录的拥有者； g Group，即文件或目录的所属群组； o Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围； a All，即全部的用户，包含拥有者，所属群组以及其他用户； r 读取权限，数字代号为&amp;rdquo;4&amp;quot;; w 写入权限，数字代号为&amp;rdquo;2&amp;quot;； x 执行或切换权限，数字代号为&amp;rdquo;1&amp;quot;； - 不具任何权限，数字代号为&amp;rdquo;0&amp;quot;； s 特殊功能说明：变更文件或目录的权限。  选项  -R或--recursive：递归处理，将指令目录下的所有文件及子目录一并处理；  -c或--changes：效果类似“-v”参数，但仅回报更改的部分； -v或--verbose：显示指令执行过程； -f或--quiet或--silent：不显示错误信息； --reference=&amp;lt;参考文件或目录&amp;gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同； &amp;lt;权限范围&amp;gt;+&amp;lt;权限设置&amp;gt;：开启权限范围的文件或目录的该选项权限设置； &amp;lt;权限范围&amp;gt;-&amp;lt;权限设置&amp;gt;：关闭权限范围的文件或目录的该选项权限设置； &amp;lt;权限范围&amp;gt;=&amp;lt;权限设置&amp;gt;：指定权限范围的文件或目录的该选项权限设置；  示例 # 设置自己可以执行，组员可以写入的权限 chmod u+x,g+w file　# 拥有者设置读写可执行；组设置读写权限；其它用户只读 chmod u=rwx,g=rw,o=r file # 拥有者设置读写可执行(4+2+1)；组设置读写权限(4+2)；其它用户只读(4) chmod 764 file # 所有用户设置可执行权限 chmod a+x file　特殊权限 sticky bit  只对目录有效，使目录下的文件，只有文件拥有者才能删除 如果他不属于owner，仅属于group或者other，就算他有w权限，也不能删除  加sticky bit的方法：
+chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-rwxrwxrwt，t就代表已经加上了sticky bit，而且生效了；如果显示的是-rwxrwxrwT，说明也已经加上了sticky bit，但没有生效。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chown/</guid>
+      <description>chown  chown 命令改变某个文件或目录的所有者和所属的组 该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组 用户可以是用户或者是用户D，用户组可以是组名或组id 文件名可以使由空格分开的文件列表，在文件名中可以包含通配符 只有文件主和超级用户才可以使用用该命令  # 把文件 dir 给uesr，添加到market组 `ll -d dir` 查看目录 dir 的属性 chown user:market dir # 将目录 /usr/kail 及其下面的所有文件、子目录的文件主改成 yang： chown -R yang /usr/kail </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/lsattr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/lsattr/</guid>
+      <description>lsattr lsattr命令用于查看chattr设置的文件系统属性。
+参数  -E：可显示设备属性的当前值，但这个当前值是从用户设备数据库中获得的，而不是从设备直接获得的。 -D：显示属性的名称，属性的默认值，描述和用户是否可以修改属性值的标志。 -R：递归的操作方式；  -V：显示指令的版本信息； -a：列出目录中的所有文件，包括隐藏文件。  lsattr经常使用的几个选项-D，-E，-R这三个选项不可以一起使用，它们是互斥的。</description>
+    </item>
+    
+  </channel>
+</rss>

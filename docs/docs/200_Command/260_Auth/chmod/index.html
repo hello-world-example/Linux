@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="chmod chmod命令用来变更文件或目录的权限。
+在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。
+用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。
+符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。
+权限范围  u User，即文件或目录的拥有者； g Group，即文件或目录的所属群组； o Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围； a All，即全部的用户，包含拥有者，所属群组以及其他用户； r 读取权限，数字代号为&rdquo;4&quot;; w 写入权限，数字代号为&rdquo;2&quot;； x 执行或切换权限，数字代号为&rdquo;1&quot;； - 不具任何权限，数字代号为&rdquo;0&quot;； s 特殊功能说明：变更文件或目录的权限。  选项  -R或--recursive：递归处理，将指令目录下的所有文件及子目录一并处理；  -c或--changes：效果类似“-v”参数，但仅回报更改的部分； -v或--verbose：显示指令执行过程； -f或--quiet或--silent：不显示错误信息； --reference=&lt;参考文件或目录&gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同； &lt;权限范围&gt;&#43;&lt;权限设置&gt;：开启权限范围的文件或目录的该选项权限设置； &lt;权限范围&gt;-&lt;权限设置&gt;：关闭权限范围的文件或目录的该选项权限设置； &lt;权限范围&gt;=&lt;权限设置&gt;：指定权限范围的文件或目录的该选项权限设置；  示例 # 设置自己可以执行，组员可以写入的权限 chmod u&#43;x,g&#43;w file　# 拥有者设置读写可执行；组设置读写权限；其它用户只读 chmod u=rwx,g=rw,o=r file # 拥有者设置读写可执行(4&#43;2&#43;1)；组设置读写权限(4&#43;2)；其它用户只读(4) chmod 764 file # 所有用户设置可执行权限 chmod a&#43;x file　特殊权限 sticky bit  只对目录有效，使目录下的文件，只有文件拥有者才能删除 如果他不属于owner，仅属于group或者other，就算他有w权限，也不能删除  加sticky bit的方法：
+chmod o&#43;t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-rwxrwxrwt，t就代表已经加上了sticky bit，而且生效了；如果显示的是-rwxrwxrwT，说明也已经加上了sticky bit，但没有生效。"><meta property="og:title" content="" />
+<meta property="og:description" content="chmod chmod命令用来变更文件或目录的权限。
+在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。
+用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。
+符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。
+权限范围  u User，即文件或目录的拥有者； g Group，即文件或目录的所属群组； o Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围； a All，即全部的用户，包含拥有者，所属群组以及其他用户； r 读取权限，数字代号为&rdquo;4&quot;; w 写入权限，数字代号为&rdquo;2&quot;； x 执行或切换权限，数字代号为&rdquo;1&quot;； - 不具任何权限，数字代号为&rdquo;0&quot;； s 特殊功能说明：变更文件或目录的权限。  选项  -R或--recursive：递归处理，将指令目录下的所有文件及子目录一并处理；  -c或--changes：效果类似“-v”参数，但仅回报更改的部分； -v或--verbose：显示指令执行过程； -f或--quiet或--silent：不显示错误信息； --reference=&lt;参考文件或目录&gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同； &lt;权限范围&gt;&#43;&lt;权限设置&gt;：开启权限范围的文件或目录的该选项权限设置； &lt;权限范围&gt;-&lt;权限设置&gt;：关闭权限范围的文件或目录的该选项权限设置； &lt;权限范围&gt;=&lt;权限设置&gt;：指定权限范围的文件或目录的该选项权限设置；  示例 # 设置自己可以执行，组员可以写入的权限 chmod u&#43;x,g&#43;w file　# 拥有者设置读写可执行；组设置读写权限；其它用户只读 chmod u=rwx,g=rw,o=r file # 拥有者设置读写可执行(4&#43;2&#43;1)；组设置读写权限(4&#43;2)；其它用户只读(4) chmod 764 file # 所有用户设置可执行权限 chmod a&#43;x file　特殊权限 sticky bit  只对目录有效，使目录下的文件，只有文件拥有者才能删除 如果他不属于owner，仅属于group或者other，就算他有w权限，也不能删除  加sticky bit的方法：
+chmod o&#43;t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-rwxrwxrwt，t就代表已经加上了sticky bit，而且生效了；如果显示的是-rwxrwxrwT，说明也已经加上了sticky bit，但没有生效。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chmod/" />
+<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
+<title>Chmod | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chattr/" class="">Chattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chgrp/" class="">Chgrp</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chmod/" class="active">Chmod</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chown/" class="">Chown</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/lsattr/" class="">Lsattr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Chmod</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chmod">chmod</a>
+      <ul>
+        <li><a href="#权限范围">权限范围</a></li>
+        <li><a href="#选项">选项</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#特殊权限">特殊权限</a>
+          <ul>
+            <li><a href="#sticky-bit">sticky bit</a></li>
+            <li><a href="#sgidthe-set-groupid-">SGID(The Set GroupID )</a></li>
+            <li><a href="#suidthe-set-userid">SUID(The Set UserID)</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="chmod">chmod</h1>
+<p>chmod命令用来变更文件或目录的权限。</p>
+<p>在UNIX系统家族里，文件或目录权限的控制分别以<strong>读取</strong>、<strong>写入</strong>、<strong>执行</strong>3种一般权限来区分，另有3种特殊权限可供运用。</p>
+<p>用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。</p>
+<p>符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。</p>
+<h2 id="权限范围">权限范围</h2>
+<ul>
+<li><code>u</code> User，即文件或目录的拥有者；</li>
+<li><code>g</code> Group，即文件或目录的所属群组；</li>
+<li><code>o</code> Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围；</li>
+<li><code>a</code> All，即全部的用户，包含拥有者，所属群组以及其他用户；</li>
+<li><code>r</code> 读取权限，数字代号为&rdquo;<strong>4</strong>&quot;;</li>
+<li><code>w</code> 写入权限，数字代号为&rdquo;<strong>2</strong>&quot;；</li>
+<li><code>x</code> 执行或切换权限，数字代号为&rdquo;<strong>1</strong>&quot;；</li>
+<li><code>-</code> 不具任何权限，数字代号为&rdquo;<strong>0</strong>&quot;；</li>
+<li><code>s</code> 特殊功能说明：变更文件或目录的权限。</li>
+</ul>
+<h2 id="选项">选项</h2>
+<ul>
+<li><code>-R</code>或<code>--recursive</code>：递归处理，将指令目录下的所有文件及子目录一并处理；</li>
+<li></li>
+<li><code>-c</code>或<code>--changes</code>：效果类似“-v”参数，但仅回报更改的部分；</li>
+<li><code>-v</code>或<code>--verbose</code>：显示指令执行过程；</li>
+<li><code>-f</code>或<code>--quiet</code>或<code>--silent</code>：不显示错误信息；</li>
+<li><code>--reference=&lt;参考文件或目录&gt;</code>：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同；</li>
+<li><code>&lt;权限范围&gt;+&lt;权限设置&gt;</code>：开启权限范围的文件或目录的该选项权限设置；</li>
+<li><code>&lt;权限范围&gt;-&lt;权限设置&gt;</code>：关闭权限范围的文件或目录的该选项权限设置；</li>
+<li><code>&lt;权限范围&gt;=&lt;权限设置&gt;</code>：指定权限范围的文件或目录的该选项权限设置；</li>
+</ul>
+<h2 id="示例">示例</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 设置自己可以执行，组员可以写入的权限</span> 
+chmod u+x,g+w file　
+
+<span style="color:#75715e"># 拥有者设置读写可执行；组设置读写权限；其它用户只读</span>
+chmod u<span style="color:#f92672">=</span>rwx,g<span style="color:#f92672">=</span>rw,o<span style="color:#f92672">=</span>r file 
+
+<span style="color:#75715e"># 拥有者设置读写可执行(4+2+1)；组设置读写权限(4+2)；其它用户只读(4)</span>
+chmod <span style="color:#ae81ff">764</span> file 
+
+<span style="color:#75715e"># 所有用户设置可执行权限</span>
+chmod a+x file　　
+</code></pre></div><h2 id="特殊权限">特殊权限</h2>
+<h3 id="sticky-bit">sticky bit</h3>
+<ul>
+<li><strong>只对目录有效</strong>，使目录下的文件，<strong>只有文件拥有者才能删除</strong></li>
+<li>如果他不属于owner，仅属于group或者other，就算他有w权限，也不能删除</li>
+</ul>
+<p>加sticky bit的方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod o+t dir
+chmod <span style="color:#ae81ff">1777</span> dir
+</code></pre></div><p>用<code>ls -l</code>，可以看到有类似这样的权限：<code>-rwxrwxrwt</code>，<code>t</code>就代表已经加上了sticky bit，而且<strong>生效了</strong>；如果显示的是<code>-rwxrwxrwT</code>，说明也已经加上了sticky bit，但<strong>没有生效</strong>。</p>
+<h3 id="sgidthe-set-groupid-">SGID(The Set GroupID )</h3>
+<ul>
+<li>加上SGID的<strong>文件</strong>，表示<strong>运行这个程序时是临时以这个文件的拥有组的身份运行的</strong>；</li>
+<li>加上SGID的<strong>文件夹</strong>，表示在这个<strong>目录下创建的文件属于目录所在的组</strong>，而<strong>不是创建人所在的组</strong>，在这个目录下创建的目录继承本目录的SGID。</li>
+</ul>
+<p>加SGID的方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod g+s file
+chmod <span style="color:#ae81ff">2777</span> file
+</code></pre></div><p>用<code>ls -l</code>，可以看到类似这样的权限<code>drwxrwsrwx</code>，<code>s</code>就代表已经加上了SGID，而且生效，如果显示<code>drwxrwSrwx</code>，说明已经加上了SGID，但没有生效（因为本来group就没有执行的权限）。</p>
+<h3 id="suidthe-set-userid">SUID(The Set UserID)</h3>
+<p>SUID与SGID是一样的，惟一不同的是，运行时是以这个文件的拥有者身份来运行。</p>
+<p>加SUID的方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod o+s file
+chmod <span style="color:#ae81ff">4777</span> file
+</code></pre></div><p>同样的，加了SUID的文件权限有这类似这两种：<code>drwsrwxrwx</code>、<code>drwSrwxrwx</code>。</p>
+<p>看看passwd命令的权限：<code>ll /usr/bin/passwd</code>，是&rdquo;-rwsr-x-rx&rdquo;，终于知道为什么执行passwd时，可以修改/etc/shadow文件了吧。</p>
+<h3 id="总结">总结</h3>
+<ul>
+<li><code>SUID</code>：置于 u 的 x 位，原位置有执行权限，就置为 s，没有了为 S</li>
+<li><code>SGID</code>：置于 g 的 x 位，原位置有执行权限，就置为 s，没有了为 S</li>
+<li><code>STICKY</code>：粘滞位，置于 o 的 x 位，原位置有执行权限，就置为 t ，否则为T</li>
+</ul>
+<h2 id="read-more">Read More</h2>
+<blockquote>
+<p>
+  <a href="http://man.linuxde.net/chmod">chmod命令</a>
+
+  <a href="http://blog.csdn.net/weiling_shen/article/details/7577571">Linux特殊文件权限(chmod)</a></p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/260_Auth/chmod.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chmod">chmod</a>
+      <ul>
+        <li><a href="#权限范围">权限范围</a></li>
+        <li><a href="#选项">选项</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#特殊权限">特殊权限</a>
+          <ul>
+            <li><a href="#sticky-bit">sticky bit</a></li>
+            <li><a href="#sgidthe-set-groupid-">SGID(The Set GroupID )</a></li>
+            <li><a href="#suidthe-set-userid">SUID(The Set UserID)</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

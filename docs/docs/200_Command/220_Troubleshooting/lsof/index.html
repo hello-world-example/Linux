@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
+  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
+  lsof -p pid 指定进程所有打开的文件
+   lsof &#43;d /DIR/ 显示目录下被进程打开的文件
+  lsof &#43;D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
+   lsof -u username 显示所属user进程打开的文件
+  lsof -g gid 显示归属gid的进程情况
+  lsof -d FD 显示指定文件描述符的进程
+   lsof -a and 操作
+  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
+ 46 &ndash;&gt; IPv4 or IPv6 protocol &ndash;&gt; TCP or UDP hostname &ndash;&gt; Internet host name hostaddr &ndash;&gt; IPv4地址 service &ndash;&gt; /etc/services 文件中的 service name port &ndash;&gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  "><meta property="og:title" content="" />
+<meta property="og:description" content="lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
+  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
+  lsof -p pid 指定进程所有打开的文件
+   lsof &#43;d /DIR/ 显示目录下被进程打开的文件
+  lsof &#43;D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
+   lsof -u username 显示所属user进程打开的文件
+  lsof -g gid 显示归属gid的进程情况
+  lsof -d FD 显示指定文件描述符的进程
+   lsof -a and 操作
+  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
+ 46 &ndash;&gt; IPv4 or IPv6 protocol &ndash;&gt; TCP or UDP hostname &ndash;&gt; Internet host name hostaddr &ndash;&gt; IPv4地址 service &ndash;&gt; /etc/services 文件中的 service name port &ndash;&gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/" />
+<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
+<title>Lsof | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/htop/" class="">Htop</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/lsof/" class="active">Lsof</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/mtr/" class="">Mtr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/top/" class="">Top</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Lsof</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lsof--list-open-files">lsof ( List Open Files)</a>
+      <ul>
+        <li><a href="#示例">示例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="lsof--list-open-files">lsof ( List Open Files)</h1>
+<ul>
+<li>
+<p><code>lsof  filename</code> 显示打开指定文件的所有进程</p>
+</li>
+<li>
+<p><code>lsof -c string</code>   显示command列中包含指定字符的<strong>进程所有打开的文件</strong></p>
+</li>
+<li>
+<p><code>lsof -p pid</code>   指定<strong>进程所有打开的文件</strong></p>
+</li>
+<li></li>
+<li>
+<p><code>lsof +d /DIR/</code> 显示目录下被进程打开的文件</p>
+</li>
+<li>
+<p><code>lsof +D /DIR/</code> 同上，但是会搜索目录下的所有目录，时间相对较长</p>
+</li>
+<li></li>
+<li>
+<p><code>lsof -u username</code>  显示所属user进程打开的文件</p>
+</li>
+<li>
+<p><code>lsof -g gid</code> 显示归属gid的进程情况</p>
+</li>
+<li>
+<p><code>lsof -d FD</code> 显示指定文件描述符的进程</p>
+</li>
+<li></li>
+<li>
+<p><code>lsof -a</code> and 操作</p>
+</li>
+<li>
+<p><code>lsof -i</code> 显示符合条件的进程，格式：<code>lsof -i[46][protocol][@hostname|hostaddr][:service|port]</code></p>
+<ul>
+<li><code>46</code> &ndash;&gt; IPv4 or IPv6</li>
+<li>protocol &ndash;&gt; <code>TCP</code> or <code>UDP</code></li>
+<li>hostname &ndash;&gt; Internet host name</li>
+<li>hostaddr &ndash;&gt; <code>IPv4地址</code></li>
+<li>service &ndash;&gt;<code> /etc/services</code> 文件中的 service name</li>
+<li>port &ndash;&gt; <code>端口号</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="示例">示例</h2>
+<ul>
+<li><code>lsof -i :8080</code>  查看8080端口的运行情况</li>
+<li><code>lsof -a -u root -d txt</code>  查看<strong>所属root用户进程</strong>所打开的<strong>文件类型为txt的文件</strong></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/220_Troubleshooting/lsof.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lsof--list-open-files">lsof ( List Open Files)</a>
+      <ul>
+        <li><a href="#示例">示例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

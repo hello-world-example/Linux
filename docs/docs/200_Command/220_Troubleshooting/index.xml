@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>故障排查 on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/</link>
+    <description>Recent content in 故障排查 on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</guid>
+      <description>htop 安装 # 启用 EPEL Repository yum -y install epel-release yum -y update # 安装 htop yum -y install htop 输入 htop 即可使用，效果如下：
+ Read More   官网
+Linux htop工具使用详解
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
+      <description>lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
+  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
+  lsof -p pid 指定进程所有打开的文件
+   lsof +d /DIR/ 显示目录下被进程打开的文件
+  lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
+   lsof -u username 显示所属user进程打开的文件
+  lsof -g gid 显示归属gid的进程情况
+  lsof -d FD 显示指定文件描述符的进程
+   lsof -a and 操作
+  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
+ 46 &amp;ndash;&amp;gt; IPv4 or IPv6 protocol &amp;ndash;&amp;gt; TCP or UDP hostname &amp;ndash;&amp;gt; Internet host name hostaddr &amp;ndash;&amp;gt; IPv4地址 service &amp;ndash;&amp;gt; /etc/services 文件中的 service name port &amp;ndash;&amp;gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</guid>
+      <description>mtr 常用的 ping，tracert，nslookup 一般用来判断主机的网络连通性，其实 Linux 下有一个更好用的网络联通性判断工具，它可以结合 ping、tracert、nslookup 来判断网络的相关特性，这个命令就是 mtr。mtr 全称 my traceroute，是一个把 ping 和 traceroute 合并到一个程序的网络诊断工具。
+traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测，ICMP在某些路由节点的优先级要比其他数据包低，所以测试得到的数据可能低于实际情况。
+常用命令   无参数（mtr &amp;lt;host&amp;gt;）：会不停的发送 CMP报文 进行探测
+  -r | -report : 会向主机发送 10 个 ICMP 包，然后直接输出结果
+ 一般情况下 mtr 前几跳都是本地 ISP，后几跳属于服务商比如 Google 数据中心，中间跳数则是中间节点，如果发现前几跳异常，需要联系本地 ISP 服务提供上，相反如果后几跳出现问题，则需要联系服务提供商，中间几跳出现问题，则两边无法完全解决问题
+   -c： -r 参数来生成报告，只会发送10个数据包 ， 可以通过 -c 制定发送数据包的个数
+  -s：定ping数据包的大小 ，如果设置为负数，则数据包大小是随机数
+  统计项说明  Host：显示的是IP地址或本机域名 Loss% 到达此节点的数据包丢包率，显示的每个对应IP的丢包率（TODO） Snt 发送包的数量 Last 最后一包的返回延时 Avg 平均延时 Best 最低延时 Wrst 最差延时 StDev 方差（稳定性）  Read More   mtr 查看路由网络连通性  traviscross/mtr 工具： 在线 traceroute  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</guid>
+      <description>top 启动参数  -b 不启用交互模式，直接打印结果 -n &amp;lt;次数&amp;gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &amp;lt;时间&amp;gt; 设置间隔时间 -u &amp;lt;用户名&amp;gt; 指定用户名 -p &amp;lt;进程号&amp;gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &amp;lt;Space&amp;gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE+ P：按%CPU使用率排行 T：按MITE+排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  </description>
+    </item>
+    
+  </channel>
+</rss>

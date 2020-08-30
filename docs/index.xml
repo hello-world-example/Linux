@@ -10,168 +10,56 @@
     
     
     <item>
+      <title>变量</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>条件语句</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://hello-world-example.github.io/Linux/_sidebar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Linux/_sidebar/</guid>
-      <description>故障排查  进程   ps  pstree  top  htop   网络   mtr  tcpdump nslookup route   监控  sysstat     常用命令   ls  du  df  curl  lsof  kill   pkill  killall     权限   chmod  chown  chgrp  chattr  lsattr   字符串操作  grep   *grep    tr   小工具   date  time   网络   ssh   SSH 隧道    ssh-keygen   系统管理   service  chkconfig  systemd   Shell   循环   /etc   resolv.</description>
+      <description>故障排查  进程   ps  pstree  top  htop   网络   mtr  tcpdump nslookup route   监控  sysstat     常用命令   ls  du  df  curl  lsof  kill   pkill  killall     权限   chmod  chown  chgrp  chattr  lsattr   字符串操作  grep   *grep    tr   小工具   date  time   网络   ssh   SSH 隧道    ssh-keygen   系统管理   service  chkconfig  systemd   /etc   resolv.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_dig/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_dig/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</guid>
+      <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/_watch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/_watch/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_nslookup/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_nslookup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_route/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_route/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_sysstat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_sysstat/</guid>
-      <description>systat 工具集 安装 sudo apt install sysstat
-包含的命令
- iostat ： mpstat ： pidstat ： tapestat cifsiostat  Read More  Github 仓库 ：https://github.com/sysstat/sysstat 官方文档：http://sebastien.godard.pagesperso-orange.fr/documentation.html  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_traceroute/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_traceroute/</guid>
-      <description>traceroute </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_watch/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_watch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/_wireshark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/_wireshark/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/chattr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/chattr/</guid>
-      <description>chattr chattr命令用来改变文件属性。这项指令可改变存放在ext2文件系统上的文件或目录属性，这些属性共有以下8种模式：
-属性  a：让文件或目录仅供追加用途； b：不更新文件或目录的最后存取时间； c：将文件或目录压缩后存放； d：将文件或目录排除在倾倒操作之外； i：不得任意更动文件或目录； s：保密性删除文件或目录，磁盘空间会被收回； S：即时更新文件或目录； u：预防意外删除，与s相反，删除后，数据内容还在磁盘上  选项  -R：递归处理，将指令目录下的所有文件及子目录一并处理； -v&amp;lt;版本编号&amp;gt;：设置文件或目录版本； -V：显示指令执行过程； +&amp;lt;属性&amp;gt;：开启文件或目录的该项属性； -&amp;lt;属性&amp;gt;：关闭文件或目录的该项属性； =&amp;lt;属性&amp;gt;：指定文件或目录的该项属性。  实例 禁止修改文件 chattr +i /etc/fstab 然后试一下rm、mv、rename等命令操作于该文件，都是得到Operation not permitted的结果。
-只能追加不能删除 chattr +a /data1/user_act.log Read More   chattr 命令 Linux的chattr与lsattr命令详解
- </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/chgrp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/chgrp/</guid>
-      <description>chgrp  chgrp命令用来改变文件或目录所属的用户组 组名可以是用户组的id，也可以是用户组的组名 文件名可以 是由空格分开的要改变属组的文件列表，也可以是由通配符描述的文件集合 如果用户不是该文件的文件主或超级用户(root)，则不能改变该文件的组 在UNIX系统家族里，文件或目录权限的掌控以拥有者及所属群组来管理  # 将目录 /usr/kail 及其下面的所有文件、子目录的 用户组 改成 yang： chgrp -R yang /usr/kail Read More   chgrp命令
- </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/chmod/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/chmod/</guid>
-      <description>chmod chmod命令用来变更文件或目录的权限。
-在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。
-用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。
-符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。
-权限范围  u User，即文件或目录的拥有者； g Group，即文件或目录的所属群组； o Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围； a All，即全部的用户，包含拥有者，所属群组以及其他用户； r 读取权限，数字代号为&amp;rdquo;4&amp;quot;; w 写入权限，数字代号为&amp;rdquo;2&amp;quot;； x 执行或切换权限，数字代号为&amp;rdquo;1&amp;quot;； - 不具任何权限，数字代号为&amp;rdquo;0&amp;quot;； s 特殊功能说明：变更文件或目录的权限。  选项  -R或--recursive：递归处理，将指令目录下的所有文件及子目录一并处理；  -c或--changes：效果类似“-v”参数，但仅回报更改的部分； -v或--verbose：显示指令执行过程； -f或--quiet或--silent：不显示错误信息； --reference=&amp;lt;参考文件或目录&amp;gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同； &amp;lt;权限范围&amp;gt;+&amp;lt;权限设置&amp;gt;：开启权限范围的文件或目录的该选项权限设置； &amp;lt;权限范围&amp;gt;-&amp;lt;权限设置&amp;gt;：关闭权限范围的文件或目录的该选项权限设置； &amp;lt;权限范围&amp;gt;=&amp;lt;权限设置&amp;gt;：指定权限范围的文件或目录的该选项权限设置；  示例 # 设置自己可以执行，组员可以写入的权限 chmod u+x,g+w file　# 拥有者设置读写可执行；组设置读写权限；其它用户只读 chmod u=rwx,g=rw,o=r file # 拥有者设置读写可执行(4+2+1)；组设置读写权限(4+2)；其它用户只读(4) chmod 764 file # 所有用户设置可执行权限 chmod a+x file　特殊权限 sticky bit  只对目录有效，使目录下的文件，只有文件拥有者才能删除 如果他不属于owner，仅属于group或者other，就算他有w权限，也不能删除  加sticky bit的方法：
-chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-rwxrwxrwt，t就代表已经加上了sticky bit，而且生效了；如果显示的是-rwxrwxrwT，说明也已经加上了sticky bit，但没有生效。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/chown/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/chown/</guid>
-      <description>chown  chown 命令改变某个文件或目录的所有者和所属的组 该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组 用户可以是用户或者是用户D，用户组可以是组名或组id 文件名可以使由空格分开的文件列表，在文件名中可以包含通配符 只有文件主和超级用户才可以使用用该命令  # 把文件 dir 给uesr，添加到market组 `ll -d dir` 查看目录 dir 的属性 chown user:market dir # 将目录 /usr/kail 及其下面的所有文件、子目录的文件主改成 yang： chown -R yang /usr/kail </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/compression/gzip/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/compression/gzip/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/compression/tar/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/compression/tar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/compression/zip/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/compression/zip/</guid>
-      <description>zip zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具 有&amp;rdquo;.zip&amp;quot;扩展名的压缩文件
-语法 zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$] [-b &amp;lt;工 作目录&amp;gt;] [-ll] [-n &amp;lt;字 尾字符串&amp;gt;] [-t &amp;lt;日 期时间&amp;gt;] [-&amp;lt;压 缩效率&amp;gt;] [压 缩文件] [文件...] [-i &amp;lt;范本样式&amp;gt;] [-x &amp;lt;范本样式&amp;gt;] 参数 -A 调整可执行的自动解压缩文件。 -b&amp;lt;工作目录&amp;gt; 指定暂时存放文件的目录。 -c 替每个被压缩的文件加上注释。 -d 从压缩文件内删除指定的文件。 ## -D 压缩文件内不建立目录名称。 -f 此参数的效果和指定&amp;quot;-u&amp;quot;参 数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。 -F 尝试修复已损坏的压缩文件。 -g 将 文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。 -h 帮助。 -i&amp;lt;范本样式&amp;gt; 只压缩符合条件的文件。 -j 只保存文件名称及其内容，而不存放任何目录名称。 ## -J 删除压缩文件前面不必要的数据。 -k 使用MS-DOS兼容格式的文件名称。 -l 压缩文件时，把LF字符 置换成LF+CR字 符。 -ll 压缩文件时，把LF+CR字 符置换成LF字符。 -L 显示版权信息。 -m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。 -n&amp;lt;字尾字符串&amp;gt; 不压缩具有特定字尾字符串的文件。 -o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。 -q 不显示指令执行过程 ## -r 递归处理，将指定目录下的所有文件和子目录一并处理 ## -S 包含系统和隐藏文件。 -t&amp;lt;日期时间&amp;gt; 把 压缩文件的日期设成指定的日期。 ## -T 检查备份文件内的每个文件是否正确无误。 -u 更换较新的文件到压缩文件内。 -v 显示指令执行过程或显示版本信息。 -V 保存VMS操作系统的文 件属性。 -w 在文件名称里假如版本编号，本参数仅在VMS操 作系统下有效。 -x&amp;lt;范本样式&amp;gt; 压缩时排除符合条件的文件。 -X 不保存额外的文件属性。 -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。 -z 替压缩文件加上注释。 -$ 保存第一个被压缩文件所在磁盘的卷册名称。 -&amp;lt;压缩效率&amp;gt; 压缩效率是一个介于1-9的数值。 例子 压缩test.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/curl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/curl/</guid>
-      <description>参数  -o &amp;lt;文件名&amp;gt; 下载网页 -s 静默退出，不显示 进程和错误信息 -L 自动跳转到新的网址 -i 显示头和源码 -l 只显示头信息 -v 显示一次http通信的整个过程，包括端口连接和http request头信息 --trace &amp;lt;文件名&amp;gt; | --trace-ascii &amp;lt;文件名&amp;gt; 查看更详细的通信过程  发送数据  -X POST --data &amp;quot;data=xxx&amp;quot; 发送表单信息 -X POST --data-urlencode &amp;quot;date=April 1&amp;quot; 提交的信息进行url编码  监控  curl -o /dev/null -s -w %{http_code} &amp;quot;http://www.baidu.com&amp;quot; 获取响应码 curl -o /dev/null -s -w &amp;quot;code: %{http_code}\ntime_total: %{time_total}\n&amp;quot; &amp;quot;http://www.baidu.com&amp;quot; 组合使用  可以通过 man curl 搜索 --write-out 查看更多支持的变量名
- http_code 状态码 url_effective 最终获取的url地址，尤其是当你指定给curl的地址存在301跳转，且通过-L继续追踪的情形 time_total 总时间，按秒计。精确到小数点后三位 time_namelookup DNS解析时间,从请求开始到DNS解析完毕所用时间 time_connect 连接时间,从开始到建立TCP连接完成所用时间,包括前边DNS解析时间，如果需要单纯的得到连接时间，用这个time_connect时间减去前边time_namelookup时间 time_appconnect 连接建立完成时间，如SSL/SSH等建立连接或者完成三次握手时间 time_pretransfer 从开始到准备传输的时间 time_redirect 重定向时间，包括到最后一次传输前的几次重定向的DNS解析，连接，预传输，传输时间 time_starttransfer 开始传输时间。在发出请求之后，Web 服务器返回数据的第一个字节所用的时间 size_download 下载大小 size_upload 上传大小 size_header 下载的header的大小 size_request 请求的大小 speed_download 下载速度，单位-字节每秒 speed_upload 上传速度,单位-字节每秒 ssl_verify_result ssl 认证结果，返回0表示认证成功 &amp;hellip;.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/date/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/date/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</guid>
       <description># 显示当前时间 $ date 格式化输出 date +&amp;#39;Format&amp;#39;   %y : 年份的最后两位数字 00.99
   %Y : 完整年份 0000..9999
     %B : 月份 January..December
@@ -186,38 +74,87 @@ chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/df/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/kill/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/df/</guid>
-      <description>df 显示磁盘分区上的可使用的磁盘空间，默认显示单位为KB
-  -h或--human-readable：以可读性较高的方式来显示信息； -H：与-h参数相同，但在计算是以1000Bytes为换算单位而非1024Bytes；  -l或&amp;ndash;local：仅显示本地端的文件系统；  -a | &amp;ndash;all：包含全部的文件系统；   来自: http://man.linuxde.net/df</description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/kill/</guid>
+      <description>kill kill命令用来删除执行中的程序或工作。 将指定的信号送至程序。 默认的信息为SIGTERM(15),可将指定程序终止。 若仍无法终止该程序，可使用 SIGKILL(9) 强制删除程序。
+选项 -l &amp;lt;信息编号&amp;gt;：若不加&amp;lt;信息编号&amp;gt;选项，则-l参数会列出全部的信息名称； -s &amp;lt;信息名称或编号&amp;gt;：指定要送出的信息； -a：当处理当前进程时，不限制命令名和进程号的对应关系； -p：指定kill 命令只打印相关进程的进程号，而不发送任何信号； -u：指定用户。 示例 $ kill -l 1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP 6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1 11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM 16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP 21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ 26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR 31) SIGSYS 34) SIGRTMIN 35) SIGRTMIN+1 36) SIGRTMIN+2 37) SIGRTMIN+3 38) SIGRTMIN+4 39) SIGRTMIN+5 40) SIGRTMIN+6 41) SIGRTMIN+7 42) SIGRTMIN+8 43) SIGRTMIN+9 44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7 58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2 63) SIGRTMAX-1 64) SIGRTMAX 只有SIGKILL(9)才可以无条件终止进程，其他信号进程都有权利忽略，下面是常用的信号：</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/du/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/killall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/du/</guid>
-      <description>du  -h 以可读的方式显示 -s 显示目录占用的磁盘空间大小，不要显示其下子目录和文件占用的磁盘空间大小 -d 深度（&amp;ndash;max-depth=） -a 显示目录占用的磁盘空间大小，还要显示其下目录和文件占用磁盘空间的大小 -c 显示几个目录或文件占用的磁盘空间大小，还要统计它们的总和  # 当前目录占用磁盘的大小，而不单独列出各子项占用的容量 du -sh # 指定文件夹 folder 占用磁盘的大小 du -sh folder # 当前目录所有文件的大小 du -h -d 1 </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/killall/</guid>
+      <description>killall http://man.linuxde.net/killall
+完全配置进程名</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/grep/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/grep/</guid>
-      <description>*grep   ngrep 搜索数据包和显示工具  egrep 在文件搜索文字字符串，与 grep -E 类似  fgrep 在文件搜索文字字符串  pgrep 搜索进程  </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ls/</guid>
+      <description>ls  -R：递归处理，显示目录下的所有文件及子目录   -r：以文件名反序排列并输出目录内容列表； -t：用文件和目录的更改时间排序；   -a：显示所有档案及目录 -A：显示除影藏文件.和..以外的所有文件列表   -C：多列显示输出结果。这是默认选项； -l：与-C选项功能相反，所有输出信息用单列格式输出，不输出为多列； -h：可阅读的方式显示文件大小 -k：以KB（千字节）为单位显示文件大小； -m：用“,”号区隔每个文件和目录的名称；   -L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录； -F：在每个输出项后追加文件的类型标识符  * 表示具有可执行权限的普通文件， / 表示目录，“@”表示符号链接， | 表示命令管道FIFO，“=”表示sockets套接字。   -b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；   &amp;ndash;full-time：列出完整的日期与时间； &amp;ndash;color[=WHEN]：使用不同的颜色高亮显示不同类型的。  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/htop/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pkill/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/htop/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pkill/</guid>
+      <description>pkill http://man.linuxde.net/pkill
+模糊配置进程名</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ps/</guid>
+      <description>ps 显示系统中所有进程信息 ps -ef 查看进程资源使用情况 ps aux  USER : 用户名 %CPU : 进程占用的CPU百分比 %MEM : 占用内存的百分比 VSZ : 该进程使用的虚拟內存量（KB） RSS : 该进程占用的固定內存量（KB）（驻留中页的数量） STAT : 进程的状态 START : 该进程被触发启动时间 TIME : 该进程实际使用CPU运行的时间  其中STAT状态位常见的状态字符有  D : 无法中断的休眠状态（通常 IO 的进程）； R : 正在运行可中在队列中可过行的； S : 处于休眠状态； T : 停止或被追踪； W : 进入内存交换 （从内核2.6开始无效）； X : 死掉的进程 （基本很少见）； Z : 僵尸进程； &amp;lt; : 优先级高的进程 N : 优先级较低的进程 L : 有些页被锁进内存； s : 进程的领导者（在它之下有子进程）； l : 多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；   : 位于后台的进程组；      Linux下ps -ef和ps aux的区别及格式详解</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pstree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pstree/</guid>
+      <description>pstree pstree命令以树状图的方式展现进程之间的派生关系，显示效果比较直观。
+ pstree -p 显示进程和线程关系的树状结构 pstree -p &amp;lt;pid&amp;gt; 显示指定进程和线程关系的树状结构  用法: pstree [ -a ] [ -c ] [ -h | -H 进程号 ] [ -l ] [ -n ] [ -p ] [ -u ] [ -A | -G | -U ] [ 进程号 | 用户 ] pstree -V 显示进程树。 `-a` 显示命令行参数 -A 使用 ASCII 画线符 -c 不压缩雷同的子树 -h 高亮显示当前进程及其祖先 -H 进程号 高亮显示 &amp;#34;进程号&amp;#34; 指定的进程当及其祖先 -G 使用 VT100 划线符 -l 不截断长行 -n 输出按进程号排序 -p 显示进程号；隐含 -c -u 显示用户名变换 -U 使用 UTF-8 (Unicode) 划线符 -V 显示版本信息 -Z 显示 SELinux 安全环境 进程号 从 &amp;#34;进程号&amp;#34; 开始，缺省是1(init) 用户 仅显示从该 &amp;#34;用户&amp;#34; 的进程开始的进程树 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/stress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/stress/</guid>
+      <description>stress stress 是一个 Linux 系统压力测试工具，常用作模拟异常进程导致平均负载升高的场景。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/time/</guid>
+      <description>在执行的命令前加上 time，显示命令执行时间
+time command </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</guid>
       <description>htop 安装 # 启用 EPEL Repository yum -y install epel-release yum -y update # 安装 htop yum -y install htop 输入 htop 即可使用，效果如下：
  Read More   官网
 Linux htop工具使用详解
@@ -226,49 +163,10 @@ Linux htop工具使用详解
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/kill/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/kill/</guid>
-      <description>kill kill命令用来删除执行中的程序或工作。 将指定的信号送至程序。 默认的信息为SIGTERM(15),可将指定程序终止。 若仍无法终止该程序，可使用 SIGKILL(9) 强制删除程序。
-选项 -l &amp;lt;信息编号&amp;gt;：若不加&amp;lt;信息编号&amp;gt;选项，则-l参数会列出全部的信息名称； -s &amp;lt;信息名称或编号&amp;gt;：指定要送出的信息； -a：当处理当前进程时，不限制命令名和进程号的对应关系； -p：指定kill 命令只打印相关进程的进程号，而不发送任何信号； -u：指定用户。 示例 $ kill -l 1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP 6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1 11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM 16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP 21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ 26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR 31) SIGSYS 34) SIGRTMIN 35) SIGRTMIN+1 36) SIGRTMIN+2 37) SIGRTMIN+3 38) SIGRTMIN+4 39) SIGRTMIN+5 40) SIGRTMIN+6 41) SIGRTMIN+7 42) SIGRTMIN+8 43) SIGRTMIN+9 44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7 58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2 63) SIGRTMAX-1 64) SIGRTMAX 只有SIGKILL(9)才可以无条件终止进程，其他信号进程都有权利忽略，下面是常用的信号：</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/killall/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/killall/</guid>
-      <description>killall http://man.linuxde.net/killall
-完全配置进程名</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/ls/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/ls/</guid>
-      <description>ls  -R：递归处理，显示目录下的所有文件及子目录   -r：以文件名反序排列并输出目录内容列表； -t：用文件和目录的更改时间排序；   -a：显示所有档案及目录 -A：显示除影藏文件.和..以外的所有文件列表   -C：多列显示输出结果。这是默认选项； -l：与-C选项功能相反，所有输出信息用单列格式输出，不输出为多列； -h：可阅读的方式显示文件大小 -k：以KB（千字节）为单位显示文件大小； -m：用“,”号区隔每个文件和目录的名称；   -L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录； -F：在每个输出项后追加文件的类型标识符  * 表示具有可执行权限的普通文件， / 表示目录，“@”表示符号链接， | 表示命令管道FIFO，“=”表示sockets套接字。   -b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；   &amp;ndash;full-time：列出完整的日期与时间； &amp;ndash;color[=WHEN]：使用不同的颜色高亮显示不同类型的。  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/lsattr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/lsattr/</guid>
-      <description>lsattr lsattr命令用于查看chattr设置的文件系统属性。
-参数  -E：可显示设备属性的当前值，但这个当前值是从用户设备数据库中获得的，而不是从设备直接获得的。 -D：显示属性的名称，属性的默认值，描述和用户是否可以修改属性值的标志。 -R：递归的操作方式；  -V：显示指令的版本信息； -a：列出目录中的所有文件，包括隐藏文件。  lsattr经常使用的几个选项-D，-E，-R这三个选项不可以一起使用，它们是互斥的。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/lsof/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/lsof/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
       <description>lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
   lsof -c string 显示command列中包含指定字符的进程所有打开的文件
   lsof -p pid 指定进程所有打开的文件
@@ -284,10 +182,10 @@ Linux htop工具使用详解
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/mtr/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/mtr/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</guid>
       <description>mtr 常用的 ping，tracert，nslookup 一般用来判断主机的网络连通性，其实 Linux 下有一个更好用的网络联通性判断工具，它可以结合 ping、tracert、nslookup 来判断网络的相关特性，这个命令就是 mtr。mtr 全称 my traceroute，是一个把 ping 和 traceroute 合并到一个程序的网络诊断工具。
 traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测，ICMP在某些路由节点的优先级要比其他数据包低，所以测试得到的数据可能低于实际情况。
 常用命令   无参数（mtr &amp;lt;host&amp;gt;）：会不停的发送 CMP报文 进行探测
@@ -300,46 +198,110 @@ traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测�
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/network/netstat/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/network/netstat/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</guid>
+      <description>top 启动参数  -b 不启用交互模式，直接打印结果 -n &amp;lt;次数&amp;gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &amp;lt;时间&amp;gt; 设置间隔时间 -u &amp;lt;用户名&amp;gt; 指定用户名 -p &amp;lt;进程号&amp;gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &amp;lt;Space&amp;gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE+ P：按%CPU使用率排行 T：按MITE+排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_dig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_dig/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/network/nload/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_nslookup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/network/nload/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_nslookup/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/network/ssh-keygen/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_route/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/network/ssh-keygen/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_route/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_traceroute/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_traceroute/</guid>
+      <description>traceroute </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_wireshark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_wireshark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/curl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/curl/</guid>
+      <description>参数  -o &amp;lt;文件名&amp;gt; 下载网页 -s 静默退出，不显示 进程和错误信息 -L 自动跳转到新的网址 -i 显示头和源码 -l 只显示头信息 -v 显示一次http通信的整个过程，包括端口连接和http request头信息 --trace &amp;lt;文件名&amp;gt; | --trace-ascii &amp;lt;文件名&amp;gt; 查看更详细的通信过程  发送数据  -X POST --data &amp;quot;data=xxx&amp;quot; 发送表单信息 -X POST --data-urlencode &amp;quot;date=April 1&amp;quot; 提交的信息进行url编码  监控  curl -o /dev/null -s -w %{http_code} &amp;quot;http://www.baidu.com&amp;quot; 获取响应码 curl -o /dev/null -s -w &amp;quot;code: %{http_code}\ntime_total: %{time_total}\n&amp;quot; &amp;quot;http://www.baidu.com&amp;quot; 组合使用  可以通过 man curl 搜索 --write-out 查看更多支持的变量名
+ http_code 状态码 url_effective 最终获取的url地址，尤其是当你指定给curl的地址存在301跳转，且通过-L继续追踪的情形 time_total 总时间，按秒计。精确到小数点后三位 time_namelookup DNS解析时间,从请求开始到DNS解析完毕所用时间 time_connect 连接时间,从开始到建立TCP连接完成所用时间,包括前边DNS解析时间，如果需要单纯的得到连接时间，用这个time_connect时间减去前边time_namelookup时间 time_appconnect 连接建立完成时间，如SSL/SSH等建立连接或者完成三次握手时间 time_pretransfer 从开始到准备传输的时间 time_redirect 重定向时间，包括到最后一次传输前的几次重定向的DNS解析，连接，预传输，传输时间 time_starttransfer 开始传输时间。在发出请求之后，Web 服务器返回数据的第一个字节所用的时间 size_download 下载大小 size_upload 上传大小 size_header 下载的header的大小 size_request 请求的大小 speed_download 下载速度，单位-字节每秒 speed_upload 上传速度,单位-字节每秒 ssl_verify_result ssl 认证结果，返回0表示认证成功 &amp;hellip;.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/netstat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/netstat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/nload/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/nload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh-keygen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh-keygen/</guid>
       <description>// TODO</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/network/ssh/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/network/ssh/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/</guid>
       <description>SSH  -1：强制使用ssh协议版本1 -2：强制使用ssh协议版本2 -4：强制使用IPv4地址 -6：强制使用IPv6地址 -A：开启认证代理连接转发功能 -a：关闭认证代理连接转发功能 -b：使用本机指定地址作为对应连接的源ip地址 -C：请求压缩所有数据 -F：指定ssh指令的配置文件 -f：后台执行ssh指令 -g：允许远程主机连接主机的转发端口 -i：指定身份文件 -l：指定连接远程服务器登录用户名 -N：不执行远程指令 -o：指定配置选项 -p：指定远程服务器上的端口 -q：静默模式 -X：开启X11转发功能 -x：关闭X11转发功能 -y：开启信任X11转发功能。  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/network/ssh/turnnel/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/turnnel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/network/ssh/turnnel/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/turnnel/</guid>
       <description>[TOC]
 SSH 隧道 公共参数 # Fork into background after authentication. # 后台认证用户/密码，通常和-N连用，不用登录到远程主机 -f # Enable compression. # 压缩数据传输。 -C # Do not execute a shell or command. # 不执行脚本或命令，通常与-f连用。 -N # Allow remote hosts to connect to forwarded ports. # 允许远程主机连接到建立的转发的端口 -g 本地端口转发 -L 将 本地/跳板机 的某个端口通过跳板机转发到远端指定机器的指定端口。
 格式 ：（本机/跳板机）  ssh -Nfg -L &amp;lt;执行的机器port&amp;gt;:&amp;lt;受限机IP&amp;gt;:&amp;lt;受限机port&amp;gt; &amp;lt;跳板机IP&amp;gt;
@@ -350,67 +312,10 @@ SSH 隧道 公共参数 # Fork into background after authentication. # 后台认
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/pkill/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/tcpdump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/pkill/</guid>
-      <description>pkill http://man.linuxde.net/pkill
-模糊配置进程名</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/ps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/ps/</guid>
-      <description>ps 显示系统中所有进程信息 ps -ef 查看进程资源使用情况 ps aux  USER : 用户名 %CPU : 进程占用的CPU百分比 %MEM : 占用内存的百分比 VSZ : 该进程使用的虚拟內存量（KB） RSS : 该进程占用的固定內存量（KB）（驻留中页的数量） STAT : 进程的状态 START : 该进程被触发启动时间 TIME : 该进程实际使用CPU运行的时间  其中STAT状态位常见的状态字符有  D : 无法中断的休眠状态（通常 IO 的进程）； R : 正在运行可中在队列中可过行的； S : 处于休眠状态； T : 停止或被追踪； W : 进入内存交换 （从内核2.6开始无效）； X : 死掉的进程 （基本很少见）； Z : 僵尸进程； &amp;lt; : 优先级高的进程 N : 优先级较低的进程 L : 有些页被锁进内存； s : 进程的领导者（在它之下有子进程）； l : 多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；   : 位于后台的进程组；      Linux下ps -ef和ps aux的区别及格式详解</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/pstree/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/pstree/</guid>
-      <description>pstree pstree命令以树状图的方式展现进程之间的派生关系，显示效果比较直观。
- pstree -p 显示进程和线程关系的树状结构 pstree -p &amp;lt;pid&amp;gt; 显示指定进程和线程关系的树状结构  用法: pstree [ -a ] [ -c ] [ -h | -H 进程号 ] [ -l ] [ -n ] [ -p ] [ -u ] [ -A | -G | -U ] [ 进程号 | 用户 ] pstree -V 显示进程树。 `-a` 显示命令行参数 -A 使用 ASCII 画线符 -c 不压缩雷同的子树 -h 高亮显示当前进程及其祖先 -H 进程号 高亮显示 &amp;#34;进程号&amp;#34; 指定的进程当及其祖先 -G 使用 VT100 划线符 -l 不截断长行 -n 输出按进程号排序 -p 显示进程号；隐含 -c -u 显示用户名变换 -U 使用 UTF-8 (Unicode) 划线符 -V 显示版本信息 -Z 显示 SELinux 安全环境 进程号 从 &amp;#34;进程号&amp;#34; 开始，缺省是1(init) 用户 仅显示从该 &amp;#34;用户&amp;#34; 的进程开始的进程树 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/stress/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/stress/</guid>
-      <description>stress stress 是一个 Linux 系统压力测试工具，常用作模拟异常进程导致平均负载升高的场景。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/system/service/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/system/service/</guid>
-      <description>service  reload service  start service  stop service  restart service  status</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/system/systemd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/system/systemd/</guid>
-      <description>Read More   systemctl 命令完全指南 Systemd 入门教程：命令篇 Systemd 入门教程：实战篇
- </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/tcpdump/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/tcpdump/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/tcpdump/</guid>
       <description>tcpdump 常用参数   tcpdump -D 查看可以监听的接口列表
   -i &amp;lt;eth0&amp;gt; 指定网卡，可通过 tcpdump -D 查看
   -c &amp;lt;n&amp;gt; 专区指定个数的包之后退出
@@ -422,103 +327,198 @@ SSH 隧道 公共参数 # Fork into background after authentication. # 后台认
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/time/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/df/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/time/</guid>
-      <description>在执行的命令前加上 time，显示命令执行时间
-time command </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/df/</guid>
+      <description>df 显示磁盘分区上的可使用的磁盘空间，默认显示单位为KB
+  -h或--human-readable：以可读性较高的方式来显示信息； -H：与-h参数相同，但在计算是以1000Bytes为换算单位而非1024Bytes；  -l或&amp;ndash;local：仅显示本地端的文件系统；  -a | &amp;ndash;all：包含全部的文件系统；   来自: http://man.linuxde.net/df</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/top/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/du/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/top/</guid>
-      <description>top 启动参数  -b 不启用交互模式，直接打印结果 -n &amp;lt;次数&amp;gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &amp;lt;时间&amp;gt; 设置间隔时间 -u &amp;lt;用户名&amp;gt; 指定用户名 -p &amp;lt;进程号&amp;gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &amp;lt;Space&amp;gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE+ P：按%CPU使用率排行 T：按MITE+排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/du/</guid>
+      <description>du  -h 以可读的方式显示 -s 显示目录占用的磁盘空间大小，不要显示其下子目录和文件占用的磁盘空间大小 -d 深度（&amp;ndash;max-depth=） -a 显示目录占用的磁盘空间大小，还要显示其下目录和文件占用磁盘空间的大小 -c 显示几个目录或文件占用的磁盘空间大小，还要统计它们的总和  # 当前目录占用磁盘的大小，而不单独列出各子项占用的容量 du -sh # 指定文件夹 folder 占用磁盘的大小 du -sh folder # 当前目录所有文件的大小 du -h -d 1 </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Command/tr/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/grep/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Command/tr/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/grep/</guid>
+      <description>*grep   ngrep 搜索数据包和显示工具  egrep 在文件搜索文字字符串，与 grep -E 类似  fgrep 在文件搜索文字字符串  pgrep 搜索进程  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/tr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/tr/</guid>
       <description>tr 从标准输入中替换、缩减和/或删除字符，并将结果写到标准输出，用法 tr [选项]... SET1 [SET2]
 选项 -d, --delete	删除匹配SET1 的内容，并不作替换 -t, --truncate-set1	先将SET1 的长度截为和SET2 相等 -c	不对SET1进行操作	-s, --squeeze-repeats	如果匹配于SET1 的字符在输入序列中存在连续的重复，在替换时会被统一缩为一个字符的长度 SET 是一组字符串，一般都可按照字面含义理解。解析序列如下: \NNN	八进制值为NNN 的字符(1 至3 个数位) \\	反斜杠 \a	终端鸣响 \b	退格 \f	换页 \n	换行 \r	回车 \t	水平制表符 \v	垂直制表符 字符1-字符2	从字符1 到字符2 的升序递增过程中经历的所有字符 [字符*]	在SET2 中适用，指定字符会被连续复制直到吻合设置1 的长度 [字符*次数]	对字符执行指定次数的复制，若次数以 0 开头则被视为八进制数 [:alnum:]	所有的字母和数字 [:alpha:]	所有的字母 [:blank:]	所有呈水平排列的空白字符 [:cntrl:]	所有的控制字符 [:digit:]	所有的数字 [:graph:]	所有的可打印字符，不包括空格 [:lower:]	所有的小写字母 [:print:]	所有的可打印字符，包括空格 [:punct:]	所有的标点字符 [:space:]	所有呈水平或垂直排列的空白字符 [:upper:]	所有的大写字母 [:xdigit:]	所有的十六进制数 [=字符=]	所有和指定字符相等的字符 常见用法 构建classpath java -classpath $(echo lib/*.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/etc/resolv.conf/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chattr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/etc/resolv.conf/</guid>
-      <description>/etc/resolv.conf </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chattr/</guid>
+      <description>chattr chattr命令用来改变文件属性。这项指令可改变存放在ext2文件系统上的文件或目录属性，这些属性共有以下8种模式：
+属性  a：让文件或目录仅供追加用途； b：不更新文件或目录的最后存取时间； c：将文件或目录压缩后存放； d：将文件或目录排除在倾倒操作之外； i：不得任意更动文件或目录； s：保密性删除文件或目录，磁盘空间会被收回； S：即时更新文件或目录； u：预防意外删除，与s相反，删除后，数据内容还在磁盘上  选项  -R：递归处理，将指令目录下的所有文件及子目录一并处理； -v&amp;lt;版本编号&amp;gt;：设置文件或目录版本； -V：显示指令执行过程； +&amp;lt;属性&amp;gt;：开启文件或目录的该项属性； -&amp;lt;属性&amp;gt;：关闭文件或目录的该项属性； =&amp;lt;属性&amp;gt;：指定文件或目录的该项属性。  实例 禁止修改文件 chattr +i /etc/fstab 然后试一下rm、mv、rename等命令操作于该文件，都是得到Operation not permitted的结果。
+只能追加不能删除 chattr +a /data1/user_act.log Read More   chattr 命令 Linux的chattr与lsattr命令详解
+ </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/etc/sysconfig/network-scripts/ifcfg-eth0/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chgrp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/etc/sysconfig/network-scripts/ifcfg-eth0/</guid>
-      <description>网络接口配置文件 ifcfg-eth0 配置参数说明  TYPE：配置文件接口类型。在/etc/sysconfig/network-scripts/目录有多种网络配置文件，有Ethernet 、IPsec等类型，网络接口类型为Ethernet。 DEVICE：网络接口名称 BOOTPROTO：系统启动地址协议  none：不使用启动地址协议 bootp：BOOTP协议 dhcp：DHCP动态地址协议 static：静态地址协议   ONBOOT：系统启动时是否激活  yes：系统启动时激活该网络接口 no：系统启动时不激活该网络接口   IPADDR：IP地址 NETMASK：子网掩码 GATEWAY：网关地址 BROADCAST：广播地址 HWADDR/MACADDR：MAC地址。只需设置其中一个，同时设置时不能相互冲突。 PEERDNS：是否指定DNS。如果使用DHCP协议，默认为yes。  yes：如果DNS设置，修改/etc/resolv.conf中的DNS no：不修改/etc/resolv.conf中的DNS   DNS{1, 2}：DNS地址。当PEERDNS为yes时会被写入/etc/resolv.conf中。 NM_CONTROLLED：是否由Network Manager控制该网络接口。修改保存后立即生效，无需重启。被其坑过几次，建议一般设为no。  yes：由Network Manager控制 no：不由Network Manager控制   USERCTL：用户权限控制  yes：非root用户允许控制该网络接口 no：非root用户不运行控制该网络接口   IPV6INIT：是否执行IPv6  yes：支持IPv6 no：不支持IPv6   IPV6ADDR：IPv6地址/前缀长度  静态IP 配置 ONBOOT=yes BOOTPROTO=static IPADDR=192.168.31.6 GATEWAY=192.168.31.1 NETMASK=255.255.255.0 配置生效 service network restart Read More   Linux网络接口配置文件ifcfg-eth0解析  </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chgrp/</guid>
+      <description>chgrp  chgrp命令用来改变文件或目录所属的用户组 组名可以是用户组的id，也可以是用户组的组名 文件名可以 是由空格分开的要改变属组的文件列表，也可以是由通配符描述的文件集合 如果用户不是该文件的文件主或超级用户(root)，则不能改变该文件的组 在UNIX系统家族里，文件或目录权限的掌控以拥有者及所属群组来管理  # 将目录 /usr/kail 及其下面的所有文件、子目录的 用户组 改成 yang： chgrp -R yang /usr/kail Read More   chgrp命令
+ </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/proc/_meminfo/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chmod/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/proc/_meminfo/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chmod/</guid>
+      <description>chmod chmod命令用来变更文件或目录的权限。
+在UNIX系统家族里，文件或目录权限的控制分别以读取、写入、执行3种一般权限来区分，另有3种特殊权限可供运用。
+用户可以使用chmod指令去变更文件与目录的权限，设置方式采用文字或数字代号皆可。
+符号连接的权限无法变更，如果用户对符号连接修改权限，其改变会作用在被连接的原始文件。
+权限范围  u User，即文件或目录的拥有者； g Group，即文件或目录的所属群组； o Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围； a All，即全部的用户，包含拥有者，所属群组以及其他用户； r 读取权限，数字代号为&amp;rdquo;4&amp;quot;; w 写入权限，数字代号为&amp;rdquo;2&amp;quot;； x 执行或切换权限，数字代号为&amp;rdquo;1&amp;quot;； - 不具任何权限，数字代号为&amp;rdquo;0&amp;quot;； s 特殊功能说明：变更文件或目录的权限。  选项  -R或--recursive：递归处理，将指令目录下的所有文件及子目录一并处理；  -c或--changes：效果类似“-v”参数，但仅回报更改的部分； -v或--verbose：显示指令执行过程； -f或--quiet或--silent：不显示错误信息； --reference=&amp;lt;参考文件或目录&amp;gt;：把指定文件或目录的所属群组全部设成和参考文件或目录的所属群组相同； &amp;lt;权限范围&amp;gt;+&amp;lt;权限设置&amp;gt;：开启权限范围的文件或目录的该选项权限设置； &amp;lt;权限范围&amp;gt;-&amp;lt;权限设置&amp;gt;：关闭权限范围的文件或目录的该选项权限设置； &amp;lt;权限范围&amp;gt;=&amp;lt;权限设置&amp;gt;：指定权限范围的文件或目录的该选项权限设置；  示例 # 设置自己可以执行，组员可以写入的权限 chmod u+x,g+w file　# 拥有者设置读写可执行；组设置读写权限；其它用户只读 chmod u=rwx,g=rw,o=r file # 拥有者设置读写可执行(4+2+1)；组设置读写权限(4+2)；其它用户只读(4) chmod 764 file # 所有用户设置可执行权限 chmod a+x file　特殊权限 sticky bit  只对目录有效，使目录下的文件，只有文件拥有者才能删除 如果他不属于owner，仅属于group或者other，就算他有w权限，也不能删除  加sticky bit的方法：
+chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-rwxrwxrwt，t就代表已经加上了sticky bit，而且生效了；如果显示的是-rwxrwxrwT，说明也已经加上了sticky bit，但没有生效。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/chown/</guid>
+      <description>chown  chown 命令改变某个文件或目录的所有者和所属的组 该命令可以向某个用户授权，使该用户变成指定文件的所有者或者改变文件所属的组 用户可以是用户或者是用户D，用户组可以是组名或组id 文件名可以使由空格分开的文件列表，在文件名中可以包含通配符 只有文件主和超级用户才可以使用用该命令  # 把文件 dir 给uesr，添加到market组 `ll -d dir` 查看目录 dir 的属性 chown user:market dir # 将目录 /usr/kail 及其下面的所有文件、子目录的文件主改成 yang： chown -R yang /usr/kail </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/lsattr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/lsattr/</guid>
+      <description>lsattr lsattr命令用于查看chattr设置的文件系统属性。
+参数  -E：可显示设备属性的当前值，但这个当前值是从用户设备数据库中获得的，而不是从设备直接获得的。 -D：显示属性的名称，属性的默认值，描述和用户是否可以修改属性值的标志。 -R：递归的操作方式；  -V：显示指令的版本信息； -a：列出目录中的所有文件，包括隐藏文件。  lsattr经常使用的几个选项-D，-E，-R这三个选项不可以一起使用，它们是互斥的。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/280_System/_sysstat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/280_System/_sysstat/</guid>
+      <description>systat 工具集 安装 sudo apt install sysstat
+包含的命令
+ iostat ： mpstat ： pidstat ： tapestat cifsiostat  Read More  Github 仓库 ：https://github.com/sysstat/sysstat 官方文档：http://sebastien.godard.pagesperso-orange.fr/documentation.html  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/280_System/service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/280_System/service/</guid>
+      <description>service  reload service  start service  stop service  restart service  status</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/280_System/systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/280_System/systemd/</guid>
+      <description>Read More   systemctl 命令完全指南 Systemd 入门教程：命令篇 Systemd 入门教程：实战篇
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/290_Compression/gzip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/290_Compression/gzip/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/proc/_stat/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/290_Compression/tar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/proc/_stat/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/290_Compression/tar/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/proc/cpuinfo/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/290_Compression/zip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/proc/cpuinfo/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/290_Compression/zip/</guid>
+      <description>zip zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具 有&amp;rdquo;.zip&amp;quot;扩展名的压缩文件
+语法 zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$] [-b &amp;lt;工 作目录&amp;gt;] [-ll] [-n &amp;lt;字 尾字符串&amp;gt;] [-t &amp;lt;日 期时间&amp;gt;] [-&amp;lt;压 缩效率&amp;gt;] [压 缩文件] [文件...] [-i &amp;lt;范本样式&amp;gt;] [-x &amp;lt;范本样式&amp;gt;] 参数 -A 调整可执行的自动解压缩文件。 -b&amp;lt;工作目录&amp;gt; 指定暂时存放文件的目录。 -c 替每个被压缩的文件加上注释。 -d 从压缩文件内删除指定的文件。 ## -D 压缩文件内不建立目录名称。 -f 此参数的效果和指定&amp;quot;-u&amp;quot;参 数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。 -F 尝试修复已损坏的压缩文件。 -g 将 文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。 -h 帮助。 -i&amp;lt;范本样式&amp;gt; 只压缩符合条件的文件。 -j 只保存文件名称及其内容，而不存放任何目录名称。 ## -J 删除压缩文件前面不必要的数据。 -k 使用MS-DOS兼容格式的文件名称。 -l 压缩文件时，把LF字符 置换成LF+CR字 符。 -ll 压缩文件时，把LF+CR字 符置换成LF字符。 -L 显示版权信息。 -m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。 -n&amp;lt;字尾字符串&amp;gt; 不压缩具有特定字尾字符串的文件。 -o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。 -q 不显示指令执行过程 ## -r 递归处理，将指定目录下的所有文件和子目录一并处理 ## -S 包含系统和隐藏文件。 -t&amp;lt;日期时间&amp;gt; 把 压缩文件的日期设成指定的日期。 ## -T 检查备份文件内的每个文件是否正确无误。 -u 更换较新的文件到压缩文件内。 -v 显示指令执行过程或显示版本信息。 -V 保存VMS操作系统的文 件属性。 -w 在文件名称里假如版本编号，本参数仅在VMS操 作系统下有效。 -x&amp;lt;范本样式&amp;gt; 压缩时排除符合条件的文件。 -X 不保存额外的文件属性。 -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。 -z 替压缩文件加上注释。 -$ 保存第一个被压缩文件所在磁盘的卷册名称。 -&amp;lt;压缩效率&amp;gt; 压缩效率是一个介于1-9的数值。 例子 压缩test.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/_meminfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/_meminfo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/_stat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/_stat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>/cpuinfo</title>
+      <link>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/cpuinfo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/cpuinfo/</guid>
       <description>/proc/cpuinfo 查看逻辑 CPU 个数</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Shell/Foreach/</link>
+      <title>ifcfg-eth0</title>
+      <link>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/sysconfig/network-scripts/ifcfg-eth0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Shell/Foreach/</guid>
-      <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/sysconfig/network-scripts/ifcfg-eth0/</guid>
+      <description>网络接口配置文件 ifcfg-eth0 配置参数说明  TYPE：配置文件接口类型。在/etc/sysconfig/network-scripts/目录有多种网络配置文件，有Ethernet 、IPsec等类型，网络接口类型为Ethernet。 DEVICE：网络接口名称 BOOTPROTO：系统启动地址协议  none：不使用启动地址协议 bootp：BOOTP协议 dhcp：DHCP动态地址协议 static：静态地址协议   ONBOOT：系统启动时是否激活  yes：系统启动时激活该网络接口 no：系统启动时不激活该网络接口   IPADDR：IP地址 NETMASK：子网掩码 GATEWAY：网关地址 BROADCAST：广播地址 HWADDR/MACADDR：MAC地址。只需设置其中一个，同时设置时不能相互冲突。 PEERDNS：是否指定DNS。如果使用DHCP协议，默认为yes。  yes：如果DNS设置，修改/etc/resolv.conf中的DNS no：不修改/etc/resolv.conf中的DNS   DNS{1, 2}：DNS地址。当PEERDNS为yes时会被写入/etc/resolv.conf中。 NM_CONTROLLED：是否由Network Manager控制该网络接口。修改保存后立即生效，无需重启。被其坑过几次，建议一般设为no。  yes：由Network Manager控制 no：不由Network Manager控制   USERCTL：用户权限控制  yes：非root用户允许控制该网络接口 no：非root用户不运行控制该网络接口   IPV6INIT：是否执行IPv6  yes：支持IPv6 no：不支持IPv6   IPV6ADDR：IPv6地址/前缀长度  静态IP 配置 ONBOOT=yes BOOTPROTO=static IPADDR=192.168.31.6 GATEWAY=192.168.31.1 NETMASK=255.255.255.0 配置生效 service network restart Read More   Linux网络接口配置文件ifcfg-eth0解析  </description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Shell/if/</link>
+      <title>resolv.conf</title>
+      <link>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/resolv.conf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/Shell/if/</guid>
-      <description>asd </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/Shell/var/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/Shell/var/</guid>
-      <description>asd </description>
+      <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/resolv.conf/</guid>
+      <description>/etc/resolv.conf </description>
     </item>
     
   </channel>

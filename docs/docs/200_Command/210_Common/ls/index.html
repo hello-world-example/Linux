@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ls  -R：递归处理，显示目录下的所有文件及子目录   -r：以文件名反序排列并输出目录内容列表； -t：用文件和目录的更改时间排序；   -a：显示所有档案及目录 -A：显示除影藏文件.和..以外的所有文件列表   -C：多列显示输出结果。这是默认选项； -l：与-C选项功能相反，所有输出信息用单列格式输出，不输出为多列； -h：可阅读的方式显示文件大小 -k：以KB（千字节）为单位显示文件大小； -m：用“,”号区隔每个文件和目录的名称；   -L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录； -F：在每个输出项后追加文件的类型标识符  * 表示具有可执行权限的普通文件， / 表示目录，“@”表示符号链接， | 表示命令管道FIFO，“=”表示sockets套接字。   -b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；   &ndash;full-time：列出完整的日期与时间； &ndash;color[=WHEN]：使用不同的颜色高亮显示不同类型的。  "><meta property="og:title" content="" />
+<meta property="og:description" content="ls  -R：递归处理，显示目录下的所有文件及子目录   -r：以文件名反序排列并输出目录内容列表； -t：用文件和目录的更改时间排序；   -a：显示所有档案及目录 -A：显示除影藏文件.和..以外的所有文件列表   -C：多列显示输出结果。这是默认选项； -l：与-C选项功能相反，所有输出信息用单列格式输出，不输出为多列； -h：可阅读的方式显示文件大小 -k：以KB（千字节）为单位显示文件大小； -m：用“,”号区隔每个文件和目录的名称；   -L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录； -F：在每个输出项后追加文件的类型标识符  * 表示具有可执行权限的普通文件， / 表示目录，“@”表示符号链接， | 表示命令管道FIFO，“=”表示sockets套接字。   -b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；   &ndash;full-time：列出完整的日期与时间； &ndash;color[=WHEN]：使用不同的颜色高亮显示不同类型的。  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ls/" />
+<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
+<title>Ls | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/date/" class="">Date</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/kill/" class="">Kill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/killall/" class="">Killall</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/ls/" class="active">Ls</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/pkill/" class="">Pkill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/ps/" class="">Ps</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/pstree/" class="">Pstree</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/stress/" class="">Stress</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/time/" class="">Time</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Ls</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ls">ls</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="ls">ls</h1>
+<ul>
+<li><code>-R</code>：递归处理，显示目录下的所有文件及子目录</li>
+<li></li>
+<li></li>
+<li><code>-r</code>：以文件名反序排列并输出目录内容列表；</li>
+<li><code>-t</code>：用文件和目录的更改时间排序；</li>
+<li></li>
+<li></li>
+<li><code>-a</code>：显示所有档案及目录</li>
+<li>-A：显示除影藏文件<code>.</code>和<code>..</code>以外的所有文件列表</li>
+<li></li>
+<li></li>
+<li>-C：多列显示输出结果。这是默认选项；</li>
+<li><code>-l</code>：与<code>-C</code>选项功能相反，所有输出信息用单列格式输出，不输出为多列；</li>
+<li><code>-h</code>：可阅读的方式显示文件大小</li>
+<li>-k：以KB（千字节）为单位显示文件大小；</li>
+<li>-m：用“,”号区隔每个文件和目录的名称；</li>
+<li></li>
+<li></li>
+<li>-L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录；</li>
+<li><code>-F</code>：在每个输出项后追加文件的类型标识符
+<ul>
+<li><code>*</code> 表示具有可执行权限的普通文件，</li>
+<li><code>/</code> 表示目录，“@”表示符号链接，</li>
+<li><code>|</code> 表示命令管道FIFO，“=”表示sockets套接字。</li>
+</ul>
+</li>
+<li>-b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；</li>
+<li></li>
+<li></li>
+<li>&ndash;full-time：列出完整的日期与时间；</li>
+<li>&ndash;color[=WHEN]：使用不同的颜色高亮显示不同类型的。</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/210_Common/ls.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ls">ls</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

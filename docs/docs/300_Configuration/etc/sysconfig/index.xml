@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>/sysconfig on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/sysconfig/</link>
+    <description>Recent content in /sysconfig on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/sysconfig/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

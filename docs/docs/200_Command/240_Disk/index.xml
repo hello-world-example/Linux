@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>磁盘 on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/</link>
+    <description>Recent content in 磁盘 on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/df/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/df/</guid>
+      <description>df 显示磁盘分区上的可使用的磁盘空间，默认显示单位为KB
+  -h或--human-readable：以可读性较高的方式来显示信息； -H：与-h参数相同，但在计算是以1000Bytes为换算单位而非1024Bytes；  -l或&amp;ndash;local：仅显示本地端的文件系统；  -a | &amp;ndash;all：包含全部的文件系统；   来自: http://man.linuxde.net/df</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/du/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/240_Disk/du/</guid>
+      <description>du  -h 以可读的方式显示 -s 显示目录占用的磁盘空间大小，不要显示其下子目录和文件占用的磁盘空间大小 -d 深度（&amp;ndash;max-depth=） -a 显示目录占用的磁盘空间大小，还要显示其下目录和文件占用磁盘空间的大小 -c 显示几个目录或文件占用的磁盘空间大小，还要统计它们的总和  # 当前目录占用磁盘的大小，而不单独列出各子项占用的容量 du -sh # 指定文件夹 folder 占用磁盘的大小 du -sh folder # 当前目录所有文件的大小 du -h -d 1 </description>
+    </item>
+    
+  </channel>
+</rss>

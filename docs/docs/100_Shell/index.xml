@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/100_Shell/</link>
+    <description>Recent content in Shell on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/100_Shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>变量</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>条件语句</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</guid>
+      <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
+    </item>
+    
+  </channel>
+</rss>

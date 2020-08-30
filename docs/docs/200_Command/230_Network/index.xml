@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/</link>
+    <description>Recent content in Network on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_dig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_dig/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_nslookup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_nslookup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_route/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_route/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_traceroute/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_traceroute/</guid>
+      <description>traceroute </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_wireshark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/_wireshark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/curl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/curl/</guid>
+      <description>参数  -o &amp;lt;文件名&amp;gt; 下载网页 -s 静默退出，不显示 进程和错误信息 -L 自动跳转到新的网址 -i 显示头和源码 -l 只显示头信息 -v 显示一次http通信的整个过程，包括端口连接和http request头信息 --trace &amp;lt;文件名&amp;gt; | --trace-ascii &amp;lt;文件名&amp;gt; 查看更详细的通信过程  发送数据  -X POST --data &amp;quot;data=xxx&amp;quot; 发送表单信息 -X POST --data-urlencode &amp;quot;date=April 1&amp;quot; 提交的信息进行url编码  监控  curl -o /dev/null -s -w %{http_code} &amp;quot;http://www.baidu.com&amp;quot; 获取响应码 curl -o /dev/null -s -w &amp;quot;code: %{http_code}\ntime_total: %{time_total}\n&amp;quot; &amp;quot;http://www.baidu.com&amp;quot; 组合使用  可以通过 man curl 搜索 --write-out 查看更多支持的变量名
+ http_code 状态码 url_effective 最终获取的url地址，尤其是当你指定给curl的地址存在301跳转，且通过-L继续追踪的情形 time_total 总时间，按秒计。精确到小数点后三位 time_namelookup DNS解析时间,从请求开始到DNS解析完毕所用时间 time_connect 连接时间,从开始到建立TCP连接完成所用时间,包括前边DNS解析时间，如果需要单纯的得到连接时间，用这个time_connect时间减去前边time_namelookup时间 time_appconnect 连接建立完成时间，如SSL/SSH等建立连接或者完成三次握手时间 time_pretransfer 从开始到准备传输的时间 time_redirect 重定向时间，包括到最后一次传输前的几次重定向的DNS解析，连接，预传输，传输时间 time_starttransfer 开始传输时间。在发出请求之后，Web 服务器返回数据的第一个字节所用的时间 size_download 下载大小 size_upload 上传大小 size_header 下载的header的大小 size_request 请求的大小 speed_download 下载速度，单位-字节每秒 speed_upload 上传速度,单位-字节每秒 ssl_verify_result ssl 认证结果，返回0表示认证成功 &amp;hellip;.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/netstat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/netstat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/nload/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/nload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh-keygen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh-keygen/</guid>
+      <description>// TODO</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/</guid>
+      <description>SSH  -1：强制使用ssh协议版本1 -2：强制使用ssh协议版本2 -4：强制使用IPv4地址 -6：强制使用IPv6地址 -A：开启认证代理连接转发功能 -a：关闭认证代理连接转发功能 -b：使用本机指定地址作为对应连接的源ip地址 -C：请求压缩所有数据 -F：指定ssh指令的配置文件 -f：后台执行ssh指令 -g：允许远程主机连接主机的转发端口 -i：指定身份文件 -l：指定连接远程服务器登录用户名 -N：不执行远程指令 -o：指定配置选项 -p：指定远程服务器上的端口 -q：静默模式 -X：开启X11转发功能 -x：关闭X11转发功能 -y：开启信任X11转发功能。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/turnnel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh/turnnel/</guid>
+      <description>[TOC]
+SSH 隧道 公共参数 # Fork into background after authentication. # 后台认证用户/密码，通常和-N连用，不用登录到远程主机 -f # Enable compression. # 压缩数据传输。 -C # Do not execute a shell or command. # 不执行脚本或命令，通常与-f连用。 -N # Allow remote hosts to connect to forwarded ports. # 允许远程主机连接到建立的转发的端口 -g 本地端口转发 -L 将 本地/跳板机 的某个端口通过跳板机转发到远端指定机器的指定端口。
+格式 ：（本机/跳板机）  ssh -Nfg -L &amp;lt;执行的机器port&amp;gt;:&amp;lt;受限机IP&amp;gt;:&amp;lt;受限机port&amp;gt; &amp;lt;跳板机IP&amp;gt;
+**访问方式 ：（本机）**&amp;lt;执行的机器IP&amp;gt;:&amp;lt;执行的机器port&amp;gt; &amp;ndash;&amp;gt; &amp;lt;受限机IP&amp;gt;:&amp;lt;受限机port&amp;gt;
+ 动态端口转发 -D 动态端口允许通过配置一个本地端口，把通过隧道的数据转发到远端的所有地址。相当于一个 socks5 代理
+格式 ：（本机/代理机）  ssh -Nfg -D [bind_address]:&amp;lt;代理端口&amp;gt; &amp;lt;username&amp;gt;@&amp;lt;跳板机IP/提供代理服务的机器IP&amp;gt; 访问方式 ：（随便一台机器） curl --socks5 &amp;lt;跳板机IP/提供代理服务的机器IP&amp;gt;:&amp;lt;代理端口&amp;gt; http://www.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/tcpdump/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/tcpdump/</guid>
+      <description>tcpdump 常用参数   tcpdump -D 查看可以监听的接口列表
+  -i &amp;lt;eth0&amp;gt; 指定网卡，可通过 tcpdump -D 查看
+  -c &amp;lt;n&amp;gt; 专区指定个数的包之后退出
+  -w &amp;lt;file.pcap&amp;gt; 数据写入到磁盘，可用 Wireshark 打开进行分析
+  -s &amp;lt;snaplen&amp;gt; 默认 64字节，设置为 0 会自动选择合适的长度来抓取数据包
+  -v | -vv | -vvv 输出更加详细的信息
+  特定协议  tcpdump tcp tcpdump udp  特定 IP 或 主机  tcpdump host &amp;lt;ip&amp;gt; tcpdump host &amp;lt;ip1&amp;gt; and &amp;lt;ip2&amp;gt; 抓取 ip1 和 ip2 之间的流量 tcpdump dst [host] &amp;lt;ip&amp;gt; 抓取出站信息（只有请求没有响应） tcpdump src [host] &amp;lt;ip&amp;gt; 抓取入站信息（只有响应没有请求）   特定端口   tcpdump port &amp;lt;port&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

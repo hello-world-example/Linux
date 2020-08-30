@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>常用工具 on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/</link>
+    <description>Recent content in 常用工具 on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/_watch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/_watch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</guid>
+      <description># 显示当前时间 $ date 格式化输出 date +&amp;#39;Format&amp;#39;   %y : 年份的最后两位数字 00.99
+  %Y : 完整年份 0000..9999
+    %B : 月份 January..December
+  %b : 月份 Jan..Dec
+  %h : 同 %b
+  %m : 月份 01..12
+    %d : 日 (01..31)
+  %j : 一年中的第几天 (001..366)
+    %T : 直接显示时间 (24 小时制)
+  %p : 显示本地 AM 或 PM</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/kill/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/kill/</guid>
+      <description>kill kill命令用来删除执行中的程序或工作。 将指定的信号送至程序。 默认的信息为SIGTERM(15),可将指定程序终止。 若仍无法终止该程序，可使用 SIGKILL(9) 强制删除程序。
+选项 -l &amp;lt;信息编号&amp;gt;：若不加&amp;lt;信息编号&amp;gt;选项，则-l参数会列出全部的信息名称； -s &amp;lt;信息名称或编号&amp;gt;：指定要送出的信息； -a：当处理当前进程时，不限制命令名和进程号的对应关系； -p：指定kill 命令只打印相关进程的进程号，而不发送任何信号； -u：指定用户。 示例 $ kill -l 1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP 6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1 11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM 16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP 21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ 26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR 31) SIGSYS 34) SIGRTMIN 35) SIGRTMIN+1 36) SIGRTMIN+2 37) SIGRTMIN+3 38) SIGRTMIN+4 39) SIGRTMIN+5 40) SIGRTMIN+6 41) SIGRTMIN+7 42) SIGRTMIN+8 43) SIGRTMIN+9 44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12 53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7 58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2 63) SIGRTMAX-1 64) SIGRTMAX 只有SIGKILL(9)才可以无条件终止进程，其他信号进程都有权利忽略，下面是常用的信号：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/killall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/killall/</guid>
+      <description>killall http://man.linuxde.net/killall
+完全配置进程名</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ls/</guid>
+      <description>ls  -R：递归处理，显示目录下的所有文件及子目录   -r：以文件名反序排列并输出目录内容列表； -t：用文件和目录的更改时间排序；   -a：显示所有档案及目录 -A：显示除影藏文件.和..以外的所有文件列表   -C：多列显示输出结果。这是默认选项； -l：与-C选项功能相反，所有输出信息用单列格式输出，不输出为多列； -h：可阅读的方式显示文件大小 -k：以KB（千字节）为单位显示文件大小； -m：用“,”号区隔每个文件和目录的名称；   -L：如果遇到性质为符号链接的文件或目录，直接列出该链接所指向的原始文件或目录； -F：在每个输出项后追加文件的类型标识符  * 表示具有可执行权限的普通文件， / 表示目录，“@”表示符号链接， | 表示命令管道FIFO，“=”表示sockets套接字。   -b：将文件中的不可输出的字符以反斜线“”加字符编码的方式输出；   &amp;ndash;full-time：列出完整的日期与时间； &amp;ndash;color[=WHEN]：使用不同的颜色高亮显示不同类型的。  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pkill/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pkill/</guid>
+      <description>pkill http://man.linuxde.net/pkill
+模糊配置进程名</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/ps/</guid>
+      <description>ps 显示系统中所有进程信息 ps -ef 查看进程资源使用情况 ps aux  USER : 用户名 %CPU : 进程占用的CPU百分比 %MEM : 占用内存的百分比 VSZ : 该进程使用的虚拟內存量（KB） RSS : 该进程占用的固定內存量（KB）（驻留中页的数量） STAT : 进程的状态 START : 该进程被触发启动时间 TIME : 该进程实际使用CPU运行的时间  其中STAT状态位常见的状态字符有  D : 无法中断的休眠状态（通常 IO 的进程）； R : 正在运行可中在队列中可过行的； S : 处于休眠状态； T : 停止或被追踪； W : 进入内存交换 （从内核2.6开始无效）； X : 死掉的进程 （基本很少见）； Z : 僵尸进程； &amp;lt; : 优先级高的进程 N : 优先级较低的进程 L : 有些页被锁进内存； s : 进程的领导者（在它之下有子进程）； l : 多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；   : 位于后台的进程组；      Linux下ps -ef和ps aux的区别及格式详解</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pstree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/pstree/</guid>
+      <description>pstree pstree命令以树状图的方式展现进程之间的派生关系，显示效果比较直观。
+ pstree -p 显示进程和线程关系的树状结构 pstree -p &amp;lt;pid&amp;gt; 显示指定进程和线程关系的树状结构  用法: pstree [ -a ] [ -c ] [ -h | -H 进程号 ] [ -l ] [ -n ] [ -p ] [ -u ] [ -A | -G | -U ] [ 进程号 | 用户 ] pstree -V 显示进程树。 `-a` 显示命令行参数 -A 使用 ASCII 画线符 -c 不压缩雷同的子树 -h 高亮显示当前进程及其祖先 -H 进程号 高亮显示 &amp;#34;进程号&amp;#34; 指定的进程当及其祖先 -G 使用 VT100 划线符 -l 不截断长行 -n 输出按进程号排序 -p 显示进程号；隐含 -c -u 显示用户名变换 -U 使用 UTF-8 (Unicode) 划线符 -V 显示版本信息 -Z 显示 SELinux 安全环境 进程号 从 &amp;#34;进程号&amp;#34; 开始，缺省是1(init) 用户 仅显示从该 &amp;#34;用户&amp;#34; 的进程开始的进程树 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/stress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/stress/</guid>
+      <description>stress stress 是一个 Linux 系统压力测试工具，常用作模拟异常进程导致平均负载升高的场景。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/time/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/time/</guid>
+      <description>在执行的命令前加上 time，显示命令执行时间
+time command </description>
+    </item>
+    
+  </channel>
+</rss>

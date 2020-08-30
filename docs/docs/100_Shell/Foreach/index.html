@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="循环 while # while read line ; do echo $line ; done &lt; file.txt while read line do echo $line done &lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&lt;=10;i&#43;&#43;));do echo $(expr $i \* 4);done for((i=1; i&lt;=10; i&#43;&#43;)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  "><meta property="og:title" content="" />
+<meta property="og:description" content="循环 while # while read line ; do echo $line ; done &lt; file.txt while read line do echo $line done &lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&lt;=10;i&#43;&#43;));do echo $(expr $i \* 4);done for((i=1; i&lt;=10; i&#43;&#43;)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/" />
+<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
+<title>Foreach | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/Foreach/" class="active">Foreach</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Foreach</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#循环">循环</a>
+      <ul>
+        <li><a href="#while">while</a></li>
+        <li><a href="#for">for</a>
+          <ul>
+            <li><a href="#遍历文件中的每一行">遍历文件中的每一行</a></li>
+            <li><a href="#遍历当前文件夹">遍历当前文件夹</a></li>
+            <li><a href="#1-10-乘以4-输出">1-10 乘以4 输出</a></li>
+            <li><a href="#序列输出">序列输出</a></li>
+            <li><a href="#100-以内5的倍数">100 以内5的倍数</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="循环">循环</h1>
+<h2 id="while">while</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># while read line ; do echo $line ; done &lt; file.txt</span>
+
+<span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    echo $line
+<span style="color:#66d9ef">done</span> &lt; file.txt
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># at file.txt | while read line ; do echo $line ; done</span>
+
+cat file.txt | <span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    echo $line
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h2 id="for">for</h2>
+<h3 id="遍历文件中的每一行">遍历文件中的每一行</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># for line in `cat file.txt`; do echo $line; done</span>
+
+<span style="color:#66d9ef">for</span> line in <span style="color:#e6db74">`</span>cat /tmp/file.txt<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">do</span>
+    echo $line
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="遍历当前文件夹">遍历当前文件夹</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>ls<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">do</span> 
+    echo $i
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="1-10-乘以4-输出">1-10 乘以4 输出</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># for((i=1;i&lt;=10;i++));do echo $(expr $i \* 4);done</span>
+
+<span style="color:#66d9ef">for</span><span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>1; i&lt;<span style="color:#f92672">=</span>10; i++<span style="color:#f92672">))</span>;
+<span style="color:#66d9ef">do</span> 
+    echo <span style="color:#66d9ef">$(</span>expr $i <span style="color:#ae81ff">\*</span> 4<span style="color:#66d9ef">)</span>;
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="序列输出">序列输出</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span>
+<span style="color:#66d9ef">do</span> 
+    echo $i;
+<span style="color:#66d9ef">done</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq <span style="color:#ae81ff">1</span> 5<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">do</span> 
+    echo $i;
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="100-以内5的倍数">100 以内5的倍数</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq 100<span style="color:#e6db74">`</span>
+<span style="color:#66d9ef">do</span> 
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">((</span>i%5<span style="color:#f92672">==</span>0<span style="color:#f92672">))</span>
+    <span style="color:#66d9ef">then</span>
+        echo $i
+        <span style="color:#66d9ef">continue</span>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://www.cnblogs.com/iloveyoucc/archive/2012/07/10/2585529.html">shell:读取文件的每一行内容并输出</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/Foreach.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#循环">循环</a>
+      <ul>
+        <li><a href="#while">while</a></li>
+        <li><a href="#for">for</a>
+          <ul>
+            <li><a href="#遍历文件中的每一行">遍历文件中的每一行</a></li>
+            <li><a href="#遍历当前文件夹">遍历当前文件夹</a></li>
+            <li><a href="#1-10-乘以4-输出">1-10 乘以4 输出</a></li>
+            <li><a href="#序列输出">序列输出</a></li>
+            <li><a href="#100-以内5的倍数">100 以内5的倍数</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

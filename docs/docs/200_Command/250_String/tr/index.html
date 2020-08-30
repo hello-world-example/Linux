@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="tr 从标准输入中替换、缩减和/或删除字符，并将结果写到标准输出，用法 tr [选项]... SET1 [SET2]
+选项 -d, --delete	删除匹配SET1 的内容，并不作替换 -t, --truncate-set1	先将SET1 的长度截为和SET2 相等 -c	不对SET1进行操作	-s, --squeeze-repeats	如果匹配于SET1 的字符在输入序列中存在连续的重复，在替换时会被统一缩为一个字符的长度 SET 是一组字符串，一般都可按照字面含义理解。解析序列如下: \NNN	八进制值为NNN 的字符(1 至3 个数位) \\	反斜杠 \a	终端鸣响 \b	退格 \f	换页 \n	换行 \r	回车 \t	水平制表符 \v	垂直制表符 字符1-字符2	从字符1 到字符2 的升序递增过程中经历的所有字符 [字符*]	在SET2 中适用，指定字符会被连续复制直到吻合设置1 的长度 [字符*次数]	对字符执行指定次数的复制，若次数以 0 开头则被视为八进制数 [:alnum:]	所有的字母和数字 [:alpha:]	所有的字母 [:blank:]	所有呈水平排列的空白字符 [:cntrl:]	所有的控制字符 [:digit:]	所有的数字 [:graph:]	所有的可打印字符，不包括空格 [:lower:]	所有的小写字母 [:print:]	所有的可打印字符，包括空格 [:punct:]	所有的标点字符 [:space:]	所有呈水平或垂直排列的空白字符 [:upper:]	所有的大写字母 [:xdigit:]	所有的十六进制数 [=字符=]	所有和指定字符相等的字符 常见用法 构建classpath java -classpath $(echo lib/*."><meta property="og:title" content="" />
+<meta property="og:description" content="tr 从标准输入中替换、缩减和/或删除字符，并将结果写到标准输出，用法 tr [选项]... SET1 [SET2]
+选项 -d, --delete	删除匹配SET1 的内容，并不作替换 -t, --truncate-set1	先将SET1 的长度截为和SET2 相等 -c	不对SET1进行操作	-s, --squeeze-repeats	如果匹配于SET1 的字符在输入序列中存在连续的重复，在替换时会被统一缩为一个字符的长度 SET 是一组字符串，一般都可按照字面含义理解。解析序列如下: \NNN	八进制值为NNN 的字符(1 至3 个数位) \\	反斜杠 \a	终端鸣响 \b	退格 \f	换页 \n	换行 \r	回车 \t	水平制表符 \v	垂直制表符 字符1-字符2	从字符1 到字符2 的升序递增过程中经历的所有字符 [字符*]	在SET2 中适用，指定字符会被连续复制直到吻合设置1 的长度 [字符*次数]	对字符执行指定次数的复制，若次数以 0 开头则被视为八进制数 [:alnum:]	所有的字母和数字 [:alpha:]	所有的字母 [:blank:]	所有呈水平排列的空白字符 [:cntrl:]	所有的控制字符 [:digit:]	所有的数字 [:graph:]	所有的可打印字符，不包括空格 [:lower:]	所有的小写字母 [:print:]	所有的可打印字符，包括空格 [:punct:]	所有的标点字符 [:space:]	所有呈水平或垂直排列的空白字符 [:upper:]	所有的大写字母 [:xdigit:]	所有的十六进制数 [=字符=]	所有和指定字符相等的字符 常见用法 构建classpath java -classpath $(echo lib/*." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/250_String/tr/" />
+<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
+<title>Tr | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/250_String/grep/" class="">Grep</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/250_String/tr/" class="active">Tr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Tr</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tr">tr</a>
+      <ul>
+        <li><a href="#选项">选项</a></li>
+        <li><a href="#常见用法">常见用法</a>
+          <ul>
+            <li><a href="#构建classpath">构建classpath</a></li>
+            <li><a href="#大小写转换">大小写转换</a></li>
+            <li><a href="#制表符替换成空格">制表符替换成空格</a></li>
+            <li><a href="#字符集合不一致的时候进行替换">字符集合不一致的时候进行替换</a></li>
+            <li><a href="#替换集合补齐">替换集合补齐</a></li>
+            <li><a href="#删除制表符">删除制表符</a></li>
+            <li><a href="#不替换指定的字符">不替换指定的字符</a></li>
+            <li><a href="#不删除指定的字符">不删除指定的字符</a></li>
+            <li><a href="#压缩重复的字符">压缩重复的字符</a></li>
+            <li><a href="#巧妙的使用-tr-进行-数据相加">巧妙的使用 tr 进行 数据相加</a></li>
+          </ul>
+        </li>
+        <li><a href="#注意">注意</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="tr">tr</h1>
+<p>从标准输入中替换、缩减和/或删除字符，并将结果写到标准输出，用法 <code>tr [选项]... SET1 [SET2]</code></p>
+<h2 id="选项">选项</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-d, --delete				删除匹配SET1 的内容，并不作替换
+-t, --truncate-set1			先将SET1 的长度截为和SET2 相等
+
+-c						    不对SET1进行操作		
+-s, --squeeze-repeats		如果匹配于SET1 的字符在输入序列中存在连续的重复，在替换时会被统一缩为一个字符的长度
+
+
+
+
+SET 是一组字符串，一般都可按照字面含义理解。解析序列如下:
+
+  <span style="color:#ae81ff">\N</span>NN	八进制值为NNN 的字符<span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> 至3 个数位<span style="color:#f92672">)</span>
+  <span style="color:#ae81ff">\\</span>		反斜杠
+  <span style="color:#ae81ff">\a</span>		终端鸣响
+  <span style="color:#ae81ff">\b</span>		退格
+  <span style="color:#ae81ff">\f</span>		换页
+  <span style="color:#ae81ff">\n</span>		换行
+  <span style="color:#ae81ff">\r</span>		回车
+  <span style="color:#ae81ff">\t</span>		水平制表符
+  <span style="color:#ae81ff">\v</span>		垂直制表符
+  字符1-字符2	从字符1 到字符2 的升序递增过程中经历的所有字符
+  <span style="color:#f92672">[</span>字符*<span style="color:#f92672">]</span>	在SET2 中适用，指定字符会被连续复制直到吻合设置1 的长度
+  <span style="color:#f92672">[</span>字符*次数<span style="color:#f92672">]</span>	对字符执行指定次数的复制，若次数以 <span style="color:#ae81ff">0</span> 开头则被视为八进制数
+  <span style="color:#f92672">[</span>:alnum:<span style="color:#f92672">]</span>	所有的字母和数字
+  <span style="color:#f92672">[</span>:alpha:<span style="color:#f92672">]</span>	所有的字母
+  <span style="color:#f92672">[</span>:blank:<span style="color:#f92672">]</span>	所有呈水平排列的空白字符
+  <span style="color:#f92672">[</span>:cntrl:<span style="color:#f92672">]</span>	所有的控制字符
+  <span style="color:#f92672">[</span>:digit:<span style="color:#f92672">]</span>	所有的数字
+  <span style="color:#f92672">[</span>:graph:<span style="color:#f92672">]</span>	所有的可打印字符，不包括空格
+  <span style="color:#f92672">[</span>:lower:<span style="color:#f92672">]</span>	所有的小写字母
+  <span style="color:#f92672">[</span>:print:<span style="color:#f92672">]</span>	所有的可打印字符，包括空格
+  <span style="color:#f92672">[</span>:punct:<span style="color:#f92672">]</span>	所有的标点字符
+  <span style="color:#f92672">[</span>:space:<span style="color:#f92672">]</span>	所有呈水平或垂直排列的空白字符
+  <span style="color:#f92672">[</span>:upper:<span style="color:#f92672">]</span>	所有的大写字母
+  <span style="color:#f92672">[</span>:xdigit:<span style="color:#f92672">]</span>	所有的十六进制数
+  <span style="color:#f92672">[=</span>字符<span style="color:#f92672">=]</span>	所有和指定字符相等的字符
+</code></pre></div><h2 id="常见用法">常见用法</h2>
+<h3 id="构建classpath">构建classpath</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -classpath <span style="color:#66d9ef">$(</span>echo lib/*.jar | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;:&#39;</span><span style="color:#66d9ef">)</span> Test
+</code></pre></div><blockquote>
+<p>
+  <a href="https://www.hutuseng.com/article/how-to-set-multiple-jars-in-java-classpath">java classpath如何指定一个目录</a></p>
+</blockquote>
+<h3 id="大小写转换">大小写转换</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;HELLO WORLD&#34;</span> | tr <span style="color:#e6db74">&#39;A-Z&#39;</span> <span style="color:#e6db74">&#39;a-z&#39;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;hello world&#39;</span> | tr <span style="color:#e6db74">&#39;[:lower:]&#39;</span> <span style="color:#e6db74">&#39;[:upper:]&#39;</span>
+</code></pre></div><h3 id="制表符替换成空格">制表符替换成空格</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat keys.txt | tr <span style="color:#e6db74">&#39;\t&#39;</span> <span style="color:#e6db74">&#39; &#39;</span>
+</code></pre></div><hr>
+<h3 id="字符集合不一致的时候进行替换">字符集合不一致的时候进行替换</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># a替换成1，b替换成2， c替换成2</span>
+echo <span style="color:#e6db74">&#34;aabbcc&#34;</span> | tr <span style="color:#e6db74">&#39;abc&#39;</span> <span style="color:#e6db74">&#39;12&#39;</span>
+<span style="color:#75715e"># 输出: 112222</span>
+</code></pre></div><h3 id="替换集合补齐">替换集合补齐</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># a替换成1，b替换成2， c不替换</span>
+echo <span style="color:#e6db74">&#34;aabbcc&#34;</span> | tr -t <span style="color:#e6db74">&#39;abc&#39;</span> <span style="color:#e6db74">&#39;12&#39;</span>
+<span style="color:#75715e"># 输出: 1122cc</span>
+</code></pre></div><hr>
+<h3 id="删除制表符">删除制表符</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat keys.txt | tr -d <span style="color:#e6db74">&#39;\t&#39;</span> 
+</code></pre></div><hr>
+<h3 id="不替换指定的字符">不替换指定的字符</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 保留 0-9 其他字符删除</span>
+echo aa.,a <span style="color:#ae81ff">1</span> b$bb <span style="color:#ae81ff">2</span> c*/cc <span style="color:#ae81ff">3</span> ddd <span style="color:#ae81ff">4</span> | tr -c <span style="color:#e6db74">&#39;0-9\n&#39;</span> <span style="color:#e6db74">&#39; &#39;</span>
+</code></pre></div><h3 id="不删除指定的字符">不删除指定的字符</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 保留 0-9 其他字符删除</span>
+echo aa.,a <span style="color:#ae81ff">1</span> b$bb <span style="color:#ae81ff">2</span> c*/cc <span style="color:#ae81ff">3</span> ddd <span style="color:#ae81ff">4</span> | tr -d -c <span style="color:#e6db74">&#39;0-9 \n&#39;</span>
+</code></pre></div><hr>
+<h3 id="压缩重复的字符">压缩重复的字符</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;thissss is      a text linnnnnnne.&#34;</span> | tr -s <span style="color:#e6db74">&#39; sn&#39;</span>
+<span style="color:#75715e"># 输出： this is a text line.</span>
+</code></pre></div><hr>
+<h3 id="巧妙的使用-tr-进行-数据相加">巧妙的使用 tr 进行 数据相加</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">9</span> | xargs -n1 | echo $<span style="color:#f92672">[</span> <span style="color:#66d9ef">$(</span>tr <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#e6db74">&#39;+&#39;</span><span style="color:#66d9ef">)</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>
+</code></pre></div><h2 id="注意">注意</h2>
+<p>有一个误区很容易被误理解成SET1，SET2是一个字符组合，其实不是这样的；SET1和SET2里面都是值的单个字符之间的替换，比如&rsquo;ab'不要把ab理解成一个组合，tr还有很多的巧妙的用法这需要多去实践。</p>
+<h2 id="read-more">Read More</h2>
+<p>
+  <a href="https://www.cnblogs.com/chenmh/p/5379633.html">Linux tr命令</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/250_String/tr.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tr">tr</a>
+      <ul>
+        <li><a href="#选项">选项</a></li>
+        <li><a href="#常见用法">常见用法</a>
+          <ul>
+            <li><a href="#构建classpath">构建classpath</a></li>
+            <li><a href="#大小写转换">大小写转换</a></li>
+            <li><a href="#制表符替换成空格">制表符替换成空格</a></li>
+            <li><a href="#字符集合不一致的时候进行替换">字符集合不一致的时候进行替换</a></li>
+            <li><a href="#替换集合补齐">替换集合补齐</a></li>
+            <li><a href="#删除制表符">删除制表符</a></li>
+            <li><a href="#不替换指定的字符">不替换指定的字符</a></li>
+            <li><a href="#不删除指定的字符">不删除指定的字符</a></li>
+            <li><a href="#压缩重复的字符">压缩重复的字符</a></li>
+            <li><a href="#巧妙的使用-tr-进行-数据相加">巧妙的使用 tr 进行 数据相加</a></li>
+          </ul>
+        </li>
+        <li><a href="#注意">注意</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
