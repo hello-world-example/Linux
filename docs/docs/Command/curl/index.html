@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="参数  -o &lt;文件名&gt; 下载网页 -s 静默退出，不显示 进程和错误信息 -L 自动跳转到新的网址 -i 显示头和源码 -l 只显示头信息 -v 显示一次http通信的整个过程，包括端口连接和http request头信息 --trace &lt;文件名&gt; | --trace-ascii &lt;文件名&gt; 查看更详细的通信过程  发送数据  -X POST --data &quot;data=xxx&quot; 发送表单信息 -X POST --data-urlencode &quot;date=April 1&quot; 提交的信息进行url编码  监控  curl -o /dev/null -s -w %{http_code} &quot;http://www.baidu.com&quot; 获取响应码 curl -o /dev/null -s -w &quot;code: %{http_code}\ntime_total: %{time_total}\n&quot; &quot;http://www.baidu.com&quot; 组合使用  可以通过 man curl 搜索 --write-out 查看更多支持的变量名
+ http_code 状态码 url_effective 最终获取的url地址，尤其是当你指定给curl的地址存在301跳转，且通过-L继续追踪的情形 time_total 总时间，按秒计。精确到小数点后三位 time_namelookup DNS解析时间,从请求开始到DNS解析完毕所用时间 time_connect 连接时间,从开始到建立TCP连接完成所用时间,包括前边DNS解析时间，如果需要单纯的得到连接时间，用这个time_connect时间减去前边time_namelookup时间 time_appconnect 连接建立完成时间，如SSL/SSH等建立连接或者完成三次握手时间 time_pretransfer 从开始到准备传输的时间 time_redirect 重定向时间，包括到最后一次传输前的几次重定向的DNS解析，连接，预传输，传输时间 time_starttransfer 开始传输时间。在发出请求之后，Web 服务器返回数据的第一个字节所用的时间 size_download 下载大小 size_upload 上传大小 size_header 下载的header的大小 size_request 请求的大小 speed_download 下载速度，单位-字节每秒 speed_upload 上传速度,单位-字节每秒 ssl_verify_result ssl 认证结果，返回0表示认证成功 &hellip;."><meta property="og:title" content="" />
+<meta property="og:description" content="参数  -o &lt;文件名&gt; 下载网页 -s 静默退出，不显示 进程和错误信息 -L 自动跳转到新的网址 -i 显示头和源码 -l 只显示头信息 -v 显示一次http通信的整个过程，包括端口连接和http request头信息 --trace &lt;文件名&gt; | --trace-ascii &lt;文件名&gt; 查看更详细的通信过程  发送数据  -X POST --data &quot;data=xxx&quot; 发送表单信息 -X POST --data-urlencode &quot;date=April 1&quot; 提交的信息进行url编码  监控  curl -o /dev/null -s -w %{http_code} &quot;http://www.baidu.com&quot; 获取响应码 curl -o /dev/null -s -w &quot;code: %{http_code}\ntime_total: %{time_total}\n&quot; &quot;http://www.baidu.com&quot; 组合使用  可以通过 man curl 搜索 --write-out 查看更多支持的变量名
+ http_code 状态码 url_effective 最终获取的url地址，尤其是当你指定给curl的地址存在301跳转，且通过-L继续追踪的情形 time_total 总时间，按秒计。精确到小数点后三位 time_namelookup DNS解析时间,从请求开始到DNS解析完毕所用时间 time_connect 连接时间,从开始到建立TCP连接完成所用时间,包括前边DNS解析时间，如果需要单纯的得到连接时间，用这个time_connect时间减去前边time_namelookup时间 time_appconnect 连接建立完成时间，如SSL/SSH等建立连接或者完成三次握手时间 time_pretransfer 从开始到准备传输的时间 time_redirect 重定向时间，包括到最后一次传输前的几次重定向的DNS解析，连接，预传输，传输时间 time_starttransfer 开始传输时间。在发出请求之后，Web 服务器返回数据的第一个字节所用的时间 size_download 下载大小 size_upload 上传大小 size_header 下载的header的大小 size_request 请求的大小 speed_download 下载速度，单位-字节每秒 speed_upload 上传速度,单位-字节每秒 ssl_verify_result ssl 认证结果，返回0表示认证成功 &hellip;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/Command/curl/" />
+<meta property="article:modified_time" content="2020-08-30T15:20:51+08:00" />
+<title>Curl | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>Command</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/_sysstat/" class="">Sysstat</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/_traceroute/" class="">Traceroute</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chattr/" class="">Chattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chgrp/" class="">Chgrp</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chmod/" class="">Chmod</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chown/" class="">Chown</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/compression/zip/" class="">Zip</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/curl/" class="active">Curl</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/date/" class="">Date</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/df/" class="">Df</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/du/" class="">Du</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/grep/" class="">Grep</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/htop/" class="">Htop</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/kill/" class="">Kill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/killall/" class="">Killall</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/ls/" class="">Ls</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/lsattr/" class="">Lsattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/lsof/" class="">Lsof</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/mtr/" class="">Mtr</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh-keygen/" class="">Ssh Keygen</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh/" class="">Ssh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh/turnnel/" class="">Turnnel</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/pkill/" class="">Pkill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/ps/" class="">Ps</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/pstree/" class="">Pstree</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/stress/" class="">Stress</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/system/service/" class="">Service</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/system/systemd/" class="">Systemd</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/tcpdump/" class="">Tcpdump</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/time/" class="">Time</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/top/" class="">Top</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/tr/" class="">Tr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/etc/resolv.conf/" class="">Resolv.conf</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/etc/sysconfig/network-scripts/ifcfg-eth0/" class="">Ifcfg Eth0</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/proc/cpuinfo/" class="">Cpuinfo</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Curl</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#参数">参数</a></li>
+    <li><a href="#发送数据">发送数据</a></li>
+    <li><a href="#监控">监控</a></li>
+    <li><a href="#上传文件">上传文件</a></li>
+    <li><a href="#设置请求头">设置请求头</a></li>
+    <li><a href="#设置-cookies">设置 Cookies</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="参数">参数</h1>
+<ul>
+<li><code>-o &lt;文件名&gt;</code> <strong>下载网页</strong></li>
+<li><code>-s</code> <strong>静默退出，不显示 进程和错误信息</strong></li>
+<li><code>-L</code> 自动跳转到新的网址</li>
+<li><code>-i</code> 显示头和源码</li>
+<li><code>-l</code> <strong>只显示头信息</strong></li>
+<li><code>-v</code> 显示一次http通信的整个过程，包括端口连接和http request头信息</li>
+<li><code>--trace &lt;文件名&gt;</code> | <code>--trace-ascii &lt;文件名&gt;</code>  查看更详细的通信过程</li>
+</ul>
+<h1 id="发送数据">发送数据</h1>
+<ul>
+<li><code>-X POST --data &quot;data=xxx&quot;</code>  发送表单信息</li>
+<li><code>-X POST --data-urlencode &quot;date=April 1&quot;</code>  提交的信息进行url编码</li>
+</ul>
+<h1 id="监控">监控</h1>
+<ul>
+<li><code>curl -o /dev/null -s -w %{http_code} &quot;http://www.baidu.com&quot;</code> 获取响应码</li>
+<li><code>curl -o /dev/null -s -w &quot;code: %{http_code}\ntime_total: %{time_total}\n&quot; &quot;http://www.baidu.com&quot;</code> 组合使用</li>
+</ul>
+<p>可以通过 <code>man curl</code> 搜索 <code>--write-out</code> 查看更多支持的变量名</p>
+<ul>
+<li><code>http_code</code> 状态码</li>
+<li><code>url_effective</code> 最终获取的url地址，尤其是当你指定给curl的地址存在301跳转，且通过-L继续追踪的情形</li>
+<li><code>time_total</code> 总时间，按秒计。精确到小数点后三位</li>
+<li><code>time_namelookup</code> DNS解析时间,从请求开始到DNS解析完毕所用时间</li>
+<li><code>time_connect</code> 连接时间,从开始到建立TCP连接完成所用时间,包括前边DNS解析时间，如果需要单纯的得到连接时间，用这个time_connect时间减去前边time_namelookup时间</li>
+<li><code>time_appconnect</code> 连接建立完成时间，如SSL/SSH等建立连接或者完成三次握手时间</li>
+<li><code>time_pretransfer</code> 从开始到准备传输的时间</li>
+<li><code>time_redirect</code> 重定向时间，包括到最后一次传输前的几次重定向的DNS解析，连接，预传输，传输时间</li>
+<li><code>time_starttransfer</code> 开始传输时间。在发出请求之后，Web 服务器返回数据的第一个字节所用的时间</li>
+<li><code>size_download</code> 下载大小</li>
+<li><code>size_upload</code> 上传大小</li>
+<li><code>size_header</code>  下载的header的大小</li>
+<li><code>size_request</code> 请求的大小</li>
+<li><code>speed_download</code> 下载速度，单位-字节每秒</li>
+<li><code>speed_upload</code> 上传速度,单位-字节每秒</li>
+<li><code>ssl_verify_result ssl</code> 认证结果，返回0表示认证成功</li>
+<li>&hellip;.</li>
+</ul>
+<blockquote>
+<p>
+  <a href="https://www.cnblogs.com/yum777/p/6252310.html">curl -w,–write-out参数详解</a></p>
+</blockquote>
+<h1 id="上传文件">上传文件</h1>
+<ul>
+<li><code>--form upload=@localfilename --form press=OK</code> 文件上传</li>
+</ul>
+<h1 id="设置请求头">设置请求头</h1>
+<ul>
+<li><code>--referer</code></li>
+<li><code>--user-agent</code></li>
+<li><code>--header &quot;Content-Type:application/json&quot;</code></li>
+<li><code>-u name:password</code> | <code>--user name:password</code></li>
+</ul>
+<h1 id="设置-cookies">设置 Cookies</h1>
+<ul>
+<li><code>--cookie</code></li>
+<li><code>-c cookies.txt</code>  保存到文件</li>
+<li><code>-b cookies.txt</code> 使用文件中的Cooke</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/1c51881630234f63785f623b39f8600983f17236" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/Command/curl.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#参数">参数</a></li>
+    <li><a href="#发送数据">发送数据</a></li>
+    <li><a href="#监控">监控</a></li>
+    <li><a href="#上传文件">上传文件</a></li>
+    <li><a href="#设置请求头">设置请求头</a></li>
+    <li><a href="#设置-cookies">设置 Cookies</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

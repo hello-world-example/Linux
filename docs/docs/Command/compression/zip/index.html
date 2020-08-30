@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="zip zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具 有&rdquo;.zip&quot;扩展名的压缩文件
+语法 zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$] [-b &lt;工 作目录&gt;] [-ll] [-n &lt;字 尾字符串&gt;] [-t &lt;日 期时间&gt;] [-&lt;压 缩效率&gt;] [压 缩文件] [文件...] [-i &lt;范本样式&gt;] [-x &lt;范本样式&gt;] 参数 -A 调整可执行的自动解压缩文件。 -b&lt;工作目录&gt; 指定暂时存放文件的目录。 -c 替每个被压缩的文件加上注释。 -d 从压缩文件内删除指定的文件。 ## -D 压缩文件内不建立目录名称。 -f 此参数的效果和指定&quot;-u&quot;参 数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。 -F 尝试修复已损坏的压缩文件。 -g 将 文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。 -h 帮助。 -i&lt;范本样式&gt; 只压缩符合条件的文件。 -j 只保存文件名称及其内容，而不存放任何目录名称。 ## -J 删除压缩文件前面不必要的数据。 -k 使用MS-DOS兼容格式的文件名称。 -l 压缩文件时，把LF字符 置换成LF&#43;CR字 符。 -ll 压缩文件时，把LF&#43;CR字 符置换成LF字符。 -L 显示版权信息。 -m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。 -n&lt;字尾字符串&gt; 不压缩具有特定字尾字符串的文件。 -o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。 -q 不显示指令执行过程 ## -r 递归处理，将指定目录下的所有文件和子目录一并处理 ## -S 包含系统和隐藏文件。 -t&lt;日期时间&gt; 把 压缩文件的日期设成指定的日期。 ## -T 检查备份文件内的每个文件是否正确无误。 -u 更换较新的文件到压缩文件内。 -v 显示指令执行过程或显示版本信息。 -V 保存VMS操作系统的文 件属性。 -w 在文件名称里假如版本编号，本参数仅在VMS操 作系统下有效。 -x&lt;范本样式&gt; 压缩时排除符合条件的文件。 -X 不保存额外的文件属性。 -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。 -z 替压缩文件加上注释。 -$ 保存第一个被压缩文件所在磁盘的卷册名称。 -&lt;压缩效率&gt; 压缩效率是一个介于1-9的数值。 例子 压缩test."><meta property="og:title" content="" />
+<meta property="og:description" content="zip zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具 有&rdquo;.zip&quot;扩展名的压缩文件
+语法 zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$] [-b &lt;工 作目录&gt;] [-ll] [-n &lt;字 尾字符串&gt;] [-t &lt;日 期时间&gt;] [-&lt;压 缩效率&gt;] [压 缩文件] [文件...] [-i &lt;范本样式&gt;] [-x &lt;范本样式&gt;] 参数 -A 调整可执行的自动解压缩文件。 -b&lt;工作目录&gt; 指定暂时存放文件的目录。 -c 替每个被压缩的文件加上注释。 -d 从压缩文件内删除指定的文件。 ## -D 压缩文件内不建立目录名称。 -f 此参数的效果和指定&quot;-u&quot;参 数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。 -F 尝试修复已损坏的压缩文件。 -g 将 文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。 -h 帮助。 -i&lt;范本样式&gt; 只压缩符合条件的文件。 -j 只保存文件名称及其内容，而不存放任何目录名称。 ## -J 删除压缩文件前面不必要的数据。 -k 使用MS-DOS兼容格式的文件名称。 -l 压缩文件时，把LF字符 置换成LF&#43;CR字 符。 -ll 压缩文件时，把LF&#43;CR字 符置换成LF字符。 -L 显示版权信息。 -m 将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。 -n&lt;字尾字符串&gt; 不压缩具有特定字尾字符串的文件。 -o 以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。 -q 不显示指令执行过程 ## -r 递归处理，将指定目录下的所有文件和子目录一并处理 ## -S 包含系统和隐藏文件。 -t&lt;日期时间&gt; 把 压缩文件的日期设成指定的日期。 ## -T 检查备份文件内的每个文件是否正确无误。 -u 更换较新的文件到压缩文件内。 -v 显示指令执行过程或显示版本信息。 -V 保存VMS操作系统的文 件属性。 -w 在文件名称里假如版本编号，本参数仅在VMS操 作系统下有效。 -x&lt;范本样式&gt; 压缩时排除符合条件的文件。 -X 不保存额外的文件属性。 -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。 -z 替压缩文件加上注释。 -$ 保存第一个被压缩文件所在磁盘的卷册名称。 -&lt;压缩效率&gt; 压缩效率是一个介于1-9的数值。 例子 压缩test." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/Command/compression/zip/" />
+<meta property="article:modified_time" content="2020-08-30T15:20:51+08:00" />
+<title>Zip | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>Command</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/_sysstat/" class="">Sysstat</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/_traceroute/" class="">Traceroute</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chattr/" class="">Chattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chgrp/" class="">Chgrp</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chmod/" class="">Chmod</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chown/" class="">Chown</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/compression/zip/" class="active">Zip</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/curl/" class="">Curl</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/date/" class="">Date</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/df/" class="">Df</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/du/" class="">Du</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/grep/" class="">Grep</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/htop/" class="">Htop</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/kill/" class="">Kill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/killall/" class="">Killall</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/ls/" class="">Ls</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/lsattr/" class="">Lsattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/lsof/" class="">Lsof</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/mtr/" class="">Mtr</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh-keygen/" class="">Ssh Keygen</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh/" class="">Ssh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh/turnnel/" class="">Turnnel</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/pkill/" class="">Pkill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/ps/" class="">Ps</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/pstree/" class="">Pstree</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/stress/" class="">Stress</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/system/service/" class="">Service</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/system/systemd/" class="">Systemd</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/tcpdump/" class="">Tcpdump</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/time/" class="">Time</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/top/" class="">Top</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/tr/" class="">Tr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/etc/resolv.conf/" class="">Resolv.conf</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/etc/sysconfig/network-scripts/ifcfg-eth0/" class="">Ifcfg Eth0</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/proc/cpuinfo/" class="">Cpuinfo</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Zip</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zip">zip</a>
+      <ul>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#参数">参数</a></li>
+        <li><a href="#例子">例子</a>
+          <ul>
+            <li><a href="#压缩testmyi">压缩test.MYI</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#unzip">unzip</a>
+      <ul>
+        <li><a href="#语法-1">语法</a></li>
+        <li><a href="#参数-1">参数</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#linux-下-zip-文件解压乱码如何解决">Linux 下 zip 文件解压乱码如何解决？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="zip">zip</h1>
+<p>zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具 有&rdquo;.zip&quot;扩展名的压缩文件</p>
+<h2 id="语法">语法</h2>
+<pre><code>zip [-AcdDfFghjJKlLmoqrSTuvVwXyz$]
+    [-b &lt;工 作目录&gt;]
+    [-ll]
+    [-n &lt;字 尾字符串&gt;]
+    [-t &lt;日 期时间&gt;]
+    [-&lt;压 缩效率&gt;]
+    [压 缩文件]
+    [文件...]
+    [-i &lt;范本样式&gt;]
+    [-x &lt;范本样式&gt;]
+</code></pre><h2 id="参数">参数</h2>
+<pre><code>-A   调整可执行的自动解压缩文件。
+
+-b&lt;工作目录&gt;   指定暂时存放文件的目录。
+
+-c   替每个被压缩的文件加上注释。
+
+-d   从压缩文件内删除指定的文件。                                                                                           ##
+
+-D   压缩文件内不建立目录名称。
+
+-f   此参数的效果和指定&quot;-u&quot;参 数类似，但不仅更新既有文件，如果某些文件原本不存在于压缩文件内，使用本参数会一并将其加入压缩文件中。
+
+-F   尝试修复已损坏的压缩文件。
+
+-g   将 文件压缩后附加在既有的压缩文件之后，而非另行建立新的压缩文件。
+
+-h   帮助。
+
+-i&lt;范本样式&gt;   只压缩符合条件的文件。
+
+-j   只保存文件名称及其内容，而不存放任何目录名称。                                                                            ##
+
+-J   删除压缩文件前面不必要的数据。
+
+-k   使用MS-DOS兼容格式的文件名称。
+
+-l   压缩文件时，把LF字符 置换成LF+CR字 符。
+
+-ll  压缩文件时，把LF+CR字 符置换成LF字符。
+
+-L   显示版权信息。
+
+-m   将文件压缩并加入压缩文件后，删除原始文件，即把文件移到压缩文件中。
+
+-n&lt;字尾字符串&gt;   不压缩具有特定字尾字符串的文件。
+
+-o   以压缩文件内拥有最新更改时间的文件为准，将压缩文件的更改时间设成和该文件相同。
+
+-q   不显示指令执行过程                                                                                                    ##
+
+-r   递归处理，将指定目录下的所有文件和子目录一并处理                                                                          ##
+
+-S   包含系统和隐藏文件。
+
+-t&lt;日期时间&gt;   把 压缩文件的日期设成指定的日期。                                                                              ##
+
+-T   检查备份文件内的每个文件是否正确无误。
+
+-u   更换较新的文件到压缩文件内。
+
+-v   显示指令执行过程或显示版本信息。
+
+-V   保存VMS操作系统的文 件属性。
+
+-w   在文件名称里假如版本编号，本参数仅在VMS操 作系统下有效。
+
+-x&lt;范本样式&gt;   压缩时排除符合条件的文件。
+
+-X   不保存额外的文件属性。
+
+-y   直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。
+
+-z   替压缩文件加上注释。
+
+-$   保存第一个被压缩文件所在磁盘的卷册名称。
+
+-&lt;压缩效率&gt;   压缩效率是一个介于1-9的数值。
+</code></pre><h2 id="例子">例子</h2>
+<h3 id="压缩testmyi">压缩test.MYI</h3>
+<pre><code># zip test1.zip test.MYI
+
+adding: test.MYI (deflated 42%)
+</code></pre><p>压缩率为8的</p>
+<p>[root@mysql test]# zip test2.zip -8 test.MYI</p>
+<p>adding: test.MYI (deflated 42%)</p>
+<p>[root@mysql test]#ll</p>
+<p>-rw-r&ndash;r&ndash; 1 root    root    1033451 09-24 10:03 test2.zip</p>
+<p>例2.   将当前目录下的所有文件和文件夹全部压缩成test.zip文件,-r表示递归压缩子目录下所有文件</p>
+<p>[root@mysql test]# zip -r test.zip ./*</p>
+<p>打包目录</p>
+<p>[root@mysql test]# zip test2.zip test2/*</p>
+<p>例3.   删除压缩文件test1.zip中test.MYI文件</p>
+<p>[root@mysql test]# zip -d test1.zip test.MYI</p>
+<p>删除打包文件目录下的文件</p>
+<p>[root@mysql test]# zip -d test2.zip test2/ln.log</p>
+<p>deleting: tests/ln.log</p>
+<p>例4.   向压缩文件中test1.zip中添加test. MYI文件</p>
+<p>[root@mysql test]# zip -m test1.zip test. MYI</p>
+<p>例5.   压缩文件时排除某个文件</p>
+<p>[root@mysql test]# zip test3.zip tests/* -x tests/ln.log</p>
+<h1 id="unzip">unzip</h1>
+<p>unzip为.zip压缩文件的解压缩程序。</p>
+<h2 id="语法-1">语法</h2>
+<pre><code>unzip [-cflptuvz][-agCjLMnoqsVX][-P &lt;密 码&gt;][.zip文 件][文件][-d &lt;目录&gt;][-x &lt;文件&gt;] 或 unzip [-Z]
+</code></pre><h2 id="参数-1">参数</h2>
+<pre><code>-c   将 解压缩的结果显示到屏幕上，并对字符做适当的转换。
+
+-f   更 新现有的文件。
+
+-l   显 示压缩文件内所包含的文件。
+
+-p   与-c参数类似，会将解压缩的结果显示到屏幕上，但不会执行任 何的转换。
+
+-t   检 查压缩文件是否正确。，但不解压。
+
+-u   与-f参数类似，但是除了更新现有的文件外，也会将压缩文件中 的其他文件解压缩到目录中。
+
+-v   执 行是时显示详细的信息。或查看压缩文件目录，但不解压。
+
+-z   仅 显示压缩文件的备注文字。
+
+-a   对 文本文件进行必要的字符转换。
+
+-b   不 要对文本文件进行字符转换。
+
+-C   压 缩文件中的文件名称区分大小写。
+
+-j   不 处理压缩文件中原有的目录路径。
+
+-L   将 压缩文件中的全部文件名改为小写。
+
+-M   将 输出结果送到more程 序处理。
+
+-n   解 压缩时不要覆盖原有的文件。
+
+-o   不 必先询问用户，unzip执 行后覆盖原有文件。
+
+-P&lt;密码&gt;   使 用zip的密码选项。
+
+-q   执 行时不显示任何信息。
+
+-s   将 文件名中的空白字符转换为底线字符。
+
+-V   保 留VMS的文件版本信 息。
+
+-X   解 压缩时同时回存文件原来的UID/GID。
+
+[.zip文件]   指定.zip压缩文件。
+
+[文件]   指定 要处理.zip压缩文 件中的哪些文件。
+
+-d&lt;目录&gt;   指 定文件解压缩后所要存储的目录。
+
+-x&lt;文件&gt;   指 定不要处理.zip压 缩文件中的哪些文件。
+
+-Z   unzip -Z等 于执行zipinfo指令。
+</code></pre><p>例1：将压缩文件text.zip在当前目录下解压缩。</p>
+<p>[root@mysql test]# unzip test.zip</p>
+<p>例2：将压缩文件text.zip在指定目录/tmp下解压缩，如果已有相同的文件存在，要求unzip命令不覆盖原先的文件。</p>
+<p>[root@mysql test]# unzip -n test.zip -d /tmp</p>
+<p>例3：查看压缩文件目录，但不解压。</p>
+<p>[root@mysql test]# unzip -v test.zip</p>
+<p>例4：将压缩文件test.zip在指定目录tmp下解压缩，如果已有相同的文件存在，要求unzip命令覆盖原先的文件。</p>
+<p>[root@mysql test]# unzip -o test.zip -d tmp/</p>
+<p>使用</p>
+<p>unzip &ldquo;*.zip&rdquo;</p>
+<p>ls *.zip | xargs -n1 unzip</p>
+<p>解压当前目录下的所有zip文件</p>
+<h2 id="faq">FAQ</h2>
+<h2 id="linux-下-zip-文件解压乱码如何解决">Linux 下 zip 文件解压乱码如何解决？</h2>
+<p><a href="https://www.zhihu.com/question/20523036">https://www.zhihu.com/question/20523036</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/1c51881630234f63785f623b39f8600983f17236" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/Command/compression/zip.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zip">zip</a>
+      <ul>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#参数">参数</a></li>
+        <li><a href="#例子">例子</a>
+          <ul>
+            <li><a href="#压缩testmyi">压缩test.MYI</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#unzip">unzip</a>
+      <ul>
+        <li><a href="#语法-1">语法</a></li>
+        <li><a href="#参数-1">参数</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#linux-下-zip-文件解压乱码如何解决">Linux 下 zip 文件解压乱码如何解决？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

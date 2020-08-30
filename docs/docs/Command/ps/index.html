@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ps 显示系统中所有进程信息 ps -ef 查看进程资源使用情况 ps aux  USER : 用户名 %CPU : 进程占用的CPU百分比 %MEM : 占用内存的百分比 VSZ : 该进程使用的虚拟內存量（KB） RSS : 该进程占用的固定內存量（KB）（驻留中页的数量） STAT : 进程的状态 START : 该进程被触发启动时间 TIME : 该进程实际使用CPU运行的时间  其中STAT状态位常见的状态字符有  D : 无法中断的休眠状态（通常 IO 的进程）； R : 正在运行可中在队列中可过行的； S : 处于休眠状态； T : 停止或被追踪； W : 进入内存交换 （从内核2.6开始无效）； X : 死掉的进程 （基本很少见）； Z : 僵尸进程； &lt; : 优先级高的进程 N : 优先级较低的进程 L : 有些页被锁进内存； s : 进程的领导者（在它之下有子进程）； l : 多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；   : 位于后台的进程组；      Linux下ps -ef和ps aux的区别及格式详解"><meta property="og:title" content="" />
+<meta property="og:description" content="ps 显示系统中所有进程信息 ps -ef 查看进程资源使用情况 ps aux  USER : 用户名 %CPU : 进程占用的CPU百分比 %MEM : 占用内存的百分比 VSZ : 该进程使用的虚拟內存量（KB） RSS : 该进程占用的固定內存量（KB）（驻留中页的数量） STAT : 进程的状态 START : 该进程被触发启动时间 TIME : 该进程实际使用CPU运行的时间  其中STAT状态位常见的状态字符有  D : 无法中断的休眠状态（通常 IO 的进程）； R : 正在运行可中在队列中可过行的； S : 处于休眠状态； T : 停止或被追踪； W : 进入内存交换 （从内核2.6开始无效）； X : 死掉的进程 （基本很少见）； Z : 僵尸进程； &lt; : 优先级高的进程 N : 优先级较低的进程 L : 有些页被锁进内存； s : 进程的领导者（在它之下有子进程）； l : 多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；   : 位于后台的进程组；      Linux下ps -ef和ps aux的区别及格式详解" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/Command/ps/" />
+<meta property="article:modified_time" content="2020-08-30T15:20:51+08:00" />
+<title>Ps | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>Command</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/_sysstat/" class="">Sysstat</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/_traceroute/" class="">Traceroute</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chattr/" class="">Chattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chgrp/" class="">Chgrp</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chmod/" class="">Chmod</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/chown/" class="">Chown</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/compression/zip/" class="">Zip</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/curl/" class="">Curl</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/date/" class="">Date</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/df/" class="">Df</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/du/" class="">Du</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/grep/" class="">Grep</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/htop/" class="">Htop</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/kill/" class="">Kill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/killall/" class="">Killall</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/ls/" class="">Ls</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/lsattr/" class="">Lsattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/lsof/" class="">Lsof</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/mtr/" class="">Mtr</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh-keygen/" class="">Ssh Keygen</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh/" class="">Ssh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/network/ssh/turnnel/" class="">Turnnel</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/pkill/" class="">Pkill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/ps/" class="active">Ps</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/pstree/" class="">Pstree</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/stress/" class="">Stress</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/system/service/" class="">Service</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/system/systemd/" class="">Systemd</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/tcpdump/" class="">Tcpdump</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/time/" class="">Time</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/top/" class="">Top</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/Command/tr/" class="">Tr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/etc/resolv.conf/" class="">Resolv.conf</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/etc/sysconfig/network-scripts/ifcfg-eth0/" class="">Ifcfg Eth0</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/proc/cpuinfo/" class="">Cpuinfo</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Ps</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ps">ps</a>
+      <ul>
+        <li><a href="#显示系统中所有进程信息">显示系统中所有进程信息</a></li>
+        <li><a href="#查看进程资源使用情况">查看进程资源使用情况</a>
+          <ul>
+            <li><a href="#其中stat状态位常见的状态字符有">其中STAT状态位常见的状态字符有</a></li>
+          </ul>
+        </li>
+        <li><a href="#查看进程的所有线程">查看进程的所有线程</a></li>
+        <li><a href="#查看当前终端中运行的进程">查看当前终端中运行的进程</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="ps">ps</h1>
+<h2 id="显示系统中所有进程信息">显示系统中所有进程信息</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ps -ef
+</code></pre></div><h2 id="查看进程资源使用情况">查看进程资源使用情况</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ps aux
+</code></pre></div><ul>
+<li>USER : 用户名</li>
+<li><code>%CPU</code> : 进程占用的CPU百分比</li>
+<li><code>%MEM</code> : 占用内存的百分比</li>
+<li><code>VSZ</code>  : 该进程使用的虚拟內存量（KB）</li>
+<li><code>RSS</code>  : 该进程占用的固定內存量（KB）（驻留中页的数量）</li>
+<li><code>STAT</code> : 进程的状态</li>
+<li><code>START</code> : 该进程被触发启动时间</li>
+<li><code>TIME</code> : 该进程实际使用CPU运行的时间</li>
+</ul>
+<h3 id="其中stat状态位常见的状态字符有">其中STAT状态位常见的状态字符有</h3>
+<ul>
+<li><code>D</code> : 无法中断的休眠状态（通常 IO 的进程）；</li>
+<li>R : 正在运行可中在队列中可过行的；</li>
+<li>S : 处于休眠状态；</li>
+<li><code>T</code> : 停止或被追踪；</li>
+<li>W : 进入内存交换 （从内核2.6开始无效）；</li>
+<li><code>X</code> : 死掉的进程 （基本很少见）；</li>
+<li><code>Z</code> : 僵尸进程；</li>
+<li>&lt; : 优先级高的进程</li>
+<li>N : 优先级较低的进程</li>
+<li>L : 有些页被锁进内存；</li>
+<li>s : 进程的领导者（在它之下有子进程）；</li>
+<li>l : 多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）；</li>
+<li>
+<ul>
+<li>: 位于后台的进程组；</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>
+  <a href="http://www.cnblogs.com/5201351/p/4206461.html">Linux下ps -ef和ps aux的区别及格式详解</a></p>
+</blockquote>
+<h2 id="查看进程的所有线程">查看进程的所有线程</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ps -fTp &lt;pid&gt;
+<span style="color:#75715e"># 或</span>
+ps -efT | grep &lt;进程名&gt;
+<span style="color:#75715e"># 或</span>
+ps aux -T | sed -n <span style="color:#e6db74">&#39;1p;/&lt;进程名&gt;/p&#39;</span>
+</code></pre></div><pre><code class="language-输出" data-lang="输出">UID        PID  SPID  PPID  C STIME TTY          TIME CMD
+root     13824 13824 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13825 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13826 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13827 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13828 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13829 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13830 13671  0 12:52 pts/1    00:00:00 java Main
+root     13824 13831 13671  0 12:52 pts/1    00:00:00 java Main
+...
+</code></pre><p>字段说明：</p>
+<ul>
+<li>UID：运行进程的用户</li>
+<li>PID：进程号</li>
+<li>SPID：线程ID</li>
+<li>PPID：父进程ID</li>
+<li><code>C</code>：CPU调度情况</li>
+<li>STIME：进程启动时间</li>
+<li>TTY：终端号</li>
+<li><code>TIME</code>：进程使用CPU时间</li>
+<li>CMD：启动进程的命令</li>
+</ul>
+<h2 id="查看当前终端中运行的进程">查看当前终端中运行的进程</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ps -Tl
+</code></pre></div><blockquote>
+<p>
+  <a href="http://www.cnblogs.com/peida/archive/2012/12/19/2824418.html">每天一个linux命令（41）：ps命令</a></p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/1c51881630234f63785f623b39f8600983f17236" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/Command/ps.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ps">ps</a>
+      <ul>
+        <li><a href="#显示系统中所有进程信息">显示系统中所有进程信息</a></li>
+        <li><a href="#查看进程资源使用情况">查看进程资源使用情况</a>
+          <ul>
+            <li><a href="#其中stat状态位常见的状态字符有">其中STAT状态位常见的状态字符有</a></li>
+          </ul>
+        </li>
+        <li><a href="#查看进程的所有线程">查看进程的所有线程</a></li>
+        <li><a href="#查看当前终端中运行的进程">查看当前终端中运行的进程</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

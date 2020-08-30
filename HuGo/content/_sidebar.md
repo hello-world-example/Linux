@@ -47,8 +47,6 @@ headless: true
     * [service](command/system/service.md)
     * [chkconfig](command/system/chkconfig.md)
     * [systemd](command/system/systemd.md)
-* **Shell**
-    * [循环]({{< relref "/docs/Shell/Foreach.md" >}})
 * /etc
     * [resolv.conf](etc/resolv.conf.md)
     * /sysconfig
