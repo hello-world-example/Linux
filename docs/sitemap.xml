@@ -153,11 +153,6 @@
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</loc>
-    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
@@ -334,6 +329,11 @@
   <url>
     <loc>https://hello-world-example.github.io/Linux/</loc>
     <lastmod>2020-08-30T15:20:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</loc>
+    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
   
   <url>

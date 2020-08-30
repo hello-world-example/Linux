@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
+<meta name="description" content="lsof ( List Open Files) 参数   lsof filename 显示打开指定文件的所有进程
   lsof -c string 显示command列中包含指定字符的进程所有打开的文件
   lsof -p pid 指定进程所有打开的文件
    lsof &#43;d /DIR/ 显示目录下被进程打开的文件
@@ -14,8 +14,8 @@
   lsof -d FD 显示指定文件描述符的进程
    lsof -a and 操作
   lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
- 46 &ndash;&gt; IPv4 or IPv6 protocol &ndash;&gt; TCP or UDP hostname &ndash;&gt; Internet host name hostaddr &ndash;&gt; IPv4地址 service &ndash;&gt; /etc/services 文件中的 service name port &ndash;&gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  "><meta property="og:title" content="" />
-<meta property="og:description" content="lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
+ 46 &ndash;&gt; IPv4 or IPv6 protocol &ndash;&gt; TCP or UDP hostname &ndash;&gt; Internet host name hostaddr &ndash;&gt; IPv4地址 service &ndash;&gt; /etc/services 文件中的 service name port &ndash;&gt; 端口号    FD  cwd： current work dirctory，应用程序的当前工作目录 txt ：进程程序代码 ."><meta property="og:title" content="lsof ( List Open Files)" />
+<meta property="og:description" content="lsof ( List Open Files) 参数   lsof filename 显示打开指定文件的所有进程
   lsof -c string 显示command列中包含指定字符的进程所有打开的文件
   lsof -p pid 指定进程所有打开的文件
    lsof &#43;d /DIR/ 显示目录下被进程打开的文件
@@ -25,11 +25,11 @@
   lsof -d FD 显示指定文件描述符的进程
    lsof -a and 操作
   lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
- 46 &ndash;&gt; IPv4 or IPv6 protocol &ndash;&gt; TCP or UDP hostname &ndash;&gt; Internet host name hostaddr &ndash;&gt; IPv4地址 service &ndash;&gt; /etc/services 文件中的 service name port &ndash;&gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  " />
+ 46 &ndash;&gt; IPv4 or IPv6 protocol &ndash;&gt; TCP or UDP hostname &ndash;&gt; Internet host name hostaddr &ndash;&gt; IPv4地址 service &ndash;&gt; /etc/services 文件中的 service name port &ndash;&gt; 端口号    FD  cwd： current work dirctory，应用程序的当前工作目录 txt ：进程程序代码 ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/" />
 <meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
-<title>Lsof | Linux</title>
+<title>lsof ( List Open Files) | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
 
@@ -183,16 +183,6 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/200_Command/220_Troubleshooting/lsof/" class="active">Lsof</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
   <a href="/Linux/docs/200_Command/220_Troubleshooting/mtr/" class="">Mtr</a>
   
 
@@ -204,6 +194,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <a href="/Linux/docs/200_Command/220_Troubleshooting/top/" class="">Top</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/lsof/" class="active">lsof ( List Open Files)</a>
   
 
 </li>
@@ -431,7 +431,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Lsof</strong>
+  <strong>lsof ( List Open Files)</strong>
 
   <label for="toc-control">
     <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -447,7 +447,16 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#lsof--list-open-files">lsof ( List Open Files)</a>
       <ul>
-        <li><a href="#示例">示例</a></li>
+        <li><a href="#参数">参数</a></li>
+        <li><a href="#fd">FD</a></li>
+        <li><a href="#type">TYPE</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#网络相关">网络相关</a></li>
+            <li><a href="#文件占用">文件占用</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
   </ul>
@@ -462,6 +471,7 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="lsof--list-open-files">lsof ( List Open Files)</h1>
+<h2 id="参数">参数</h2>
 <ul>
 <li>
 <p><code>lsof  filename</code> 显示打开指定文件的所有进程</p>
@@ -500,15 +510,66 @@ https://github.com/alex-shpak/hugo-book
 <li>protocol &ndash;&gt; <code>TCP</code> or <code>UDP</code></li>
 <li>hostname &ndash;&gt; Internet host name</li>
 <li>hostaddr &ndash;&gt; <code>IPv4地址</code></li>
-<li>service &ndash;&gt;<code> /etc/services</code> 文件中的 service name</li>
+<li>service &ndash;&gt; <code>/etc/services</code> 文件中的 service name</li>
 <li>port &ndash;&gt; <code>端口号</code></li>
 </ul>
 </li>
 </ul>
-<h2 id="示例">示例</h2>
+<h2 id="fd">FD</h2>
 <ul>
-<li><code>lsof -i :8080</code>  查看8080端口的运行情况</li>
-<li><code>lsof -a -u root -d txt</code>  查看<strong>所属root用户进程</strong>所打开的<strong>文件类型为txt的文件</strong></li>
+<li><code>cwd</code>： current work dirctory，应用程序的当前工作目录</li>
+<li><code>txt</code> ：进程程序代码</li>
+<li>.u： 该文件被打开并处于 读/写 模式</li>
+<li>.r： 该文件被打开并处于 只读模式</li>
+</ul>
+<blockquote>
+<p>更多详见： <code>man lsof</code></p>
+</blockquote>
+<h2 id="type">TYPE</h2>
+<ul>
+<li><code>DIR</code>：目录</li>
+<li><code>REG</code>：文件</li>
+<li><code>IPv4</code>：网际协议 (IP) 套接字</li>
+<li>unix： UNIX 域套接字</li>
+<li>KQUEUE： 内核时间队列</li>
+</ul>
+<blockquote>
+<p>更多详见： <code>man lsof</code></p>
+</blockquote>
+<h2 id="案例">案例</h2>
+<h3 id="网络相关">网络相关</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出所有的网络连接</span>
+$ lsof -i
+
+<span style="color:#75715e"># 查看端口占用</span>
+$ lsof -i :8080  
+
+<span style="color:#75715e"># 所有 TCP 网络连接信息</span>
+$ lsof -i tcp
+<span style="color:#75715e"># 所有 UDP 网络连接信息</span>
+$ lsof -i udp
+</code></pre></div><h3 id="文件占用">文件占用</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 打开 lsof.md 文件的进程（pid）</span>
+$ lsof lsof.md
+
+<span style="color:#75715e"># 当前目录下的文件被哪些进程打开（pid）</span>
+$ lsof +d .
+
+<span style="color:#75715e"># 查看进程打开的所有文件句柄</span>
+$ lsof -p <span style="color:#ae81ff">86221</span>
+$ lsof -c hugo
+$ lsof -c hugo -a -d txt
+
+<span style="color:#75715e"># 进程开启的端口</span>
+$ lsof -p <span style="color:#ae81ff">86221</span> | grep IPv
+$ lsof -p <span style="color:#ae81ff">86221</span> -a -i <span style="color:#ae81ff">4</span>
+$ lsof -p <span style="color:#ae81ff">86221</span> -a -i TCP
+<span style="color:#75715e"># 文件句柄数统计</span>
+$ lsof -c hugo | wc -l
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html"> lsof 一切皆文件</a></li>
 </ul>
 </article>
  
@@ -561,7 +622,16 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#lsof--list-open-files">lsof ( List Open Files)</a>
       <ul>
-        <li><a href="#示例">示例</a></li>
+        <li><a href="#参数">参数</a></li>
+        <li><a href="#fd">FD</a></li>
+        <li><a href="#type">TYPE</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#网络相关">网络相关</a></li>
+            <li><a href="#文件占用">文件占用</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
   </ul>

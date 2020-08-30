@@ -23,25 +23,6 @@ Linux htop工具使用详解
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
-      <description>lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
-  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
-  lsof -p pid 指定进程所有打开的文件
-   lsof +d /DIR/ 显示目录下被进程打开的文件
-  lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
-   lsof -u username 显示所属user进程打开的文件
-  lsof -g gid 显示归属gid的进程情况
-  lsof -d FD 显示指定文件描述符的进程
-   lsof -a and 操作
-  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
- 46 &amp;ndash;&amp;gt; IPv4 or IPv6 protocol &amp;ndash;&amp;gt; TCP or UDP hostname &amp;ndash;&amp;gt; Internet host name hostaddr &amp;ndash;&amp;gt; IPv4地址 service &amp;ndash;&amp;gt; /etc/services 文件中的 service name port &amp;ndash;&amp;gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -63,6 +44,25 @@ traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测�
       
       <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</guid>
       <description>top 启动参数  -b 不启用交互模式，直接打印结果 -n &amp;lt;次数&amp;gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &amp;lt;时间&amp;gt; 设置间隔时间 -u &amp;lt;用户名&amp;gt; 指定用户名 -p &amp;lt;进程号&amp;gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &amp;lt;Space&amp;gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE+ P：按%CPU使用率排行 T：按MITE+排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  </description>
+    </item>
+    
+    <item>
+      <title>lsof ( List Open Files)</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
+      <description>lsof ( List Open Files) 参数   lsof filename 显示打开指定文件的所有进程
+  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
+  lsof -p pid 指定进程所有打开的文件
+   lsof +d /DIR/ 显示目录下被进程打开的文件
+  lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
+   lsof -u username 显示所属user进程打开的文件
+  lsof -g gid 显示归属gid的进程情况
+  lsof -d FD 显示指定文件描述符的进程
+   lsof -a and 操作
+  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
+ 46 &amp;ndash;&amp;gt; IPv4 or IPv6 protocol &amp;ndash;&amp;gt; TCP or UDP hostname &amp;ndash;&amp;gt; Internet host name hostaddr &amp;ndash;&amp;gt; IPv4地址 service &amp;ndash;&amp;gt; /etc/services 文件中的 service name port &amp;ndash;&amp;gt; 端口号    FD  cwd： current work dirctory，应用程序的当前工作目录 txt ：进程程序代码 .</description>
     </item>
     
   </channel>

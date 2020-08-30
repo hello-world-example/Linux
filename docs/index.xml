@@ -163,25 +163,6 @@ Linux htop工具使用详解
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
-      <description>lsof ( List Open Files)   lsof filename 显示打开指定文件的所有进程
-  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
-  lsof -p pid 指定进程所有打开的文件
-   lsof +d /DIR/ 显示目录下被进程打开的文件
-  lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
-   lsof -u username 显示所属user进程打开的文件
-  lsof -g gid 显示归属gid的进程情况
-  lsof -d FD 显示指定文件描述符的进程
-   lsof -a and 操作
-  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
- 46 &amp;ndash;&amp;gt; IPv4 or IPv6 protocol &amp;ndash;&amp;gt; TCP or UDP hostname &amp;ndash;&amp;gt; Internet host name hostaddr &amp;ndash;&amp;gt; IPv4地址 service &amp;ndash;&amp;gt; /etc/services 文件中的 service name port &amp;ndash;&amp;gt; 端口号    示例  lsof -i :8080 查看8080端口的运行情况 lsof -a -u root -d txt 查看所属root用户进程所打开的文件类型为txt的文件  </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -510,6 +491,25 @@ chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-
       
       <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/sysconfig/network-scripts/ifcfg-eth0/</guid>
       <description>网络接口配置文件 ifcfg-eth0 配置参数说明  TYPE：配置文件接口类型。在/etc/sysconfig/network-scripts/目录有多种网络配置文件，有Ethernet 、IPsec等类型，网络接口类型为Ethernet。 DEVICE：网络接口名称 BOOTPROTO：系统启动地址协议  none：不使用启动地址协议 bootp：BOOTP协议 dhcp：DHCP动态地址协议 static：静态地址协议   ONBOOT：系统启动时是否激活  yes：系统启动时激活该网络接口 no：系统启动时不激活该网络接口   IPADDR：IP地址 NETMASK：子网掩码 GATEWAY：网关地址 BROADCAST：广播地址 HWADDR/MACADDR：MAC地址。只需设置其中一个，同时设置时不能相互冲突。 PEERDNS：是否指定DNS。如果使用DHCP协议，默认为yes。  yes：如果DNS设置，修改/etc/resolv.conf中的DNS no：不修改/etc/resolv.conf中的DNS   DNS{1, 2}：DNS地址。当PEERDNS为yes时会被写入/etc/resolv.conf中。 NM_CONTROLLED：是否由Network Manager控制该网络接口。修改保存后立即生效，无需重启。被其坑过几次，建议一般设为no。  yes：由Network Manager控制 no：不由Network Manager控制   USERCTL：用户权限控制  yes：非root用户允许控制该网络接口 no：非root用户不运行控制该网络接口   IPV6INIT：是否执行IPv6  yes：支持IPv6 no：不支持IPv6   IPV6ADDR：IPv6地址/前缀长度  静态IP 配置 ONBOOT=yes BOOTPROTO=static IPADDR=192.168.31.6 GATEWAY=192.168.31.1 NETMASK=255.255.255.0 配置生效 service network restart Read More   Linux网络接口配置文件ifcfg-eth0解析  </description>
+    </item>
+    
+    <item>
+      <title>lsof ( List Open Files)</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
+      <description>lsof ( List Open Files) 参数   lsof filename 显示打开指定文件的所有进程
+  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
+  lsof -p pid 指定进程所有打开的文件
+   lsof +d /DIR/ 显示目录下被进程打开的文件
+  lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
+   lsof -u username 显示所属user进程打开的文件
+  lsof -g gid 显示归属gid的进程情况
+  lsof -d FD 显示指定文件描述符的进程
+   lsof -a and 操作
+  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
+ 46 &amp;ndash;&amp;gt; IPv4 or IPv6 protocol &amp;ndash;&amp;gt; TCP or UDP hostname &amp;ndash;&amp;gt; Internet host name hostaddr &amp;ndash;&amp;gt; IPv4地址 service &amp;ndash;&amp;gt; /etc/services 文件中的 service name port &amp;ndash;&amp;gt; 端口号    FD  cwd： current work dirctory，应用程序的当前工作目录 txt ：进程程序代码 .</description>
     </item>
     
     <item>
