@@ -1,4 +1,9 @@
-* Linux
+---
+headless: true
+---
+
+
+
 * *故障排查*
     - *进程*
       - [ps](command/ps.md)
@@ -42,10 +47,8 @@
     * [service](command/system/service.md)
     * [chkconfig](command/system/chkconfig.md)
     * [systemd](command/system/systemd.md)
-* Shell
-    * [循环](shell/foreach.md)
-    * [逻辑判断](shell/if.md)
-    * [变量](shell/var.md)
+* **Shell**
+    * [循环]({{< relref "/docs/Shell/Foreach.md" >}})
 * /etc
     * [resolv.conf](etc/resolv.conf.md)
     * /sysconfig

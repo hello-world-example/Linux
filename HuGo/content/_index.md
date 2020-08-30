@@ -1,3 +1,9 @@
+---
+title: Linux
+type: docs
+---
+
+
 
 - 故障排查： [top](command/top.md)、[htop](command/htop.md)、[du](command/du.md)、[df](command/df.md)、[lsof](command/lsof.md)
 - 磁盘相关： [du](command/du.md)、[df](command/df.md)
