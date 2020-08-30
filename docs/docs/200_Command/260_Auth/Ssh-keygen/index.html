@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ssh-keygen 免密登陆 相关文件  id_rsa ： 私钥 id_rsa.pub ： 公钥 authorized_keys ： 保存已经授权的客户端公钥；A 到 B 免密登陆，需要 把 A 的 id_rsa.pub 公钥，追加到 B 的 authorized_keys 文件中 known_hosts：ssh 没有类似于 https 的证书，需要认为确认链接是否可信  A 访问 B 时，会把 B 的公钥记录在其中，当下次访问相同计算机时，会核对公钥，如果不同会发出警告 如需关闭检查需修改配置，~/.ssh/config （/etc/ssh/sshd_config ）  StrictHostKeyChecking no UserKnownHostsFile /dev/null      如何配置 # 生成 公钥和私钥 # -t 加密算法 # -P 提供密码直接生成 # -f 文件名 $ ssh-keygen -t rsa -P &#34;&#34; -f ~/.ssh/id_rsa -C &#34;备注，一般设置为主机名和邮箱等&#34; $ ll ."><meta property="og:title" content="ssh-keygen 免密登陆" />
+<meta property="og:description" content="ssh-keygen 免密登陆 相关文件  id_rsa ： 私钥 id_rsa.pub ： 公钥 authorized_keys ： 保存已经授权的客户端公钥；A 到 B 免密登陆，需要 把 A 的 id_rsa.pub 公钥，追加到 B 的 authorized_keys 文件中 known_hosts：ssh 没有类似于 https 的证书，需要认为确认链接是否可信  A 访问 B 时，会把 B 的公钥记录在其中，当下次访问相同计算机时，会核对公钥，如果不同会发出警告 如需关闭检查需修改配置，~/.ssh/config （/etc/ssh/sshd_config ）  StrictHostKeyChecking no UserKnownHostsFile /dev/null      如何配置 # 生成 公钥和私钥 # -t 加密算法 # -P 提供密码直接生成 # -f 文件名 $ ssh-keygen -t rsa -P &#34;&#34; -f ~/.ssh/id_rsa -C &#34;备注，一般设置为主机名和邮箱等&#34; $ ll ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/" />
+
+<title>ssh-keygen 免密登陆 | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/Useradd/" class="">useradd 创建账户</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/Ssh-keygen/" class="active">ssh-keygen 免密登陆</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chattr/" class="">Chattr</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chgrp/" class="">Chgrp</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chmod/" class="">Chmod</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/chown/" class="">Chown</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/lsattr/" class="">Lsattr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>ssh-keygen 免密登陆</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-keygen-免密登陆">ssh-keygen 免密登陆</a>
+      <ul>
+        <li><a href="#相关文件">相关文件</a></li>
+        <li><a href="#如何配置">如何配置</a></li>
+        <li><a href="#常见问题">常见问题</a>
+          <ul>
+            <li><a href="#ssh-权限配置">.ssh 权限配置</a></li>
+            <li><a href="#公钥登陆需要开启">公钥登陆需要开启</a></li>
+          </ul>
+        </li>
+        <li><a href="#免密原理">免密原理</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="ssh-keygen-免密登陆">ssh-keygen 免密登陆</h1>
+<h2 id="相关文件">相关文件</h2>
+<ul>
+<li><code>id_rsa</code> ： 私钥</li>
+<li><code>id_rsa.pub</code> ： 公钥</li>
+<li><strong><code>authorized_keys</code></strong> ： 保存已经授权的客户端公钥；A 到 B 免密登陆，需要 把 A 的 <code>id_rsa.pub</code> 公钥，追加到 B 的 <code>authorized_keys</code> 文件中</li>
+<li><code>known_hosts</code>：ssh 没有类似于 https 的证书，需要认为确认链接是否可信
+<ul>
+<li>A 访问 B 时，会把 B 的公钥记录在其中，当下次访问相同计算机时，会核对公钥，如果不同会发出警告</li>
+<li>如需关闭检查需修改配置，<code>~/.ssh/config</code> （/etc/ssh/sshd_config ）
+<ul>
+<li><code>StrictHostKeyChecking no</code></li>
+<li><code>UserKnownHostsFile /dev/null</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="如何配置">如何配置</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 生成 公钥和私钥</span>
+<span style="color:#75715e"># -t 加密算法</span>
+<span style="color:#75715e"># -P 提供密码直接生成</span>
+<span style="color:#75715e"># -f 文件名</span>
+$ ssh-keygen -t rsa -P <span style="color:#e6db74">&#34;&#34;</span> -f ~/.ssh/id_rsa -C <span style="color:#e6db74">&#34;备注，一般设置为主机名和邮箱等&#34;</span>
+
+$ ll .ssh/
+id_rsa       <span style="color:#75715e"># 私钥</span>
+id_rsa.pub   <span style="color:#75715e"># 公钥</span>
+
+
+<span style="color:#75715e"># 当前机器 到 当前机器的免密登陆</span>
+$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+
+<span style="color:#75715e"># Copy 公钥到 kail.xyz， 并设置权限</span>
+$ ssh -p2208 kail.xyz <span style="color:#e6db74">&#34;mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&#34;</span> &lt; .ssh/id_rsa.pub
+$ ssh -p2208 kail.xyz <span style="color:#e6db74">&#34;chmod g-w .ssh &amp;&amp; chmod 600 .ssh/authorized_keys&#34;</span>
+</code></pre></div><h2 id="常见问题">常见问题</h2>
+<h3 id="ssh-权限配置">.ssh 权限配置</h3>
+<blockquote>
+<p>
+  <a href="https://blog.csdn.net/lisongjia123/article/details/78513244">解决SSH免密登录配置成功后不生效问题</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看权限日志</span>
+$ sudo cat /var/log/secure
+
+<span style="color:#75715e"># 需改文件权限</span>
+$ chmod g-w ~/.ssh
+$ chmod <span style="color:#ae81ff">600</span> ~/.ssh/authorized_keys
+</code></pre></div><h3 id="公钥登陆需要开启">公钥登陆需要开启</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ /etc/ssh/sshd_config  
+RSAAuthentication yes
+PubkeyAuthentication yes
+</code></pre></div><h2 id="免密原理">免密原理</h2>
+<ul>
+<li>A 链接 B 时同时发送 公钥</li>
+<li>B 获取公钥后对比 <code>authorized_keys</code> 是否包含 A 的公钥</li>
+<li>如果包含 通过 A 公钥加密 交换信息 回传给 A</li>
+<li>交换信息 只有 A 的私钥可以解密</li>
+<li>A 私钥加密，B 含有 A的 公钥解密</li>
+</ul>
+<h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://blog.51cto.com/12085228/1958336">ssh免密登陆</a> 以及常见问题</li>
+<li>
+  <a href="https://zdyxry.github.io/2019/12/06/SSH-known-hosts-%E6%98%BE%E7%A4%BA-IP-%E5%9C%B0%E5%9D%80/">SSH known_hosts 文件</a></li>
+<li>
+  <a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">SSH原理与运用（一）：远程登录</a></li>
+<li>
+  <a href="http://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html">SSH原理与运用（二）：远程操作与端口转发</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/260_Auth/Ssh-keygen.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-keygen-免密登陆">ssh-keygen 免密登陆</a>
+      <ul>
+        <li><a href="#相关文件">相关文件</a></li>
+        <li><a href="#如何配置">如何配置</a></li>
+        <li><a href="#常见问题">常见问题</a>
+          <ul>
+            <li><a href="#ssh-权限配置">.ssh 权限配置</a></li>
+            <li><a href="#公钥登陆需要开启">公钥登陆需要开启</a></li>
+          </ul>
+        </li>
+        <li><a href="#免密原理">免密原理</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

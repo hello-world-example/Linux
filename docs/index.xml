@@ -10,6 +10,57 @@
     
     
     <item>
+      <title>lsof ( List Open Files)</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
+      <description>lsof ( List Open Files) FD  cwd： current work dirctory，应用程序的当前工作目录 txt ：进程程序代码 .u： 该文件被打开并处于 读/写 模式 .r： 该文件被打开并处于 只读模式   更多详见： man lsof
+ TYPE  DIR：目录 REG：文件 IPv4：网际协议 (IP) 套接字 unix： UNIX 域套接字 KQUEUE： 内核时间队列   更多详见： man lsof
+ 案例 网络相关 # 列出所有的网络连接 $ lsof -i # 查看端口占用 $ lsof -i :8080 # 所有 TCP 网络连接信息 $ lsof -i tcp # 所有 UDP 网络连接信息 $ lsof -i udp 文件占用 # 打开 lsof.</description>
+    </item>
+    
+    <item>
+      <title>top</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</guid>
+      <description>top 启动参数  -b 不启用交互模式，直接打印结果 -n &amp;lt;次数&amp;gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &amp;lt;时间&amp;gt; 设置间隔时间 -u &amp;lt;用户名&amp;gt; 指定用户名 -p &amp;lt;进程号&amp;gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &amp;lt;Space&amp;gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE+ P：按%CPU使用率排行 T：按MITE+排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  </description>
+    </item>
+    
+    <item>
+      <title>htop</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</guid>
+      <description>htop 安装 # 启用 EPEL Repository yum -y install epel-release yum -y update # 安装 htop yum -y install htop 输入 htop 即可使用，效果如下：
+ Read More   官网
+Linux htop工具使用详解
+ </description>
+    </item>
+    
+    <item>
+      <title>useradd 创建账户</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Useradd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Useradd/</guid>
+      <description>useradd 创建账户  useradd 是一个 linux 命令，但是它提供了很多参数在用户使用的时候根据自己的需要进行设置 adduser 是一个 perl 脚本，在使用的时候会出现类似 人机交互的界面，提供选项让用户填写和选择，常见在 Ubuntu 系统下 有时又是同一个命令： /usr/sbin/adduser -&amp;gt; useradd ，即 adduser 会 链接到 useradd  Quick Start  【注意】 以下操作需要在 root 账户权限下操作
+ # 创建 kail 用户，并 生成 /home/kail 工作目录 $ useradd -m kail # 为 kail 用户 设置密码 $ passwd kail # 删除 kail 用户，并同时删除 /home/kail 工作目录 $ userdel -r kail useradd  -m (默认)自动建立工作目录 -M 不自动建立工作目录 -c 账户备注，默认空字符串，cat /etc/passwd | grep kail 查看备注  -e 指定账号的有效期限，缺省表示永久有效 -f 指定在密码过期后多少天即关闭该账号 -r：建立系统账号  userdel  无参数 只删除用户，不删除工作目录 -r, --remove 同时删除工作目录 -f, --force 强制删除，例如登陆中的用户  usermod 修改账户  usermod -l &amp;lt;new_name&amp;gt; &amp;lt;old_name&amp;gt; 修改用户名 usermod -d &amp;lt;new_home&amp;gt; &amp;lt;user_name&amp;gt; 修改工作路径 usermod –g &amp;lt;group_name&amp;gt; &amp;lt;user_name&amp;gt; 将用户添加到用户组  Read More   Linux中添加、修改和删除用户和用户组  </description>
+    </item>
+    
+    <item>
+      <title>ssh-keygen 免密登陆</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</guid>
+      <description>ssh-keygen 免密登陆 相关文件  id_rsa ： 私钥 id_rsa.pub ： 公钥 authorized_keys ： 保存已经授权的客户端公钥；A 到 B 免密登陆，需要 把 A 的 id_rsa.pub 公钥，追加到 B 的 authorized_keys 文件中 known_hosts：ssh 没有类似于 https 的证书，需要认为确认链接是否可信  A 访问 B 时，会把 B 的公钥记录在其中，当下次访问相同计算机时，会核对公钥，如果不同会发出警告 如需关闭检查需修改配置，~/.ssh/config （/etc/ssh/sshd_config ）  StrictHostKeyChecking no UserKnownHostsFile /dev/null      如何配置 # 生成 公钥和私钥 # -t 加密算法 # -P 提供密码直接生成 # -f 文件名 $ ssh-keygen -t rsa -P &amp;#34;&amp;#34; -f ~/.ssh/id_rsa -C &amp;#34;备注，一般设置为主机名和邮箱等&amp;#34; $ ll .</description>
+    </item>
+    
+    <item>
       <title>变量</title>
       <link>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -151,18 +202,6 @@ time command </description>
     
     <item>
       <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</guid>
-      <description>htop 安装 # 启用 EPEL Repository yum -y install epel-release yum -y update # 安装 htop yum -y install htop 输入 htop 即可使用，效果如下：
- Read More   官网
-Linux htop工具使用详解
- </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -175,15 +214,6 @@ traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测�
    -c： -r 参数来生成报告，只会发送10个数据包 ， 可以通过 -c 制定发送数据包的个数
   -s：定ping数据包的大小 ，如果设置为负数，则数据包大小是随机数
   统计项说明  Host：显示的是IP地址或本机域名 Loss% 到达此节点的数据包丢包率，显示的每个对应IP的丢包率（TODO） Snt 发送包的数量 Last 最后一包的返回延时 Avg 平均延时 Best 最低延时 Wrst 最差延时 StDev 方差（稳定性）  Read More   mtr 查看路由网络连通性  traviscross/mtr 工具： 在线 traceroute  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</guid>
-      <description>top 启动参数  -b 不启用交互模式，直接打印结果 -n &amp;lt;次数&amp;gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &amp;lt;时间&amp;gt; 设置间隔时间 -u &amp;lt;用户名&amp;gt; 指定用户名 -p &amp;lt;进程号&amp;gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &amp;lt;Space&amp;gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE+ P：按%CPU使用率排行 T：按MITE+排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  </description>
     </item>
     
     <item>
@@ -257,15 +287,6 @@ traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测�
       
       <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/nload/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh-keygen/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/230_Network/ssh-keygen/</guid>
-      <description>// TODO</description>
     </item>
     
     <item>
@@ -491,25 +512,6 @@ chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-
       
       <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/etc/sysconfig/network-scripts/ifcfg-eth0/</guid>
       <description>网络接口配置文件 ifcfg-eth0 配置参数说明  TYPE：配置文件接口类型。在/etc/sysconfig/network-scripts/目录有多种网络配置文件，有Ethernet 、IPsec等类型，网络接口类型为Ethernet。 DEVICE：网络接口名称 BOOTPROTO：系统启动地址协议  none：不使用启动地址协议 bootp：BOOTP协议 dhcp：DHCP动态地址协议 static：静态地址协议   ONBOOT：系统启动时是否激活  yes：系统启动时激活该网络接口 no：系统启动时不激活该网络接口   IPADDR：IP地址 NETMASK：子网掩码 GATEWAY：网关地址 BROADCAST：广播地址 HWADDR/MACADDR：MAC地址。只需设置其中一个，同时设置时不能相互冲突。 PEERDNS：是否指定DNS。如果使用DHCP协议，默认为yes。  yes：如果DNS设置，修改/etc/resolv.conf中的DNS no：不修改/etc/resolv.conf中的DNS   DNS{1, 2}：DNS地址。当PEERDNS为yes时会被写入/etc/resolv.conf中。 NM_CONTROLLED：是否由Network Manager控制该网络接口。修改保存后立即生效，无需重启。被其坑过几次，建议一般设为no。  yes：由Network Manager控制 no：不由Network Manager控制   USERCTL：用户权限控制  yes：非root用户允许控制该网络接口 no：非root用户不运行控制该网络接口   IPV6INIT：是否执行IPv6  yes：支持IPv6 no：不支持IPv6   IPV6ADDR：IPv6地址/前缀长度  静态IP 配置 ONBOOT=yes BOOTPROTO=static IPADDR=192.168.31.6 GATEWAY=192.168.31.1 NETMASK=255.255.255.0 配置生效 service network restart Read More   Linux网络接口配置文件ifcfg-eth0解析  </description>
-    </item>
-    
-    <item>
-      <title>lsof ( List Open Files)</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</guid>
-      <description>lsof ( List Open Files) 参数   lsof filename 显示打开指定文件的所有进程
-  lsof -c string 显示command列中包含指定字符的进程所有打开的文件
-  lsof -p pid 指定进程所有打开的文件
-   lsof +d /DIR/ 显示目录下被进程打开的文件
-  lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长
-   lsof -u username 显示所属user进程打开的文件
-  lsof -g gid 显示归属gid的进程情况
-  lsof -d FD 显示指定文件描述符的进程
-   lsof -a and 操作
-  lsof -i 显示符合条件的进程，格式：lsof -i[46][protocol][@hostname|hostaddr][:service|port]
- 46 &amp;ndash;&amp;gt; IPv4 or IPv6 protocol &amp;ndash;&amp;gt; TCP or UDP hostname &amp;ndash;&amp;gt; Internet host name hostaddr &amp;ndash;&amp;gt; IPv4地址 service &amp;ndash;&amp;gt; /etc/services 文件中的 service name port &amp;ndash;&amp;gt; 端口号    FD  cwd： current work dirctory，应用程序的当前工作目录 txt ：进程程序代码 .</description>
     </item>
     
     <item>

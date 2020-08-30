@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="top 启动参数  -b 不启用交互模式，直接打印结果 -n &lt;次数&gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &lt;时间&gt; 设置间隔时间 -u &lt;用户名&gt; 指定用户名 -p &lt;进程号&gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &lt;Space&gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE&#43; P：按%CPU使用率排行 T：按MITE&#43;排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  "><meta property="og:title" content="" />
+<meta name="description" content="top 启动参数  -b 不启用交互模式，直接打印结果 -n &lt;次数&gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &lt;时间&gt; 设置间隔时间 -u &lt;用户名&gt; 指定用户名 -p &lt;进程号&gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &lt;Space&gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE&#43; P：按%CPU使用率排行 T：按MITE&#43;排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  "><meta property="og:title" content="top" />
 <meta property="og:description" content="top 启动参数  -b 不启用交互模式，直接打印结果 -n &lt;次数&gt; 循环显示的次数（与-b配合会输出完成的进程列表） -i &lt;时间&gt; 设置间隔时间 -u &lt;用户名&gt; 指定用户名 -p &lt;进程号&gt; 指定进程 -H 显示线程  交互参数  h：[重要]帮助命令 &lt;Space&gt;：立即刷新 s：设置刷新时间间隔 c：显示命令完全模式 t:：显示或隐藏进程和CPU状态信息 m：显示或隐藏内存状态信息 l：显示或隐藏uptime信息 f：增加或减少进程显示标志 S：累计模式，会把已完成或退出的子进程占用的CPU时间累计到父进程的MITE&#43; P：按%CPU使用率排行 T：按MITE&#43;排行 M：按%MEM排行 H：显示线程 u：指定显示用户进程 r：修改进程renice值 k： kill：进程 i：只显示正在运行的进程 W：保存对top的设置到文件~/.toprc，下次启动将自动调用toprc文件的设置 q：退出  Read More   Linux命令工具 top详解  Linux top命令详解和使用技巧  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/" />
 <meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
-<title>Top | Linux</title>
+<title>top | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
 
@@ -153,7 +153,27 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/200_Command/220_Troubleshooting/htop/" class="">Htop</a>
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/lsof/" class="">lsof ( List Open Files)</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/top/" class="active">top</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/htop/" class="">htop</a>
   
 
 </li>
@@ -164,26 +184,6 @@ https://github.com/alex-shpak/hugo-book
 
   
   <a href="/Linux/docs/200_Command/220_Troubleshooting/mtr/" class="">Mtr</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/220_Troubleshooting/top/" class="active">Top</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/220_Troubleshooting/lsof/" class="">lsof ( List Open Files)</a>
   
 
 </li>
@@ -411,7 +411,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Top</strong>
+  <strong>top</strong>
 
   <label for="toc-control">
     <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
