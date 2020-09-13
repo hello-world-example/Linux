@@ -8,7 +8,7 @@
 <meta property="og:description" content="ssh-keygen 免密登陆 相关文件  id_rsa ： 私钥 id_rsa.pub ： 公钥 authorized_keys ： 保存已经授权的客户端公钥；A 到 B 免密登陆，需要 把 A 的 id_rsa.pub 公钥，追加到 B 的 authorized_keys 文件中 known_hosts：ssh 没有类似于 https 的证书，需要认为确认链接是否可信  A 访问 B 时，会把 B 的公钥记录在其中，当下次访问相同计算机时，会核对公钥，如果不同会发出警告 如需关闭检查需修改配置，~/.ssh/config （/etc/ssh/sshd_config ）  StrictHostKeyChecking no UserKnownHostsFile /dev/null      如何配置 # 生成 公钥和私钥 # -t 加密算法 # -P 提供密码直接生成 # -f 文件名 $ ssh-keygen -t rsa -P &#34;&#34; -f ~/.ssh/id_rsa -C &#34;备注，一般设置为主机名和邮箱等&#34; $ ll ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/" />
-
+<meta property="article:modified_time" content="2020-08-30T21:31:41+08:00" />
 <title>ssh-keygen 免密登陆 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -560,6 +560,14 @@ PubkeyAuthentication yes
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/e5caae66ff73a8ee34a1a68d59105777439463cb" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
 
 
 
