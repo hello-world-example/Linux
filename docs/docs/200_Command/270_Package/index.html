@@ -4,18 +4,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="stress stress 是一个 Linux 系统压力测试工具，常用作模拟异常进程导致平均负载升高的场景。"><meta property="og:title" content="" />
-<meta property="og:description" content="stress stress 是一个 Linux 系统压力测试工具，常用作模拟异常进程导致平均负载升高的场景。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/stress/" />
-<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
-<title>Stress | Linux</title>
+<meta name="description" content="类型    操作系统 格式 工具     Ubuntu / Debian .deb apt 、apt-get、 apt-cache、dpkg   CentOS .rpm yum、rpm    阿里镜像源    https://developer.aliyun.com/mirror/
+  https://mirrors.aliyun.com/repo/
+   "><meta property="og:title" content="Package.." />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/" />
+
+<title>Package.. | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
 
 <link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
 
 
+<link rel="alternate" type="application/rss+xml" href="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/index.xml" title="Linux" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -122,104 +125,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-  
-  <ul>
-    
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/date/" class="">Date</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/kill/" class="">Kill</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/killall/" class="">Killall</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/ls/" class="">Ls</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/pkill/" class="">Pkill</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/ps/" class="">Ps</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/pstree/" class="">Pstree</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/stress/" class="active">Stress</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/Linux/docs/200_Command/210_Common/time/" class="">Time</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
 
 
 
@@ -350,7 +255,7 @@ https://github.com/alex-shpak/hugo-book
     
 
   
-  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed active">Package..</a>
   
 
 
@@ -358,6 +263,32 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/rpm/" class="">rpm</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/yum/" class="">yum</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
 
 
 
@@ -486,7 +417,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Stress</strong>
+  <strong>Package..</strong>
 
   <label for="toc-control">
     <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -500,7 +431,12 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#stress">stress</a></li>
+    <li>
+      <ul>
+        <li><a href="#类型">类型</a></li>
+        <li><a href="#阿里镜像源">阿里镜像源</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -512,8 +448,39 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="stress">stress</h1>
-<p>stress 是一个 Linux 系统压力测试工具，常用作模拟异常进程导致平均负载升高的场景。</p>
+  <article class="markdown"><h2 id="类型">类型</h2>
+<table>
+<thead>
+<tr>
+<th align="center">操作系统</th>
+<th>格式</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Ubuntu / Debian</td>
+<td><code>.deb</code></td>
+<td><code>apt</code> 、<code>apt-get</code>、 <code>apt-cache</code>、<code>dpkg</code></td>
+</tr>
+<tr>
+<td align="center">CentOS</td>
+<td><code>.rpm</code></td>
+<td><code>yum</code>、<code>rpm</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="阿里镜像源">阿里镜像源</h2>
+<blockquote>
+<ul>
+<li>
+<p><a href="https://developer.aliyun.com/mirror/">https://developer.aliyun.com/mirror/</a></p>
+</li>
+<li>
+<p><a href="https://mirrors.aliyun.com/repo/">https://mirrors.aliyun.com/repo/</a></p>
+</li>
+</ul>
+</blockquote>
 </article>
  
       
@@ -524,18 +491,10 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
-      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 30, 2020</span>
-    </a>
-  </div>
-
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/210_Common/stress.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/_index.md" target="_blank" rel="noopener">
       <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -563,7 +522,12 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#stress">stress</a></li>
+    <li>
+      <ul>
+        <li><a href="#类型">类型</a></li>
+        <li><a href="#阿里镜像源">阿里镜像源</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

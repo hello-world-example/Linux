@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="rpm (Redhat Package Manager) 常用 # 查询过滤 $ rpm -qa | grep &lt;package&gt; # 查询软件包名，不包含版本 $ rpm -q &lt;package_no_version&gt; # 卸载 $ rpm -e &lt;package_full_name&gt; # 安装并显示进度 $ rpm -ivh &lt;package.rpm&gt; 案例 【查询】文件属于哪个包 $ rpm -qf /usr/bin/ls coreutils-8.22-24.el7.x86_64 $ rpm -qf /usr/sbin/ip iproute-4.11.0-25.el7.x86_64 【查询】已安装包 &ldquo;安装到何处&rdquo; $ rpm -ql coreutils-8.22-24.el7.x86_64 | grep /bin .. /usr/bin/cp /usr/bin/csplit /usr/bin/cut /usr/bin/date /usr/bin/dd /usr/bin/df .. 【查看】已安装软件 &ldquo;包信息 &quot; # rpm -qi coreutils $ rpm -qi coreutils-8."><meta property="og:title" content="rpm" />
+<meta property="og:description" content="rpm (Redhat Package Manager) 常用 # 查询过滤 $ rpm -qa | grep &lt;package&gt; # 查询软件包名，不包含版本 $ rpm -q &lt;package_no_version&gt; # 卸载 $ rpm -e &lt;package_full_name&gt; # 安装并显示进度 $ rpm -ivh &lt;package.rpm&gt; 案例 【查询】文件属于哪个包 $ rpm -qf /usr/bin/ls coreutils-8.22-24.el7.x86_64 $ rpm -qf /usr/sbin/ip iproute-4.11.0-25.el7.x86_64 【查询】已安装包 &ldquo;安装到何处&rdquo; $ rpm -ql coreutils-8.22-24.el7.x86_64 | grep /bin .. /usr/bin/cp /usr/bin/csplit /usr/bin/cut /usr/bin/date /usr/bin/dd /usr/bin/df .. 【查看】已安装软件 &ldquo;包信息 &quot; # rpm -qi coreutils $ rpm -qi coreutils-8." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/" />
+
+<title>rpm | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/rpm/" class="active">rpm</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/yum/" class="">yum</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>rpm</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rpm-redhat-package-manager">rpm (Redhat Package Manager)</a>
+      <ul>
+        <li><a href="#常用">常用</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#查询文件属于哪个包">【查询】文件属于哪个包</a></li>
+            <li><a href="#查询已安装包-安装到何处">【查询】已安装包 &ldquo;安装到何处&rdquo;</a></li>
+            <li><a href="#查看已安装软件-包信息-">【查看】已安装软件 &ldquo;包信息 &quot;</a></li>
+            <li><a href="#查看已安装软件包的-配置文件">【查看】已安装软件包的 &ldquo;配置文件&rdquo;</a></li>
+            <li><a href="#查看已安装软件包的-文档位置">【查看】已安装软件包的 &ldquo;文档位置&rdquo;</a></li>
+            <li><a href="#查看已安装软件包的-依赖">【查看】已安装软件包的 &ldquo;依赖&rdquo;</a></li>
+            <li><a href="#查看未安装软件包的信息">【查看】【未安装】软件包的信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="rpm-redhat-package-manager">rpm (Redhat Package Manager)</h1>
+<h2 id="常用">常用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查询过滤</span>
+$ rpm -qa | grep &lt;package&gt;
+
+<span style="color:#75715e"># 查询软件包名，不包含版本</span>
+$ rpm -q &lt;package_no_version&gt;
+
+<span style="color:#75715e"># 卸载</span>
+$ rpm -e &lt;package_full_name&gt;
+
+<span style="color:#75715e"># 安装并显示进度</span>
+$ rpm -ivh &lt;package.rpm&gt;
+</code></pre></div><h2 id="案例">案例</h2>
+<h3 id="查询文件属于哪个包">【查询】文件属于哪个包</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rpm -qf /usr/bin/ls
+coreutils-8.22-24.el7.x86_64
+
+$ rpm -qf /usr/sbin/ip
+iproute-4.11.0-25.el7.x86_64
+</code></pre></div><h3 id="查询已安装包-安装到何处">【查询】已安装包 &ldquo;安装到何处&rdquo;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rpm -ql coreutils-8.22-24.el7.x86_64 | grep /bin
+..
+/usr/bin/cp
+/usr/bin/csplit
+/usr/bin/cut
+/usr/bin/date
+/usr/bin/dd
+/usr/bin/df
+..
+</code></pre></div><h3 id="查看已安装软件-包信息-">【查看】已安装软件 &ldquo;包信息 &quot;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># rpm -qi coreutils</span>
+$ rpm -qi coreutils-8.22-24.el7.x86_64
+Name        : coreutils
+Version     : 8.22
+Release     : 24.el7
+Architecture: x86_64
+Install Date: Tue <span style="color:#ae81ff">17</span> Sep <span style="color:#ae81ff">2019</span> 02:40:47 AM CST
+Group       : System Environment/Base
+Size        : <span style="color:#ae81ff">14593469</span>
+License     : GPLv3+
+Signature   : RSA/SHA256, Fri <span style="color:#ae81ff">23</span> Aug <span style="color:#ae81ff">2019</span> 05:21:30 AM CST, Key ID 24c6a8a7f4a80eb5
+Source RPM  : coreutils-8.22-24.el7.src.rpm
+Build Date  : Tue <span style="color:#ae81ff">20</span> Aug <span style="color:#ae81ff">2019</span> 02:27:26 PM CST
+Build Host  : x86-01.bsys.centos.org
+Relocations : <span style="color:#f92672">(</span>not relocatable<span style="color:#f92672">)</span>
+Packager    : CentOS BuildSystem &lt;http://bugs.centos.org&gt;
+Vendor      : CentOS
+URL         : http://www.gnu.org/software/coreutils/
+Summary     : A set of basic GNU tools commonly used in shell scripts
+Description :
+These are the GNU core utilities.  This package is the combination of
+the old GNU fileutils, sh-utils, and textutils packages.
+</code></pre></div><h3 id="查看已安装软件包的-配置文件">【查看】已安装软件包的 &ldquo;配置文件&rdquo;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rpm -qc coreutils
+/etc/DIR_COLORS
+/etc/DIR_COLORS.256color
+/etc/DIR_COLORS.lightbgcolor
+/etc/profile.d/colorls.csh
+/etc/profile.d/colorls.sh
+</code></pre></div><h3 id="查看已安装软件包的-文档位置">【查看】已安装软件包的 &ldquo;文档位置&rdquo;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rpm -qd coreutils
+/usr/share/doc/coreutils-8.22/ABOUT-NLS
+/usr/share/doc/coreutils-8.22/COPYING
+/usr/share/doc/coreutils-8.22/ChangeLog.bz2
+/usr/share/doc/coreutils-8.22/NEWS
+/usr/share/doc/coreutils-8.22/README
+...
+</code></pre></div><h3 id="查看已安装软件包的-依赖">【查看】已安装软件包的 &ldquo;依赖&rdquo;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rpm -qR coreutils  
+/bin/sh
+/bin/sh
+/bin/sh
+/sbin/install-info
+/sbin/install-info
+/sbin/install-info
+config<span style="color:#f92672">(</span>coreutils<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 8.22-24.el7
+gmp
+grep
+...
+</code></pre></div><h3 id="查看未安装软件包的信息">【查看】【未安装】软件包的信息</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 包信息</span>
+$ rpm -qpi &lt;package.rpm&gt;
+
+<span style="color:#75715e"># 包含的文件</span>
+$ rpm -qpl &lt;package.rpm&gt;
+
+<span style="color:#75715e"># 文档位置</span>
+$ rpm -qpd &lt;package.rpm&gt;
+
+<span style="color:#75715e"># 配置文件</span>
+$ rpm -qpc &lt;package.rpm&gt;
+
+<span style="color:#75715e"># 依赖关机</span>
+$ rpm -qpR &lt;package.rpm&gt;
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="http://math.ecnu.edu.cn/~jypan/Teaching/Linux/command/rpm.htm">RPM 命令</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/rpm.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rpm-redhat-package-manager">rpm (Redhat Package Manager)</a>
+      <ul>
+        <li><a href="#常用">常用</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#查询文件属于哪个包">【查询】文件属于哪个包</a></li>
+            <li><a href="#查询已安装包-安装到何处">【查询】已安装包 &ldquo;安装到何处&rdquo;</a></li>
+            <li><a href="#查看已安装软件-包信息-">【查看】已安装软件 &ldquo;包信息 &quot;</a></li>
+            <li><a href="#查看已安装软件包的-配置文件">【查看】已安装软件包的 &ldquo;配置文件&rdquo;</a></li>
+            <li><a href="#查看已安装软件包的-文档位置">【查看】已安装软件包的 &ldquo;文档位置&rdquo;</a></li>
+            <li><a href="#查看已安装软件包的-依赖">【查看】已安装软件包的 &ldquo;依赖&rdquo;</a></li>
+            <li><a href="#查看未安装软件包的信息">【查看】【未安装】软件包的信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

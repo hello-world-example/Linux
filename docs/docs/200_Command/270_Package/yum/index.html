@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="yum (Yellow dog Update Modifier)  自动化地 升级/安装/移除 rpm包，收集 rpm包 的相关信息，检查依赖性并自动提示用户解决 关键之处是要有可靠的 repository，可以是 HTTP、FTP、本地 站点 /etc/yum.conf 配置文件 /etc/yum.repos.d/ 仓库配置  常用命令 # 查看帮助 $ yum help # 查找软件包 $ yum list | grep &lt;package&gt; # 查找已安装的包 $ yum list installed # 安装 $ yum install &lt;package&gt; $ yum reinstall &lt;package&gt; # 卸载 $ yum remove &lt;package&gt; # 查看包信息 $ yum info &lt;package&gt; # 查看日志 $ tail -fn 400 /var/log/yum.log 更新 # 查看可用的更新 $ yum check-update #【慎用】更新所有 rpm 包，也升级系统内核 $ yum update # 指定更新 $ yum update bash."><meta property="og:title" content="yum" />
+<meta property="og:description" content="yum (Yellow dog Update Modifier)  自动化地 升级/安装/移除 rpm包，收集 rpm包 的相关信息，检查依赖性并自动提示用户解决 关键之处是要有可靠的 repository，可以是 HTTP、FTP、本地 站点 /etc/yum.conf 配置文件 /etc/yum.repos.d/ 仓库配置  常用命令 # 查看帮助 $ yum help # 查找软件包 $ yum list | grep &lt;package&gt; # 查找已安装的包 $ yum list installed # 安装 $ yum install &lt;package&gt; $ yum reinstall &lt;package&gt; # 卸载 $ yum remove &lt;package&gt; # 查看包信息 $ yum info &lt;package&gt; # 查看日志 $ tail -fn 400 /var/log/yum.log 更新 # 查看可用的更新 $ yum check-update #【慎用】更新所有 rpm 包，也升级系统内核 $ yum update # 指定更新 $ yum update bash." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/" />
+
+<title>yum | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/rpm/" class="">rpm</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/yum/" class="active">yum</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>yum</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#yum--yellow-dog-update-modifier">yum  (Yellow dog Update Modifier)</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a>
+          <ul>
+            <li><a href="#更新">更新</a></li>
+          </ul>
+        </li>
+        <li><a href="#配置-etcyumreposdrepo">配置 /etc/yum.repos.d/*.repo</a>
+          <ul>
+            <li><a href="#相关命令">相关命令</a></li>
+            <li><a href="#repo-文件格式">*.repo 文件格式</a></li>
+          </ul>
+        </li>
+        <li><a href="#yum-变量">yum 变量</a></li>
+        <li><a href="#etcyumconf">/etc/yum.conf</a></li>
+        <li><a href="#镜像仓库加速">镜像仓库加速</a>
+          <ul>
+            <li><a href="#备份-centos-baserepo">备份 CentOS-Base.repo</a></li>
+            <li><a href="#163">163</a></li>
+            <li><a href="#aliyun">aliyun</a></li>
+            <li><a href="#生成缓存">生成缓存</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="yum--yellow-dog-update-modifier">yum  (Yellow dog Update Modifier)</h1>
+<ul>
+<li>自动化地 升级/安装/移除 rpm包，收集 rpm包 的相关信息，检查依赖性并自动提示用户解决</li>
+<li>关键之处是要有可靠的 repository，可以是 HTTP、FTP、本地 站点</li>
+<li><code>/etc/yum.conf</code> 配置文件</li>
+<li><code>/etc/yum.repos.d/</code> 仓库配置</li>
+</ul>
+<h2 id="常用命令">常用命令</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看帮助</span>
+$ yum help
+
+<span style="color:#75715e"># 查找软件包</span>
+$ yum list | grep &lt;package&gt;
+<span style="color:#75715e"># 查找已安装的包</span>
+$ yum list installed
+
+<span style="color:#75715e"># 安装</span>
+$ yum install &lt;package&gt;
+$ yum reinstall &lt;package&gt;
+
+<span style="color:#75715e"># 卸载</span>
+$ yum remove &lt;package&gt;
+
+<span style="color:#75715e"># 查看包信息</span>
+$ yum info &lt;package&gt;
+
+<span style="color:#75715e"># 查看日志</span>
+$ tail -fn <span style="color:#ae81ff">400</span> /var/log/yum.log
+</code></pre></div><h3 id="更新">更新</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看可用的更新</span>
+$ yum check-update
+
+<span style="color:#75715e">#【慎用】更新所有 rpm 包，也升级系统内核</span>
+$ yum update
+
+<span style="color:#75715e"># 指定更新</span>
+$ yum update bash.x86_64
+
+<span style="color:#75715e"># 更新所有 rpm 包，不升级系统内核</span>
+$ yum upgrade bash.x86_64
+</code></pre></div><h2 id="配置-etcyumreposdrepo">配置 /etc/yum.repos.d/*.repo</h2>
+<h3 id="相关命令">相关命令</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看 可用的 仓库列表</span>
+$ yum repolist
+
+<span style="color:#75715e"># 查看所有仓库列表，并显示是否可用，通过 enabled={0|1} 控制，默认 1 可用</span>
+$ yum repolist all
+$ yum repolist enable
+
+
+<span style="color:#75715e"># 增加仓库</span>
+$ yum-config-manager --add-repo http://kail.test
+<span style="color:#75715e"># 禁用仓库</span>
+$ yum-config-manager --disable repository
+<span style="color:#75715e"># 启用仓库</span>
+$ yum-config-manager --enable repository
+<span style="color:#75715e"># 删除仓库</span>
+$ rm /etc/yum.repos.d/kail.test.repo
+</code></pre></div><h3 id="repo-文件格式">*.repo 文件格式</h3>
+<blockquote>
+<p>
+  <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-setting_repository_options">SETTING [REPOSITORY] OPTIONS</a></p>
+</blockquote>
+<pre><code class="language-properties" data-lang="properties"># 仓库 ID
+[base]
+# 仓库 名称，
+name=CentOS-$releasever - Base
+
+# 仓库 镜像列表地址，是多个 baseurl 的集合
+# 这里是 http://mirrorlist.centos.org/?release=7&amp;arch=x86_64&amp;repo=os&amp;infra=stock
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os&amp;infra=$infra
+
+# 仓库地址，可以是 http://、ftp://、file:// 协议
+# baseurl=http://mirror.centos.org/centos/$releasever/os/$basearch/
+
+# 仓库是否可用
+enabled=1
+
+# gpg 校验
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+</code></pre><h2 id="yum-变量">yum 变量</h2>
+<blockquote>
+<ul>
+<li>
+<p>
+  <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-Using_Yum_Variables">USING YUM VARIABLES</a></p>
+</li>
+<li>
+<p>❤ <code>/etc/yum/vars/*</code> 中定义的变量优先级最该</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>$releasever</code>
+<ul>
+<li>获取 <code>/etc/yum.conf</code> 的 <code>distroverpkg</code> 的值</li>
+<li>根据该值获取对应的 rpm 包名</li>
+<li>获取到这个 rpm 包的 release 版本号 就是这个变量的值</li>
+</ul>
+</li>
+<li><code>$basearch</code> 是 <code>arch</code> 命令的结果，如：<code>x86_64</code></li>
+<li><code>$infra</code> 是 <code>cat /etc/yum/vars/infra</code> 为 <code>stock</code></li>
+</ul>
+<p><strong>通过 Pyhton 获取 yum 变量的值</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python -c <span style="color:#e6db74">&#39;import yum; print(yum.YumBase().conf.yumvar)&#39;</span> 
+
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#39;uuid&#39;</span>: <span style="color:#e6db74">&#39;9a71351f-af16-45fc-afce-8897782011ba&#39;</span>, 
+  <span style="color:#e6db74">&#39;contentdir&#39;</span>: <span style="color:#e6db74">&#39;centos&#39;</span>, 
+  <span style="color:#e6db74">&#39;basearch&#39;</span>: <span style="color:#e6db74">&#39;x86_64&#39;</span>, 
+  <span style="color:#e6db74">&#39;infra&#39;</span>: <span style="color:#e6db74">&#39;stock&#39;</span>, 
+  <span style="color:#e6db74">&#39;releasever&#39;</span>: <span style="color:#e6db74">&#39;7&#39;</span>, 
+  <span style="color:#e6db74">&#39;arch&#39;</span>: <span style="color:#e6db74">&#39;ia32e&#39;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="etcyumconf">/etc/yum.conf</h2>
+<pre><code class="language-properties" data-lang="properties">[main]
+# yum 缓存的目录，在此存储下载的rpm 包和数据库
+cachedir=/var/cache/yum/$basearch/$releasever
+# 安装完成后是否保留软件包，0为不保留，1为保留
+keepcache=0
+# Debug 信息输出等级，范围为 0-10
+debuglevel=2
+# yum 日志文件位置，❤ 查询过去所做的更新
+logfile=/var/log/yum.log
+#【1】则只会安装和系统架构匹配的软件包
+exactarch=1
+# 允许更新陈旧的 RPM 包
+obsoletes=1
+# 否是进行 gpg(GNU Private Guard) 校验，以确定 rpm 包的来源是有效和安全的
+gpgcheck=1
+# 是否启用插件
+plugins=1
+# 允许并行同时安装
+installonly_limit=5
+bugtracker_url=http://bugs.centos.org/set_project.php?project_id=23&amp;ref=http://bugs.centos.org/bug_report_page.php?category=yum
+# $releasever 变量的值，
+distroverpkg=centos-release
+
+# 屏蔽不想更新的 RPM
+exclude=selinux*
+</code></pre><h2 id="镜像仓库加速">镜像仓库加速</h2>
+<blockquote>
+<p><a href="https://developer.aliyun.com/mirror/">https://developer.aliyun.com/mirror/</a></p>
+</blockquote>
+<h3 id="备份-centos-baserepo">备份 CentOS-Base.repo</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+</code></pre></div><h3 id="163">163</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -o /etc/yum.repos.d/CentOS-163-7.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
+</code></pre></div><h3 id="aliyun">aliyun</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -o /etc/yum.repos.d/CentOS-Ali-7.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+</code></pre></div><h3 id="生成缓存">生成缓存</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yum clean all
+$ yum makecache
+
+<span style="color:#75715e"># 查看 可用的 仓库列表</span>
+$ yum repolist
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-configuring_yum_and_yum_repositories">CONFIGURING YUM AND YUM REPOSITORIES</a>
+<ul>
+<li>
+  <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/sec-yum_repository">CREATING A YUM REPOSITORY</a> 自建仓库</li>
+</ul>
+</li>
+<li>
+  <a href="https://www.cnblogs.com/mchina/archive/2013/01/04/2842275.html">CentOS yum 源的配置与使用</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/yum.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#yum--yellow-dog-update-modifier">yum  (Yellow dog Update Modifier)</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a>
+          <ul>
+            <li><a href="#更新">更新</a></li>
+          </ul>
+        </li>
+        <li><a href="#配置-etcyumreposdrepo">配置 /etc/yum.repos.d/*.repo</a>
+          <ul>
+            <li><a href="#相关命令">相关命令</a></li>
+            <li><a href="#repo-文件格式">*.repo 文件格式</a></li>
+          </ul>
+        </li>
+        <li><a href="#yum-变量">yum 变量</a></li>
+        <li><a href="#etcyumconf">/etc/yum.conf</a></li>
+        <li><a href="#镜像仓库加速">镜像仓库加速</a>
+          <ul>
+            <li><a href="#备份-centos-baserepo">备份 CentOS-Base.repo</a></li>
+            <li><a href="#163">163</a></li>
+            <li><a href="#aliyun">aliyun</a></li>
+            <li><a href="#生成缓存">生成缓存</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

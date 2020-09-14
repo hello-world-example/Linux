@@ -10,7 +10,7 @@
  # 创建 kail 用户，并 生成 /home/kail 工作目录 $ useradd -m kail # 为 kail 用户 设置密码 $ passwd kail # 删除 kail 用户，并同时删除 /home/kail 工作目录 $ userdel -r kail useradd  -m (默认)自动建立工作目录 -M 不自动建立工作目录 -c 账户备注，默认空字符串，cat /etc/passwd | grep kail 查看备注  -e 指定账号的有效期限，缺省表示永久有效 -f 指定在密码过期后多少天即关闭该账号 -r：建立系统账号  userdel  无参数 只删除用户，不删除工作目录 -r, --remove 同时删除工作目录 -f, --force 强制删除，例如登陆中的用户  usermod 修改账户  usermod -l &lt;new_name&gt; &lt;old_name&gt; 修改用户名 usermod -d &lt;new_home&gt; &lt;user_name&gt; 修改工作路径 usermod –g &lt;group_name&gt; &lt;user_name&gt; 将用户添加到用户组  Read More   Linux中添加、修改和删除用户和用户组  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Useradd/" />
-
+<meta property="article:modified_time" content="2020-08-30T21:31:41+08:00" />
 <title>useradd 创建账户 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -330,6 +330,29 @@ https://github.com/alex-shpak/hugo-book
     
 
   
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
   <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
   
 
@@ -531,6 +554,14 @@ $ userdel -r kail
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/e5caae66ff73a8ee34a1a68d59105777439463cb" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Aug 30, 2020</span>
+    </a>
+  </div>
 
 
 

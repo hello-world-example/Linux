@@ -4,25 +4,35 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/lsof/</loc>
-    <lastmod>2020-08-30T18:48:54+08:00</lastmod>
+    <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</loc>
-    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
+    <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</loc>
-    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
+    <lastmod>2020-08-30T21:31:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/</loc>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Useradd/</loc>
+    <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</loc>
+    <lastmod>2020-08-30T21:31:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/</loc>
   </url>
   
   <url>
@@ -73,6 +83,10 @@
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/</loc>
   </url>
   
   <url>
@@ -326,7 +340,7 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/</loc>
-    <lastmod>2020-08-30T18:48:54+08:00</lastmod>
+    <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
   
   <url>
