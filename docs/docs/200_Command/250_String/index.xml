@@ -10,6 +10,18 @@
     
     
     <item>
+      <title>vim</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/</guid>
+      <description>Normal Mode   开始编辑
+ i 光标前 a 光标后 I 行前 A 行后 o 下一行 O 上一行    跳跃
+ ^ 行首 $ 行尾 指定行 &amp;lt;行号&amp;gt;gg 文首 gg 文尾 GG    编辑
+ u 撤销 Ctrl + r 取消撤销 删除单个字符 x 剪切当前行 dd 复制当前行 yy 粘贴行 p    Command Mode  设置行号 :set nu 打开高亮 :set hls  关闭高亮 :set nohls 查找 :/&amp;lt;string&amp;gt;  向下查找 n 向上查找 N   替换 %s/&amp;lt;old_str&amp;gt;/&amp;lt;new_str&amp;gt;/g  窗口  :split 水平分割窗口 :vsplit 垂直分割窗口 :close 关闭创库 Ctrl + w 切换窗口    案例 命令帮助 :help :w 执行外部命令 :!</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/grep/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

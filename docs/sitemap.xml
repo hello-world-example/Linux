@@ -9,6 +9,7 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</loc>
+    <lastmod>2020-09-13T14:23:18+08:00</lastmod>
   </url>
   
   <url>
@@ -22,8 +23,7 @@
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/</loc>
-    <lastmod>2020-09-15T00:01:49+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</loc>
   </url>
   
   <url>
@@ -32,13 +32,16 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</loc>
     <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/</loc>
-    <lastmod>2020-09-15T00:01:49+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Yum/</loc>
   </url>
   
   <url>

@@ -52,10 +52,10 @@ Linux htop工具使用详解
     
     <item>
       <title>rpm</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</guid>
       <description>rpm (Redhat Package Manager) 常用 # 查询过滤 $ rpm -qa | grep &amp;lt;package&amp;gt; # 查询软件包名，不包含版本 $ rpm -q &amp;lt;package_no_version&amp;gt; # 卸载 $ rpm -e &amp;lt;package_full_name&amp;gt; # 安装并显示进度 $ rpm -ivh &amp;lt;package.rpm&amp;gt; 案例 【查询】文件属于哪个包 $ rpm -qf /usr/bin/ls coreutils-8.22-24.el7.x86_64 $ rpm -qf /usr/sbin/ip iproute-4.11.0-25.el7.x86_64 【查询】已安装包 &amp;ldquo;安装到何处&amp;rdquo; $ rpm -ql coreutils-8.22-24.el7.x86_64 | grep /bin .. /usr/bin/cp /usr/bin/csplit /usr/bin/cut /usr/bin/date /usr/bin/dd /usr/bin/df .. 【查看】已安装软件 &amp;ldquo;包信息 &amp;quot; # rpm -qi coreutils $ rpm -qi coreutils-8.</description>
     </item>
     
@@ -70,6 +70,18 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>vim</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/</guid>
+      <description>Normal Mode   开始编辑
+ i 光标前 a 光标后 I 行前 A 行后 o 下一行 O 上一行    跳跃
+ ^ 行首 $ 行尾 指定行 &amp;lt;行号&amp;gt;gg 文首 gg 文尾 GG    编辑
+ u 撤销 Ctrl + r 取消撤销 删除单个字符 x 剪切当前行 dd 复制当前行 yy 粘贴行 p    Command Mode  设置行号 :set nu 打开高亮 :set hls  关闭高亮 :set nohls 查找 :/&amp;lt;string&amp;gt;  向下查找 n 向上查找 N   替换 %s/&amp;lt;old_str&amp;gt;/&amp;lt;new_str&amp;gt;/g  窗口  :split 水平分割窗口 :vsplit 垂直分割窗口 :close 关闭创库 Ctrl + w 切换窗口    案例 命令帮助 :help :w 执行外部命令 :!</description>
+    </item>
+    
+    <item>
       <title>ssh-keygen 免密登陆</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -80,10 +92,10 @@ Linux htop工具使用详解
     
     <item>
       <title>yum</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Yum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Yum/</guid>
       <description>yum (Yellow dog Update Modifier)  自动化地 升级/安装/移除 rpm包，收集 rpm包 的相关信息，检查依赖性并自动提示用户解决 关键之处是要有可靠的 repository，可以是 HTTP、FTP、本地 站点 /etc/yum.conf 配置文件 /etc/yum.repos.d/ 仓库配置  常用命令 # 查看帮助 $ yum help # 查找软件包 $ yum list | grep &amp;lt;package&amp;gt; # 查找已安装的包 $ yum list installed # 安装 $ yum install &amp;lt;package&amp;gt; $ yum reinstall &amp;lt;package&amp;gt; # 卸载 $ yum remove &amp;lt;package&amp;gt; # 查看包信息 $ yum info &amp;lt;package&amp;gt; # 查看日志 $ tail -fn 400 /var/log/yum.log 更新 # 查看可用的更新 $ yum check-update #【慎用】更新所有 rpm 包，也升级系统内核 $ yum update # 指定更新 $ yum update bash.</description>
     </item>
     

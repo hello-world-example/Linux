@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Normal Mode   开始编辑
+ i 光标前 a 光标后 I 行前 A 行后 o 下一行 O 上一行    跳跃
+ ^ 行首 $ 行尾 指定行 &lt;行号&gt;gg 文首 gg 文尾 GG    编辑
+ u 撤销 Ctrl &#43; r 取消撤销 删除单个字符 x 剪切当前行 dd 复制当前行 yy 粘贴行 p    Command Mode  设置行号 :set nu 打开高亮 :set hls  关闭高亮 :set nohls 查找 :/&lt;string&gt;  向下查找 n 向上查找 N   替换 %s/&lt;old_str&gt;/&lt;new_str&gt;/g  窗口  :split 水平分割窗口 :vsplit 垂直分割窗口 :close 关闭创库 Ctrl &#43; w 切换窗口    案例 命令帮助 :help :w 执行外部命令 :!"><meta property="og:title" content="vim" />
+<meta property="og:description" content="Normal Mode   开始编辑
+ i 光标前 a 光标后 I 行前 A 行后 o 下一行 O 上一行    跳跃
+ ^ 行首 $ 行尾 指定行 &lt;行号&gt;gg 文首 gg 文尾 GG    编辑
+ u 撤销 Ctrl &#43; r 取消撤销 删除单个字符 x 剪切当前行 dd 复制当前行 yy 粘贴行 p    Command Mode  设置行号 :set nu 打开高亮 :set hls  关闭高亮 :set nohls 查找 :/&lt;string&gt;  向下查找 n 向上查找 N   替换 %s/&lt;old_str&gt;/&lt;new_str&gt;/g  窗口  :split 水平分割窗口 :vsplit 垂直分割窗口 :close 关闭创库 Ctrl &#43; w 切换窗口    案例 命令帮助 :help :w 执行外部命令 :!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/" />
+
+<title>vim | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/250_String/Vim/" class="active">vim</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/250_String/grep/" class="">Grep</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/250_String/tr/" class="">Tr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>vim</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#normal-mode">Normal Mode</a></li>
+        <li><a href="#command-mode">Command Mode</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#命令帮助">命令帮助</a></li>
+            <li><a href="#执行外部命令">执行外部命令</a></li>
+            <li><a href="#插入外部命令的执行结果">插入外部命令的执行结果</a></li>
+            <li><a href="#保存-root-权限的文件">保存 root 权限的文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="normal-mode">Normal Mode</h2>
+<ul>
+<li>
+<p>开始编辑</p>
+<ul>
+<li><code>i</code> 光标前</li>
+<li><code>a</code> 光标后</li>
+<li><code>I</code> 行前</li>
+<li><code>A</code> 行后</li>
+<li><code>o</code> 下一行</li>
+<li><code>O</code> 上一行</li>
+</ul>
+</li>
+<li>
+<p>跳跃</p>
+<ul>
+<li><code>^</code> 行首</li>
+<li><code>$</code> 行尾</li>
+<li>指定行 <code>&lt;行号&gt;gg</code></li>
+<li>文首 <code>gg</code></li>
+<li>文尾 <code>GG</code></li>
+</ul>
+</li>
+<li>
+<p>编辑</p>
+<ul>
+<li><code>u</code> 撤销</li>
+<li><code>Ctrl + r</code> 取消撤销</li>
+<li>删除单个字符 <code>x</code></li>
+<li>剪切当前行 <code>dd</code></li>
+<li>复制当前行 <code>yy</code></li>
+<li>粘贴行 <code>p</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="command-mode">Command Mode</h2>
+<ul>
+<li>设置行号 <code>:set nu</code></li>
+<li>打开高亮 <code>:set hls </code></li>
+<li>关闭高亮 <code>:set nohls</code></li>
+<li>查找 <code>:/&lt;string&gt;</code>
+<ul>
+<li>向下查找 <code>n</code></li>
+<li>向上查找 <code>N</code></li>
+</ul>
+</li>
+<li>替换 <code>%s/&lt;old_str&gt;/&lt;new_str&gt;/g</code></li>
+<li></li>
+<li>窗口
+<ul>
+<li><code>:split</code> 水平分割窗口</li>
+<li><code>:vsplit</code> 垂直分割窗口</li>
+<li><code>:close</code> 关闭创库</li>
+<li><code>Ctrl + w</code> 切换窗口</li>
+</ul>
+</li>
+</ul>
+<h2 id="案例">案例</h2>
+<h3 id="命令帮助">命令帮助</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">:help :w
+</code></pre></div><h3 id="执行外部命令">执行外部命令</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">:! ls -al
+</code></pre></div><h3 id="插入外部命令的执行结果">插入外部命令的执行结果</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">:r ! ls -al
+</code></pre></div><h3 id="保存-root-权限的文件">保存 root 权限的文件</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">:w ! sudo tee %
+
+<span style="color:#75715e"># :w 写入文件</span>
+<span style="color:#75715e"># ! 执行外部命令</span>
+<span style="color:#75715e"># sudo 切换到 root 执行</span>
+<span style="color:#75715e"># tee 将标准输入中的内容写入文件，并传递到后续管道，这里没有后续管道，所以直接丢弃</span>
+<span style="color:#75715e"># % 为当前文件名</span>
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/250_String/Vim.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#normal-mode">Normal Mode</a></li>
+        <li><a href="#command-mode">Command Mode</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#命令帮助">命令帮助</a></li>
+            <li><a href="#执行外部命令">执行外部命令</a></li>
+            <li><a href="#插入外部命令的执行结果">插入外部命令的执行结果</a></li>
+            <li><a href="#保存-root-权限的文件">保存 root 权限的文件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
