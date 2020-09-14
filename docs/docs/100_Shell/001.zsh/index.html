@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &gt;&gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &gt;&gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github."><meta property="og:title" content="zsh" />
+<meta property="og:description" content="zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &gt;&gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &gt;&gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/" />
+
+<title>zsh | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/001.zsh/" class="active">zsh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/Foreach/" class="">Foreach</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>zsh</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zsh">zsh</a>
+      <ul>
+        <li><a href="#切换-zsh">切换 zsh</a></li>
+        <li><a href="#oh-my-zsh">oh-my-zsh</a></li>
+        <li><a href="#环境变量">环境变量</a></li>
+        <li><a href="#使用-agnoster-主题">使用 agnoster 主题</a>
+          <ul>
+            <li><a href="#修改主题">修改主题</a></li>
+            <li><a href="#乱码问题---安装字体">乱码问题 - 安装字体</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="zsh">zsh</h1>
+<h2 id="切换-zsh">切换 zsh</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ chsh -s /bin/zsh
+
+<span style="color:#75715e"># 查看 zsh 版本</span>
+$ /bin/zsh --version
+zsh 5.3 <span style="color:#f92672">(</span>x86_64-apple-darwin17.0<span style="color:#f92672">)</span>
+
+<span style="color:#75715e"># 切换回 bash</span>
+$ chsh -s /bin/bash
+</code></pre></div><h2 id="oh-my-zsh">oh-my-zsh</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># clone 仓库</span>
+$ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+<span style="color:#75715e"># 拷贝一份 zsh 模板</span>
+$ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+</code></pre></div><h2 id="环境变量">环境变量</h2>
+<ul>
+<li><code>.zshrc</code> : <code>zsh</code> 的用户环境变量文件</li>
+<li><code>.bash_profile</code> : <code>bash</code> 的用户环境变量文件</li>
+<li></li>
+<li><code>zsh</code> 继承  <code>bash</code> 的环境变量配置
+<ul>
+<li><code>cat 'source ~/.bash_profile' &gt;&gt; ~/.zshrc </code></li>
+<li><code>cat 'source /etc/profile' &gt;&gt; ~/.zshrc </code></li>
+</ul>
+</li>
+</ul>
+<h2 id="使用-agnoster-主题">使用 agnoster 主题</h2>
+<blockquote>
+<ul>
+<li>主题列表： <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></li>
+<li>
+  <a href="https://github.com/agnoster/agnoster-zsh-theme">agnoster / agnoster-zsh-theme 主题</a></li>
+</ul>
+</blockquote>
+<h3 id="修改主题">修改主题</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 编辑 zsh 文件，找到 ZSH_THEME，修改为 agnoster</span>
+$ vim ~/.zshrc
+ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;agnoster&#34;</span>
+</code></pre></div><h3 id="乱码问题---安装字体">乱码问题 - 安装字体</h3>
+<blockquote>
+<ul>
+<li><a href="https://github.com/powerline/fonts.git">https://github.com/powerline/fonts.git</a> 或</li>
+<li><a href="https://github.com/abertsch/Menlo-for-Powerline.git">https://github.com/abertsch/Menlo-for-Powerline.git</a></li>
+</ul>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/abertsch/Menlo-for-Powerline.git
+
+<span style="color:#75715e"># 双击字体文件进行安装</span>
+$ open Menlo-for-Powerline/*.ttf
+</code></pre></div><ul>
+<li>重启 <code>iTerm</code></li>
+<li><code>⌘ + ,</code> &gt; <code>Profiles</code> &gt; <code>Text</code> &gt; <code>Font</code> &gt;  选择字体 <strong><code>'Menlo for Powerline'</code></strong></li>
+</ul>
+<h2 id="read-more">Read More</h2>
+<ul>
+<li><a href="http://www.zsh.org">www.zsh.org</a>
+<ul>
+<li>
+  <a href="http://zsh.sourceforge.net/Doc/Release/zsh_toc.html">Z  Shell Doc</a></li>
+</ul>
+</li>
+<li><a href="https://ohmyz.sh/">https://ohmyz.sh/</a>
+<ul>
+<li>
+  <a href="https://github.com/ohmyzsh/ohmyzsh/wiki">Oh My Zsh wiki</a></li>
+</ul>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/001.zsh.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zsh">zsh</a>
+      <ul>
+        <li><a href="#切换-zsh">切换 zsh</a></li>
+        <li><a href="#oh-my-zsh">oh-my-zsh</a></li>
+        <li><a href="#环境变量">环境变量</a></li>
+        <li><a href="#使用-agnoster-主题">使用 agnoster 主题</a>
+          <ul>
+            <li><a href="#修改主题">修改主题</a></li>
+            <li><a href="#乱码问题---安装字体">乱码问题 - 安装字体</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

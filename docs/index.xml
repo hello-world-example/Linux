@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>zsh</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</guid>
+      <description>zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &amp;gt;&amp;gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &amp;gt;&amp;gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github.</description>
+    </item>
+    
+    <item>
       <title>top</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
