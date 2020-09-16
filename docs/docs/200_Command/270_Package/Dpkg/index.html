@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="dpkg (Debian Package) 常用 # 查询过滤 $ dpkg -l | grep &lt;package&gt; # 卸载 $ dpkg -P package-name # 删除软件包（包括配置信息） -P --purge $ dpkg -r package-name # 删除软件包（保留配置信息） -r --remove # 安装 $ dpkg -i &lt;package-name.deb&gt; 案例 【查询】文件属于哪个包  -S 后面必须跟文件，不能跟 链接
+ $ dpkg -S /bin/ls coreutils: /bin/ls $ dpkg -S /bin/ip iproute2: /bin/ip 【查询】已安装包 “安装到何处” $ dpkg -L coreutils | grep bin /bin /bin/cat /bin/chgrp /bin/chmod /bin/chown /bin/cp /bin/date /bin/dd ."><meta property="og:title" content="dpkg" />
+<meta property="og:description" content="dpkg (Debian Package) 常用 # 查询过滤 $ dpkg -l | grep &lt;package&gt; # 卸载 $ dpkg -P package-name # 删除软件包（包括配置信息） -P --purge $ dpkg -r package-name # 删除软件包（保留配置信息） -r --remove # 安装 $ dpkg -i &lt;package-name.deb&gt; 案例 【查询】文件属于哪个包  -S 后面必须跟文件，不能跟 链接
+ $ dpkg -S /bin/ls coreutils: /bin/ls $ dpkg -S /bin/ip iproute2: /bin/ip 【查询】已安装包 “安装到何处” $ dpkg -L coreutils | grep bin /bin /bin/cat /bin/chgrp /bin/chmod /bin/chown /bin/cp /bin/date /bin/dd ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Dpkg/" />
+
+<title>dpkg | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Rpm/" class="">rpm</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Yum/" class="">yum</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Dpkg/" class="active">dpkg</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Apt/" class="">apt</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>dpkg</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dpkg-debian-package">dpkg (Debian Package)</a>
+      <ul>
+        <li><a href="#常用">常用</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#查询文件属于哪个包">【查询】文件属于哪个包</a></li>
+            <li><a href="#查询已安装包-安装到何处">【查询】已安装包 “安装到何处”</a></li>
+            <li><a href="#查看已安装软件-包信息-">【查看】已安装软件 “包信息 &quot;</a></li>
+            <li><a href="#查看未安装软件包的信息">【查看】【未安装】软件包的信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#相关文件介绍">相关文件介绍</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="dpkg-debian-package">dpkg (Debian Package)</h1>
+<h2 id="常用">常用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查询过滤</span>
+$ dpkg -l | grep &lt;package&gt;
+
+<span style="color:#75715e"># 卸载</span>
+$ dpkg -P package-name    <span style="color:#75715e"># 删除软件包（包括配置信息） -P --purge</span>
+$ dpkg -r package-name    <span style="color:#75715e"># 删除软件包（保留配置信息） -r --remove</span>
+
+<span style="color:#75715e"># 安装</span>
+$ dpkg -i &lt;package-name.deb&gt;                
+</code></pre></div><h2 id="案例">案例</h2>
+<h3 id="查询文件属于哪个包">【查询】文件属于哪个包</h3>
+<blockquote>
+<p>-S 后面必须跟文件，不能跟 链接</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dpkg -S /bin/ls
+coreutils: /bin/ls
+
+$ dpkg -S /bin/ip
+iproute2: /bin/ip
+</code></pre></div><h3 id="查询已安装包-安装到何处">【查询】已安装包 “安装到何处”</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dpkg -L coreutils | grep bin
+/bin
+/bin/cat
+/bin/chgrp
+/bin/chmod
+/bin/chown
+/bin/cp
+/bin/date
+/bin/dd
+..
+</code></pre></div><h3 id="查看已安装软件-包信息-">【查看】已安装软件 “包信息 &quot;</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># cat /var/lib/dpkg/status</span>
+$ dpkg -s coreutils
+
+Package: coreutils
+Essential: yes
+Status: install ok installed
+Priority: required
+Section: utils
+Installed-Size: <span style="color:#ae81ff">7196</span>
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Architecture: amd64
+Multi-Arch: foreign
+Version: 8.30-3ubuntu2
+Pre-Depends: libacl1 <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=</span> 2.2.23<span style="color:#f92672">)</span>, libattr1 <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=</span> 1:2.4.44<span style="color:#f92672">)</span>, libc6 <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=</span> 2.28<span style="color:#f92672">)</span>, libselinux1 <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=</span> 2.1.13<span style="color:#f92672">)</span>
+Description: GNU core utilities
+ This package contains the basic file, shell and text manipulation
+ utilities which are expected to exist on every operating system.
+...
+</code></pre></div><h3 id="查看未安装软件包的信息">【查看】【未安装】软件包的信息</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出软件包内容</span>
+$ dpkg -c package-name.deb                
+
+<span style="color:#75715e"># 查看软件包信息</span>
+$ dpkg -I package-name.deb
+</code></pre></div><h2 id="相关文件介绍">相关文件介绍</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 软件的配置文件</span>
+$ cat /etc/dpkg/dpkg.cfg
+
+<span style="color:#75715e"># dpkg包管理软件的日志文件</span>
+$ cat /var/log/dpkg.log
+
+<span style="color:#75715e"># 存放系统所有安装过的软件包信息</span>
+$ cat /var/lib/dpkg/available
+
+<span style="color:#75715e"># 存放系统现在所有安装软件的状态信息</span>
+$ cat /var/lib/dpkg/status
+
+<span style="color:#75715e"># 记安装软件包控制目录的控制信息文件</span>
+$ ll /var/lib/dpkg/info
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="http://wiki.ubuntu.org.cn/Apt%E5%92%8Cdpkg%E5%BF%AB%E9%80%9F%E5%8F%82%E8%80%83">apt 和 dpkg 快速参考</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/Dpkg.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dpkg-debian-package">dpkg (Debian Package)</a>
+      <ul>
+        <li><a href="#常用">常用</a></li>
+        <li><a href="#案例">案例</a>
+          <ul>
+            <li><a href="#查询文件属于哪个包">【查询】文件属于哪个包</a></li>
+            <li><a href="#查询已安装包-安装到何处">【查询】已安装包 “安装到何处”</a></li>
+            <li><a href="#查看已安装软件-包信息-">【查看】已安装软件 “包信息 &quot;</a></li>
+            <li><a href="#查看未安装软件包的信息">【查看】【未安装】软件包的信息</a></li>
+          </ul>
+        </li>
+        <li><a href="#相关文件介绍">相关文件介绍</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

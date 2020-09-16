@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="APT (Advanced Packaging Tool)  apt = apt-get 、 apt-cache 、 apt-config 最常用命令选项的集合 aptitude 是一个带 UI 的管理工具，也可以非 UI 方式运行  常用命令 # 查看帮助 $ sudo apt help # 查找软件包 $ sudo apt list | grep &lt;package&gt; # 查找已安装的包 $ sudo apt list &lt;package&gt; # 安装 $ sudo apt install &lt;package&gt; $ sudo apt reinstall &lt;package&gt; # 卸载 $ sudo apt remove &lt;package&gt; # 删除未使用到的包 $ sudo apt autoremove # 查看包信息 $ sudo apt show -a &lt;package&gt; # 查看日志 $ tail -fn 200 /var/log/apt/history."><meta property="og:title" content="apt" />
+<meta property="og:description" content="APT (Advanced Packaging Tool)  apt = apt-get 、 apt-cache 、 apt-config 最常用命令选项的集合 aptitude 是一个带 UI 的管理工具，也可以非 UI 方式运行  常用命令 # 查看帮助 $ sudo apt help # 查找软件包 $ sudo apt list | grep &lt;package&gt; # 查找已安装的包 $ sudo apt list &lt;package&gt; # 安装 $ sudo apt install &lt;package&gt; $ sudo apt reinstall &lt;package&gt; # 卸载 $ sudo apt remove &lt;package&gt; # 删除未使用到的包 $ sudo apt autoremove # 查看包信息 $ sudo apt show -a &lt;package&gt; # 查看日志 $ tail -fn 200 /var/log/apt/history." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/" />
+
+<title>apt | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Rpm/" class="">rpm</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Yum/" class="">yum</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Dpkg/" class="">dpkg</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/Apt/" class="active">apt</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>apt</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#apt-advanced-packaging-tool">APT (Advanced Packaging Tool)</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#更新">更新</a></li>
+        <li><a href="#相关文件">相关文件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="apt-advanced-packaging-tool">APT (Advanced Packaging Tool)</h1>
+<ul>
+<li><code>apt</code> = <code>apt-get</code> 、 <code>apt-cache</code> 、 <code>apt-config</code> 最常用命令选项的集合</li>
+<li><code>aptitude</code> 是一个带 UI 的管理工具，也可以非 UI 方式运行</li>
+</ul>
+<h2 id="常用命令">常用命令</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看帮助</span>
+$ sudo apt help
+
+<span style="color:#75715e"># 查找软件包</span>
+$ sudo apt list | grep &lt;package&gt;
+<span style="color:#75715e"># 查找已安装的包</span>
+$ sudo apt list &lt;package&gt;
+
+<span style="color:#75715e"># 安装</span>
+$ sudo apt install &lt;package&gt;
+$ sudo apt reinstall &lt;package&gt;
+
+<span style="color:#75715e"># 卸载</span>
+$ sudo apt remove &lt;package&gt;
+<span style="color:#75715e"># 删除未使用到的包</span>
+$ sudo apt autoremove
+
+<span style="color:#75715e"># 查看包信息</span>
+$ sudo apt show -a &lt;package&gt;
+
+<span style="color:#75715e"># 查看日志</span>
+$ tail -fn <span style="color:#ae81ff">200</span> /var/log/apt/history.log
+</code></pre></div><h2 id="更新">更新</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 更新源</span>
+$ sudo apt update
+
+<span style="color:#75715e"># 查看可用的更新</span>
+$ sudo apt list --upgradable
+
+<span style="color:#75715e"># 升级所有可升级的软件包</span>
+$ sudo apt upgrade
+
+<span style="color:#75715e"># ❤ 在升级软件包时自动处理依赖关系</span>
+$ sudo apt full-upgrade
+</code></pre></div><h2 id="相关文件">相关文件</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 软件源的地址</span>
+$ /etc/apt/sources.list
+
+<span style="color:#75715e"># 已经下载到的软件包都放在这里</span>
+$ /var/cache/apt/archives
+</code></pre></div><blockquote>
+<p>Ubuntu 镜像使用帮助 
+  <a href="http://mirrors.163.com/.help/ubuntu.html">http://mirrors.163.com/.help/ubuntu.html</a></p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/Apt.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#apt-advanced-packaging-tool">APT (Advanced Packaging Tool)</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#更新">更新</a></li>
+        <li><a href="#相关文件">相关文件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

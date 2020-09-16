@@ -100,6 +100,25 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>dpkg</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Dpkg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Dpkg/</guid>
+      <description>dpkg (Debian Package) 常用 # 查询过滤 $ dpkg -l | grep &amp;lt;package&amp;gt; # 卸载 $ dpkg -P package-name # 删除软件包（包括配置信息） -P --purge $ dpkg -r package-name # 删除软件包（保留配置信息） -r --remove # 安装 $ dpkg -i &amp;lt;package-name.deb&amp;gt; 案例 【查询】文件属于哪个包  -S 后面必须跟文件，不能跟 链接
+ $ dpkg -S /bin/ls coreutils: /bin/ls $ dpkg -S /bin/ip iproute2: /bin/ip 【查询】已安装包 “安装到何处” $ dpkg -L coreutils | grep bin /bin /bin/cat /bin/chgrp /bin/chmod /bin/chown /bin/cp /bin/date /bin/dd .</description>
+    </item>
+    
+    <item>
+      <title>apt</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</guid>
+      <description>APT (Advanced Packaging Tool)  apt = apt-get 、 apt-cache 、 apt-config 最常用命令选项的集合 aptitude 是一个带 UI 的管理工具，也可以非 UI 方式运行  常用命令 # 查看帮助 $ sudo apt help # 查找软件包 $ sudo apt list | grep &amp;lt;package&amp;gt; # 查找已安装的包 $ sudo apt list &amp;lt;package&amp;gt; # 安装 $ sudo apt install &amp;lt;package&amp;gt; $ sudo apt reinstall &amp;lt;package&amp;gt; # 卸载 $ sudo apt remove &amp;lt;package&amp;gt; # 删除未使用到的包 $ sudo apt autoremove # 查看包信息 $ sudo apt show -a &amp;lt;package&amp;gt; # 查看日志 $ tail -fn 200 /var/log/apt/history.</description>
+    </item>
+    
+    <item>
       <title>变量</title>
       <link>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
