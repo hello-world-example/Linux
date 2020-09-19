@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="修改主机名 临时修改 # 当前主机名 $ hostname # 临时修改 $ hostname kail.pc CentOS 永久修改 # 1. 新增或修改 HOSTNAME $ vim /etc/sysconfig/network HOSTNAME=kail.pc # 2. hosts 映射 $ vim /etc/hosts 127.0.0.1 kail.pc Ubuntu 永久修改 $ vim /etc/hostname kail.pc # 重启后查看 $ reboot "><meta property="og:title" content="" />
+<meta property="og:description" content="修改主机名 临时修改 # 当前主机名 $ hostname # 临时修改 $ hostname kail.pc CentOS 永久修改 # 1. 新增或修改 HOSTNAME $ vim /etc/sysconfig/network HOSTNAME=kail.pc # 2. hosts 映射 $ vim /etc/hosts 127.0.0.1 kail.pc Ubuntu 永久修改 $ vim /etc/hostname kail.pc # 重启后查看 $ reboot " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/900_FAQ/Change-Hostname/" />
+
+<title>Change Hostname | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Change Hostname</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#修改主机名">修改主机名</a>
+      <ul>
+        <li><a href="#临时修改">临时修改</a></li>
+        <li><a href="#centos-永久修改">CentOS 永久修改</a></li>
+        <li><a href="#ubuntu-永久修改">Ubuntu 永久修改</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="修改主机名">修改主机名</h1>
+<h2 id="临时修改">临时修改</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 当前主机名</span>
+$ hostname
+
+<span style="color:#75715e"># 临时修改</span>
+$ hostname kail.pc
+</code></pre></div><h2 id="centos-永久修改">CentOS 永久修改</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 1. 新增或修改 HOSTNAME</span>
+$ vim /etc/sysconfig/network
+HOSTNAME<span style="color:#f92672">=</span>kail.pc
+
+<span style="color:#75715e"># 2. hosts 映射</span>
+$ vim /etc/hosts
+127.0.0.1 kail.pc
+</code></pre></div><h2 id="ubuntu-永久修改">Ubuntu 永久修改</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/hostname
+kail.pc
+
+<span style="color:#75715e"># 重启后查看</span>
+$ reboot
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/900_FAQ/Change-Hostname.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#修改主机名">修改主机名</a>
+      <ul>
+        <li><a href="#临时修改">临时修改</a></li>
+        <li><a href="#centos-永久修改">CentOS 永久修改</a></li>
+        <li><a href="#ubuntu-永久修改">Ubuntu 永久修改</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

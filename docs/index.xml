@@ -51,6 +51,15 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>date</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Date/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Date/</guid>
+      <description>date    时区设置   常用命令 # 当前时间 $ date # 【临时】设置时间 $ date -s &amp;#39;2020-09-18 11:12:09&amp;#39; # 显示文件的最后修改时间 $ date -r filename 日期计算 # 显示后一天的日期 date --date=&amp;#34;+1 day&amp;#34; # 显示前一天的日期 date --date=&amp;#34;-1 day&amp;#34; # 显示上一月的日期 date --date=&amp;#34;-1 month&amp;#34; # 显示前一年的日期 date --date=&amp;#34;-1 year&amp;#34; 格式化输出 # 查看完整帮助，包含【时间格式】 $ date --help $ date +&amp;#39;Format&amp;#39; # 2020-09-18 11:16:55 $ date +&amp;#39;%F %T&amp;#39; # 2020-09-18 11:16:55 $ date +&amp;#39;%Y-%m-%d %H:%M:%S&amp;#39; # 2020年09月18日 星期五 11时18分44秒 $ date +&amp;#39;%c&amp;#39; # 一年中的第几天 $ date +&amp;#39;%j&amp;#39; # 自UTC 时间 1970-01-01 00:00:00 以来所经过的秒数 $ date +&amp;#39;%s&amp;#39; # 纳秒 $ date +&amp;#39;%N&amp;#39; hwclock 硬件时间 # 显示硬件时间 $ hwclock --show # 将当前时间和日期写入硬件，避免重启后失效 $ hwclock -w Read More   Linux date命令的用法  </description>
+    </item>
+    
+    <item>
       <title>rpm</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -79,6 +88,16 @@ Linux htop工具使用详解
  i 光标前 a 光标后 I 行前 A 行后 o 下一行 O 上一行    跳跃
  ^ 行首 $ 行尾 指定行 &amp;lt;行号&amp;gt;gg 文首 gg 文尾 GG    编辑
  u 撤销 Ctrl + r 取消撤销 删除单个字符 x 剪切当前行 dd 复制当前行 yy 粘贴行 p    Command Mode  设置行号 :set nu 打开高亮 :set hls  关闭高亮 :set nohls 查找 :/&amp;lt;string&amp;gt;  向下查找 n 向上查找 N   替换 %s/&amp;lt;old_str&amp;gt;/&amp;lt;new_str&amp;gt;/g  窗口  :split 水平分割窗口 :vsplit 垂直分割窗口 :close 关闭创库 Ctrl + w 切换窗口    案例 命令帮助 :help :w 执行外部命令 :!</description>
+    </item>
+    
+    <item>
+      <title>ntp</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Ntp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Ntp/</guid>
+      <description>NTP（Network Time Protocol） 相关 ：date 命令 、 时区设置  简介  ntp ：Network Time Protocol 网络时间协议 ntpdate ：命令，断点更新，会造成时间的跳跃，单独使用时一般需要 配置 crontab 定时更新 ntpd ：服务，逐渐调整时间，好于 ntpdate + cron 组合  ntpd 服务在时间差距过大（1000秒）的时候会同步失败 需要先使用 ntpdate 强制更新，再使用 ntpd 逐步调整   NTP 服务的通信端口为 UDP 123 CST ：China Standard Time 时区  ntpdate 强制更新 $ ntpdate ntp.ntsc.ac.cn the NTP socket is in use, exiting  ntpdate 和 ntpd 不能同时使用，会出现端口占用的情况，需要先关掉 ntpd
+ # 查看端口占用 $ lsof -i :123 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME ntpd 4814 ntp 16u IPv4 72066131 0t0 UDP localhost:ntp # 先关闭 ntpd 服务 $ service ntpd stop # 同步时间 $ ntpdate ntp.</description>
     </item>
     
     <item>
@@ -161,24 +180,6 @@ Linux htop工具使用详解
       
       <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/_watch/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</guid>
-      <description># 显示当前时间 $ date 格式化输出 date +&amp;#39;Format&amp;#39;   %y : 年份的最后两位数字 00.99
-  %Y : 完整年份 0000..9999
-    %B : 月份 January..December
-  %b : 月份 Jan..Dec
-  %h : 同 %b
-  %m : 月份 01..12
-    %d : 日 (01..31)
-  %j : 一年中的第几天 (001..366)
-    %T : 直接显示时间 (24 小时制)
-  %p : 显示本地 AM 或 PM</description>
     </item>
     
     <item>
@@ -552,6 +553,24 @@ chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-
       
       <guid>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/_stat/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/900_FAQ/Change-Hostname/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/900_FAQ/Change-Hostname/</guid>
+      <description>修改主机名 临时修改 # 当前主机名 $ hostname # 临时修改 $ hostname kail.pc CentOS 永久修改 # 1. 新增或修改 HOSTNAME $ vim /etc/sysconfig/network HOSTNAME=kail.pc # 2. hosts 映射 $ vim /etc/hosts 127.0.0.1 kail.pc Ubuntu 永久修改 $ vim /etc/hostname kail.pc # 重启后查看 $ reboot </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</guid>
+      <description>查看系统版本 CentOS $ cat /etc/centos-release CentOS release 6.7 (Final) Ubuntu $ cat /etc/lsb-release DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION=&amp;#34;Ubuntu 20.04.1 LTS&amp;#34; Common $ cat /proc/version Linux version 2.6.32-431.29.2.el6.x86_64 (root@xxx) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Wed Sep 16 11:10:09 CST 2015 # 内核版本 $ uname -r 2.6.32-431.29.2.el6.x86_64 # 架构 $ uname -i x86_64 $ uname -a Linux localhost 2.6.32-431.29.2.el6.x86_64 #1 SMP Wed Sep 16 11:10:09 CST 2015 x86_64 x86_64 x86_64 GNU/Linux </description>
     </item>
     
     <item>

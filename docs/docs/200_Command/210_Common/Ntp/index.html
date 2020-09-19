@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NTP（Network Time Protocol） 相关 ：date 命令 、 时区设置  简介  ntp ：Network Time Protocol 网络时间协议 ntpdate ：命令，断点更新，会造成时间的跳跃，单独使用时一般需要 配置 crontab 定时更新 ntpd ：服务，逐渐调整时间，好于 ntpdate &#43; cron 组合  ntpd 服务在时间差距过大（1000秒）的时候会同步失败 需要先使用 ntpdate 强制更新，再使用 ntpd 逐步调整   NTP 服务的通信端口为 UDP 123 CST ：China Standard Time 时区  ntpdate 强制更新 $ ntpdate ntp.ntsc.ac.cn the NTP socket is in use, exiting  ntpdate 和 ntpd 不能同时使用，会出现端口占用的情况，需要先关掉 ntpd
+ # 查看端口占用 $ lsof -i :123 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME ntpd 4814 ntp 16u IPv4 72066131 0t0 UDP localhost:ntp # 先关闭 ntpd 服务 $ service ntpd stop # 同步时间 $ ntpdate ntp."><meta property="og:title" content="ntp" />
+<meta property="og:description" content="NTP（Network Time Protocol） 相关 ：date 命令 、 时区设置  简介  ntp ：Network Time Protocol 网络时间协议 ntpdate ：命令，断点更新，会造成时间的跳跃，单独使用时一般需要 配置 crontab 定时更新 ntpd ：服务，逐渐调整时间，好于 ntpdate &#43; cron 组合  ntpd 服务在时间差距过大（1000秒）的时候会同步失败 需要先使用 ntpdate 强制更新，再使用 ntpd 逐步调整   NTP 服务的通信端口为 UDP 123 CST ：China Standard Time 时区  ntpdate 强制更新 $ ntpdate ntp.ntsc.ac.cn the NTP socket is in use, exiting  ntpdate 和 ntpd 不能同时使用，会出现端口占用的情况，需要先关掉 ntpd
+ # 查看端口占用 $ lsof -i :123 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME ntpd 4814 ntp 16u IPv4 72066131 0t0 UDP localhost:ntp # 先关闭 ntpd 服务 $ service ntpd stop # 同步时间 $ ntpdate ntp." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Ntp/" />
+
+<title>ntp | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/Date/" class="">date</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/Ntp/" class="active">ntp</a>
+  
+
+</li>
+      
+    
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/kill/" class="">Kill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/killall/" class="">Killall</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/ls/" class="">Ls</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/pkill/" class="">Pkill</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/ps/" class="">Ps</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/pstree/" class="">Pstree</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/stress/" class="">Stress</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/time/" class="">Time</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>ntp</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ntpnetwork-time-protocol">NTP（Network Time Protocol）</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#ntpdate-强制更新">ntpdate 强制更新</a>
+          <ul>
+            <li><a href="#the-ntp-socket-is-in-use-exiting">the NTP socket is in use, exiting</a></li>
+          </ul>
+        </li>
+        <li><a href="#ntpd-相关配置">ntpd 相关配置</a>
+          <ul>
+            <li><a href="#etcntpconf">/etc/ntp.conf</a></li>
+            <li><a href="#etcsysconfigntpd">/etc/sysconfig/ntpd</a></li>
+          </ul>
+        </li>
+        <li><a href="#ntpq-查看状态">ntpq 查看状态</a>
+          <ul>
+            <li><a href="#name-or-service-not-known">Name or service not known</a></li>
+          </ul>
+        </li>
+        <li><a href="#ntp-同步原理">ntp 同步原理</a></li>
+        <li><a href="#ntp-服务器">NTP 服务器</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="ntpnetwork-time-protocol">NTP（Network Time Protocol）</h1>
+<blockquote class="book-hint info">
+  <strong>相关</strong> ：<a href="../Date/">date 命令</a> 、 <a href="/Docker/docs/FAQ/TimeZone/">时区设置</a>
+</blockquote>
+
+<h2 id="简介">简介</h2>
+<ul>
+<li><code>ntp</code> ：Network Time Protocol 网络时间协议</li>
+<li><code>ntpdate</code> ：命令，断点更新，会造成时间的跳跃，单独使用时一般需要 配置 <code>crontab</code> 定时更新</li>
+<li><code>ntpd</code> ：服务，逐渐调整时间，好于 <code>ntpdate + cron</code> 组合
+<ul>
+<li><code>ntpd</code> 服务在时间差距过大（1000秒）的时候会同步失败</li>
+<li>需要先使用 <code>ntpdate</code> 强制更新，再使用 <code>ntpd</code> 逐步调整</li>
+</ul>
+</li>
+<li>NTP 服务的通信端口为 <code>UDP 123</code></li>
+<li><code>CST</code> ：China Standard Time 时区</li>
+</ul>
+<h2 id="ntpdate-强制更新">ntpdate 强制更新</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ntpdate ntp.ntsc.ac.cn
+</code></pre></div><h3 id="the-ntp-socket-is-in-use-exiting">the NTP socket is in use, exiting</h3>
+<blockquote>
+<p><code>ntpdate</code> 和 <code>ntpd</code> 不能同时使用，会出现端口占用的情况，需要先关掉 <code>ntpd</code></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 查看端口占用</span>
+$ lsof -i :123
+COMMAND  PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME
+ntpd    <span style="color:#ae81ff">4814</span>  ntp   16u  IPv4 <span style="color:#ae81ff">72066131</span>      0t0  UDP localhost:ntp 
+
+<span style="color:#75715e"># 先关闭 ntpd 服务</span>
+$ service ntpd stop
+
+<span style="color:#75715e"># 同步时间</span>
+$ ntpdate ntp.aliyun.com
+<span style="color:#ae81ff">18</span> Sep 12:57:55 ntpdate<span style="color:#f92672">[</span>4802<span style="color:#f92672">]</span>: step time server 203.107.6.88 offset 28937.599627 sec
+
+<span style="color:#75715e"># 开启 ntpd 服务</span>
+$ service ntpd start
+
+<span style="color:#75715e">###</span>
+<span style="color:#75715e">### service ntpd stop;  ntpdate ntp.ntsc.ac.cn;  service ntpd start</span>
+<span style="color:#75715e">###</span>
+</code></pre></div><h2 id="ntpd-相关配置">ntpd 相关配置</h2>
+<h3 id="etcntpconf">/etc/ntp.conf</h3>
+<h4 id="示例">示例</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 系统时间与 BIOS 时间的偏差记录</span>
+driftfile /var/lib/ntp/drift
+
+<span style="color:#75715e"># 默认拒绝</span>
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+
+<span style="color:#75715e"># 本地服务没有任何限制</span>
+restrict 127.0.0.1 
+restrict -6 ::1
+
+<span style="color:#75715e"># 172.16.0.1 ~ 172.16.0.254 的机器，都可以使用该机器进行时间同步</span>
+<span style="color:#75715e"># restrict 172.16.2.0 mask 255.255.255.0 nomodify notrap</span>
+
+<span style="color:#75715e"># 限制为 172.16.0.1 ~ 172.16.0.254 这些IP段的服务器提供 NTP 服务</span>
+<span style="color:#75715e"># restrict 172.16.2.0 mask 255.255.255.0 notrust nomodify notrap noquery</span>
+
+
+<span style="color:#75715e"># prefer 标示优先</span>
+<span style="color:#75715e"># server 172.16.2.218 prefer</span> 
+<span style="color:#75715e"># 建议配置多个</span>
+server ntp.aliyun.com iburst
+server ntp1.aliyun.com iburst
+server ntp2.aliyun.com iburst
+
+<span style="color:#75715e"># 作为 Server 配置</span>
+<span style="color:#75715e"># fudge 127.0.0.1 stratum 6</span>
+
+<span style="color:#75715e"># includefile /etc/ntp/crypto/pw</span>
+<span style="color:#75715e"># keys /etc/ntp/keys</span>
+<span style="color:#75715e"># disable monitor</span>
+</code></pre></div><h4 id="restrict-安全配置">restrict 安全配置</h4>
+<ul>
+<li>格式 <code>restrict IP地址 mask 子网掩码 参数</code></li>
+<li>IP 为 default 时 指所有的IP</li>
+<li>参数如果没有设置，代表没有任何限制
+<ul>
+<li><code>-6</code> 表示 IPV6 地址的权限设置</li>
+<li><code>kod</code> ： 访问违规时发送 KoD 包</li>
+<li><code>nomodify</code>：客户端不能更改服务端的时间参数，但是客户端可以通过服务端进行网络校时</li>
+<li><code>notrap</code> ：不提供 trap 远端登陆</li>
+<li><code>nopeer</code> ：用于阻止主机尝试与服务器对等并允许欺诈性服务器控制时钟</li>
+<li><code>noquery</code> ：禁止客户端查询，用户端不能使用 <code>ntpq</code>、<code>ntpc</code> 等命令来查询 ntp 服务器</li>
+<li><code>notrust</code> ：客户端需要通过认证才能查询</li>
+<li><code>ignore</code>：关闭所有的 NTP 联机服务</li>
+</ul>
+</li>
+</ul>
+<h3 id="etcsysconfigntpd">/etc/sysconfig/ntpd</h3>
+<ul>
+<li>ntp 服务 默认只会同步系统时间</li>
+<li>如果想要让 ntp 同时同步硬件时间，需要设置 <code>/etc/sysconfig/ntpd</code> 文件</li>
+<li>可通过 <code>hwclock -w</code> 手动同步一次</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/sysconfig/ntpd
+SYNC_HWCLOCK<span style="color:#f92672">=</span>yes
+</code></pre></div><h2 id="ntpq-查看状态">ntpq 查看状态</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 如果 reach 为 0 说明没有成功</span>
+$ ntpq -p
+
+<span style="color:#75715e"># 定时查看</span>
+$ watch -d -n1 <span style="color:#e6db74">&#34;ntpq -p&#34;</span>
+
+<span style="color:#75715e"># 如果 stratum=16 说明没有同步成功</span>
+$ ntpq -c rv | grep stratum
+
+<span style="color:#75715e"># 查看 ntpd 失败原因</span>
+$ tail -fn <span style="color:#ae81ff">400</span> /var/log/messages | grep ntpd
+
+<span style="color:#75715e"># 查看 ntpd 服务状态</span>
+$ service ntpd status
+
+<span style="color:#75715e"># 查看 ntp 服务器有无和上层 ntp 连通</span>
+$ ntpstat
+synchronised to NTP server <span style="color:#f92672">(</span>120.25.115.20<span style="color:#f92672">)</span> at stratum <span style="color:#ae81ff">3</span> 
+   time correct to within <span style="color:#ae81ff">31</span> ms
+   polling server every <span style="color:#ae81ff">128</span> s
+  
+<span style="color:#75715e"># 未同步</span>
+$ ntpstat
+unsynchronised
+   polling server every <span style="color:#ae81ff">8</span> s
+
+<span style="color:#75715e"># 查看防护墙是否关闭</span>
+$ ntpstat
+timeout
+</code></pre></div><ul>
+<li><code>remote</code>：ntp 服务器在 <code>ntp.conf</code> 中定义
+<ul>
+<li><code>*</code>  表示<strong>当前使用的</strong>，也是最好的源</li>
+<li><code>+</code> 表示这些源可作为 NTP 源</li>
+<li><code>-</code>、<code>x</code> 源是不可用的</li>
+</ul>
+</li>
+<li><code>refid</code>：远程的服务器进行同步的更高一级服务器</li>
+<li><code>st</code>：ntp 服务器的 Stratum 级别，NTP 时间同步是分层的</li>
+<li><strong><code>when</code></strong>：最后一次同步到现在的时间，单位秒</li>
+<li><code>poll</code>：同步的频率，单位2的指数次秒，4=16s</li>
+<li><strong><code>reach</code></strong>：最近8次时钟同步包接收情况的 8进制树
+<ul>
+<li>377 -&gt; 11111111，代表最近 8 次都成功</li>
+<li>177 -&gt; 1111111，代表最近 7 次都成功</li>
+<li>77 -&gt; 111111，代表最近 6 次都成功</li>
+</ul>
+</li>
+<li><strong><code>delay</code></strong>：从本地到，程节点或服务器通信的往返时间，单位毫秒</li>
+<li><strong><code>offset</code></strong>：与服务器时间源的时间偏移量，单位毫秒</li>
+<li><strong><code>jitter</code></strong>：与远程节点同步的时间源的平均偏差，单位毫秒</li>
+</ul>
+<h3 id="name-or-service-not-known">Name or service not known</h3>
+<blockquote>
+<p>
+  <a href="https://blog.csdn.net/u014774648/article/details/91786269">执行 ntpq -p 报错：Name or service not known</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/hosts
+127.0.0.1  localhost
+</code></pre></div><h2 id="ntp-同步原理">ntp 同步原理</h2>
+<blockquote>
+<p>
+  <a href="https://www.centos.bz/2012/09/ntp-time-server-working-principle/">NTP时间服务器工作原理</a></p>
+</blockquote>
+<ul>
+<li>设备A 发送一个NTP报文给 设备B，该报文带有它离开 设备A 时的时间戳，该时间戳为 <strong>10:00:00 (T1)</strong></li>
+<li>当此 NTP报文 到达 设备B 时，设备B 加上自己的时间戳，该时间戳为 <strong>11:00:01 (T2)</strong></li>
+<li>当此 NTP报文 离开 设备B 时，设备B 再加上自己的时间戳，改时间戳为 <strong>11:00:02（T3）</strong></li>
+<li>当设备A 接收到该响应报文时，设备A 的本地时间为 <strong>10:00:03 (T4)</strong></li>
+<li>至此，设备A已经拥有足够的信息来计算两个重要的参数：
+<ul>
+<li>NTP 报文的往返时延 <code>Delay = (T4-T1)-(T3-T2)</code> = 2 秒</li>
+<li>设备A 相对 设备B 的时间差 <code>Offset = ((T2-T1)+(T3-T4))/2</code> = 1小时</li>
+</ul>
+</li>
+<li>这样，设备A 就能够根据这些信息来设定自己的时钟，使之与 设备B 的时钟同步</li>
+</ul>
+<h2 id="ntp-服务器">NTP 服务器</h2>
+<ul>
+<li><code>ntp.ntsc.ac.cn</code>  中国国家授时中心</li>
+<li><code>ntp.aliyun.com</code>  阿里云 ntp 服务器</li>
+<li><a href="http://www.pool.ntp.org">www.pool.ntp.org</a> 找到离我们城市最近的 ntp Server</li>
+</ul>
+<h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="http://support.ntp.org/bin/view/Main/WebHome">support.ntp.org</a></li>
+<li>
+  <a href="https://help.aliyun.com/document_detail/92704.html">阿里云NTP服务器</a></li>
+<li>
+  <a href="https://help.aliyun.com/document_detail/92803.html">配置 Linux 实例 NTP 服务</a></li>
+<li>
+  <a href="https://www.cnblogs.com/kerrycode/p/4744804.html">Linux的NTP配置总结</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/210_Common/Ntp.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ntpnetwork-time-protocol">NTP（Network Time Protocol）</a>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#ntpdate-强制更新">ntpdate 强制更新</a>
+          <ul>
+            <li><a href="#the-ntp-socket-is-in-use-exiting">the NTP socket is in use, exiting</a></li>
+          </ul>
+        </li>
+        <li><a href="#ntpd-相关配置">ntpd 相关配置</a>
+          <ul>
+            <li><a href="#etcntpconf">/etc/ntp.conf</a></li>
+            <li><a href="#etcsysconfigntpd">/etc/sysconfig/ntpd</a></li>
+          </ul>
+        </li>
+        <li><a href="#ntpq-查看状态">ntpq 查看状态</a>
+          <ul>
+            <li><a href="#name-or-service-not-known">Name or service not known</a></li>
+          </ul>
+        </li>
+        <li><a href="#ntp-同步原理">ntp 同步原理</a></li>
+        <li><a href="#ntp-服务器">NTP 服务器</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

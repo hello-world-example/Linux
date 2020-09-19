@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FAQ on Linux</title>
+    <link>https://hello-world-example.github.io/Linux/docs/900_FAQ/</link>
+    <description>Recent content in FAQ on Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://hello-world-example.github.io/Linux/docs/900_FAQ/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/900_FAQ/Change-Hostname/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/900_FAQ/Change-Hostname/</guid>
+      <description>修改主机名 临时修改 # 当前主机名 $ hostname # 临时修改 $ hostname kail.pc CentOS 永久修改 # 1. 新增或修改 HOSTNAME $ vim /etc/sysconfig/network HOSTNAME=kail.pc # 2. hosts 映射 $ vim /etc/hosts 127.0.0.1 kail.pc Ubuntu 永久修改 $ vim /etc/hostname kail.pc # 重启后查看 $ reboot </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</guid>
+      <description>查看系统版本 CentOS $ cat /etc/centos-release CentOS release 6.7 (Final) Ubuntu $ cat /etc/lsb-release DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION=&amp;#34;Ubuntu 20.04.1 LTS&amp;#34; Common $ cat /proc/version Linux version 2.6.32-431.29.2.el6.x86_64 (root@xxx) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Wed Sep 16 11:10:09 CST 2015 # 内核版本 $ uname -r 2.6.32-431.29.2.el6.x86_64 # 架构 $ uname -i x86_64 $ uname -a Linux localhost 2.6.32-431.29.2.el6.x86_64 #1 SMP Wed Sep 16 11:10:09 CST 2015 x86_64 x86_64 x86_64 GNU/Linux </description>
+    </item>
+    
+  </channel>
+</rss>

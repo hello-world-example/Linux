@@ -23,6 +23,10 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Date/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</loc>
   </url>
   
@@ -34,6 +38,10 @@
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/250_String/Vim/</loc>
     <lastmod>2020-09-15T01:04:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Ntp/</loc>
   </url>
   
   <url>
@@ -52,7 +60,7 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</loc>
-    <lastmod>2020-09-16T16:36:13+08:00</lastmod>
+    <lastmod>2020-09-16T21:40:21+08:00</lastmod>
   </url>
   
   <url>
@@ -146,6 +154,10 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/900_FAQ/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/_sidebar/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
@@ -157,11 +169,6 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/_watch/</loc>
-    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/date/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
   
@@ -351,6 +358,14 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/900_FAQ/Change-Hostname/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/300_Configuration/proc/cpuinfo/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
@@ -361,7 +376,7 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/</loc>
-    <lastmod>2020-09-16T16:36:13+08:00</lastmod>
+    <lastmod>2020-09-16T21:40:21+08:00</lastmod>
   </url>
   
   <url>
