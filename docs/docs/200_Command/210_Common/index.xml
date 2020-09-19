@@ -11,19 +11,19 @@
     
     <item>
       <title>date</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Date/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/~date/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Date/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/~date/</guid>
       <description>date    时区设置   常用命令 # 当前时间 $ date # 【临时】设置时间 $ date -s &amp;#39;2020-09-18 11:12:09&amp;#39; # 显示文件的最后修改时间 $ date -r filename 日期计算 # 显示后一天的日期 date --date=&amp;#34;+1 day&amp;#34; # 显示前一天的日期 date --date=&amp;#34;-1 day&amp;#34; # 显示上一月的日期 date --date=&amp;#34;-1 month&amp;#34; # 显示前一年的日期 date --date=&amp;#34;-1 year&amp;#34; 格式化输出 # 查看完整帮助，包含【时间格式】 $ date --help $ date +&amp;#39;Format&amp;#39; # 2020-09-18 11:16:55 $ date +&amp;#39;%F %T&amp;#39; # 2020-09-18 11:16:55 $ date +&amp;#39;%Y-%m-%d %H:%M:%S&amp;#39; # 2020年09月18日 星期五 11时18分44秒 $ date +&amp;#39;%c&amp;#39; # 一年中的第几天 $ date +&amp;#39;%j&amp;#39; # 自UTC 时间 1970-01-01 00:00:00 以来所经过的秒数 $ date +&amp;#39;%s&amp;#39; # 纳秒 $ date +&amp;#39;%N&amp;#39; hwclock 硬件时间 # 显示硬件时间 $ hwclock --show # 将当前时间和日期写入硬件，避免重启后失效 $ hwclock -w Read More   Linux date命令的用法  </description>
     </item>
     
     <item>
       <title>ntp</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Ntp/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/~ntp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/Ntp/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/~ntp/</guid>
       <description>NTP（Network Time Protocol） 相关 ：date 命令 、 时区设置  简介  ntp ：Network Time Protocol 网络时间协议 ntpdate ：命令，断点更新，会造成时间的跳跃，单独使用时一般需要 配置 crontab 定时更新 ntpd ：服务，逐渐调整时间，好于 ntpdate + cron 组合  ntpd 服务在时间差距过大（1000秒）的时候会同步失败 需要先使用 ntpdate 强制更新，再使用 ntpd 逐步调整   NTP 服务的通信端口为 UDP 123 CST ：China Standard Time 时区  ntpdate 强制更新 $ ntpdate ntp.ntsc.ac.cn the NTP socket is in use, exiting  ntpdate 和 ntpd 不能同时使用，会出现端口占用的情况，需要先关掉 ntpd
  # 查看端口占用 $ lsof -i :123 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME ntpd 4814 ntp 16u IPv4 72066131 0t0 UDP localhost:ntp # 先关闭 ntpd 服务 $ service ntpd stop # 同步时间 $ ntpdate ntp.</description>
     </item>

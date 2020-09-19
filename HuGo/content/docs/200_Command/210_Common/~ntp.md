@@ -7,7 +7,7 @@ weight: 11
 
 # NTP（Network Time Protocol）
 
-{{< hint info >}} **相关** ：[date 命令](../Date/) 、 [时区设置](/Docker/docs/FAQ/TimeZone/) {{< /hint >}}
+{{< hint info >}} **相关** ：[date 命令](../~date/) 、 [时区设置](/Docker/docs/FAQ/TimeZone/) {{< /hint >}}
 
 
 
