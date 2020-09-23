@@ -1,0 +1,121 @@
+---
+title: 变量与参数
+weight: 100
+---
+
+
+
+# 参数与变量
+
+
+
+## Shell 参数
+
+```bash
+#!/bin/bash
+# sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123
+# sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123
+
+# 当前执行的文件名 或 文件绝对路径
+# 【注意】根据调用方式的不同，该值可能会返回不同的结果
+echo $0
+
+# 第一个参数
+echo $1
+
+# 第 10 个参数
+echo ${10}
+
+# 如果没有是 空字符串
+echo ${123}
+
+# 获取参数个数（不包含当前文件名）
+echo $#
+
+# 所有参数，当成一个字符串
+echo $*
+########## 以下代码输出:  $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123
+count=1
+for param in "$*"
+do
+    echo "\$* Parameter $count=$param"
+    count=$[ $count + 1 ]
+done
+
+# 所有参数，当独立的单词，可以遍历
+echo $@
+########## 以下代码输出 
+########## $@ Parameter 1=p1
+########## $@ Parameter 2=p2
+########## ...
+count=1
+for param in "$@"
+do
+    echo "\$@ Parameter $count=$param"
+    count=$[ $count + 1 ]
+done
+
+
+# 参数移除（所有参数向前移动一位，第一个参数被移除）
+shift
+# 这里输出 p2， 因为第一个参数被移除了
+echo $1
+```
+
+
+
+## Shell 执行路径
+
+> [bash shell 获取当前正在执行脚本的绝对路径](https://www.cnblogs.com/xuxm2007/p/7554543.html)
+
+```bash
+#!/bin/bash
+# sh ~/test.sh
+# sh test.sh
+
+# ❤❤ 1 ❤❤ 获取当前 Shell 脚本所在的 绝对路径
+SHELL_FOLDER=$(cd $(dirname $0); pwd)
+echo 1:$SHELL_FOLDER
+
+# .
+dirname .profile
+# /home/kail
+dirname ~/.profile
+
+
+# ❤❤ 2 ❤❤ 获取当前 Shell 脚本所在的 绝对路径
+SHELL_FOLDER=$(dirname $(readlink -f "$0"))
+echo 2:$SHELL_FOLDER
+```
+
+
+
+## 定义变量
+
+```bash
+# 定义变量，【注意】等号前不能有空格
+count=1
+```
+
+
+
+## 从控制台读取变量
+
+```bash
+#!/bin/bash
+# bash test.sh
+
+read -p "请输入用户名： " username
+echo $username
+
+read -s -p "请输入密码： " password
+echo $password
+
+read -t 5 -p "请在 5s 内 输入内容： " text
+echo $text
+```
+
+
+
+
+

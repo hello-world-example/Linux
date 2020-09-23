@@ -11,20 +11,20 @@
     
     <item>
       <title>zsh</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/~zsh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/~zsh/</guid>
       <description>zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &amp;gt;&amp;gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &amp;gt;&amp;gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github.</description>
     </item>
     
     <item>
-      <title>变量</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</link>
+      <title>变量与参数</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/~var/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</guid>
-      <description></description>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/~var/</guid>
+      <description>参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &amp;#34;$*&amp;#34; do echo &amp;#34;\$* Parameter $count=$param&amp;#34; count=$[ $count + 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## .</description>
     </item>
     
     <item>
