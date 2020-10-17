@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>zsh</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/001.zsh/</guid>
-      <description>zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &amp;gt;&amp;gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &amp;gt;&amp;gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github.</description>
-    </item>
-    
-    <item>
       <title>top</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -51,12 +42,21 @@ Linux htop工具使用详解
     </item>
     
     <item>
-      <title>var</title>
+      <title>zsh</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/007.zsh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/007.zsh/</guid>
+      <description>zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &amp;gt;&amp;gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &amp;gt;&amp;gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github.</description>
+    </item>
+    
+    <item>
+      <title>变量与参数</title>
       <link>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</guid>
-      <description> </description>
+      <description>参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &amp;#34;$*&amp;#34; do echo &amp;#34;\$* Parameter $count=$param&amp;#34; count=$[ $count + 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## .</description>
     </item>
     
     <item>
@@ -153,7 +153,7 @@ Linux htop工具使用详解
       
       <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/</guid>
       <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for *遍历文件中的每一行  【注意】每一行中不能有空格，遍历的元素实际上是按照空格分割的
- # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历字符串 strs=&amp;#34;1&amp;#34; strs=&amp;#34;$strs22&amp;#34; strs=&amp;#34;$strs333&amp;#34; strs=&amp;#34;$strs4444&amp;#34; for str in ${strs[@]} do echo ${str}--- done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
+ # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历字符串  可能有兼容性问题</description>
     </item>
     
     <item>
@@ -190,6 +190,15 @@ Linux htop工具使用详解
       
       <guid>https://hello-world-example.github.io/Linux/_sidebar/</guid>
       <description>故障排查  进程   ps  pstree  top  htop   网络   mtr  tcpdump nslookup route   监控  sysstat     常用命令   ls  du  df  curl  lsof  kill   pkill  killall     权限   chmod  chown  chgrp  chattr  lsattr   字符串操作  grep   *grep    tr   小工具   date  time   网络   ssh   SSH 隧道    ssh-keygen   系统管理   service  chkconfig  systemd   /etc   resolv.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</guid>
+      <description>数组操作 # 初始化 $ array=([1]=&amp;#34;a&amp;#34; [2]=&amp;#34;b&amp;#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&amp;#34;aaa&amp;#34; # ❤ 数组长度 ❤ $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array[@]}+1]=&amp;#34;c&amp;#34; $ array[${#array[@]}+1]=&amp;#34;d&amp;#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&amp;#34;${array[@]}&amp;#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &amp;#34;&amp;gt;&amp;gt;&amp;gt; ${item};&amp;#34; done &amp;gt;&amp;gt;&amp;gt; aaa; &amp;gt;&amp;gt;&amp;gt; b; &amp;gt;&amp;gt;&amp;gt; c; &amp;gt;&amp;gt;&amp;gt; d; &amp;gt;&amp;gt;&amp;gt; 111; &amp;gt;&amp;gt;&amp;gt; 222; &amp;gt;&amp;gt;&amp;gt; 333; &amp;gt;&amp;gt;&amp;gt; 444; Read More   linux shell 数组添加元素  </description>
     </item>
     
     <item>
@@ -590,6 +599,15 @@ chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-
       
       <guid>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</guid>
       <description>查看系统版本 CentOS $ cat /etc/centos-release CentOS release 6.7 (Final) Ubuntu $ cat /etc/lsb-release DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION=&amp;#34;Ubuntu 20.04.1 LTS&amp;#34; Common $ cat /proc/version Linux version 2.6.32-431.29.2.el6.x86_64 (root@xxx) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Wed Sep 16 11:10:09 CST 2015 # 内核版本 $ uname -r 2.6.32-431.29.2.el6.x86_64 # 架构 $ uname -i x86_64 $ uname -a Linux localhost 2.6.32-431.29.2.el6.x86_64 #1 SMP Wed Sep 16 11:10:09 CST 2015 x86_64 x86_64 x86_64 GNU/Linux </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hello-world-example.github.io/Linux/docs/TODO/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/TODO/</guid>
+      <description> Shell 变量，校验是否存在  </description>
     </item>
     
     <item>

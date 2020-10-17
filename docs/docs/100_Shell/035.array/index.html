@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="数组操作 # 初始化 $ array=([1]=&#34;a&#34; [2]=&#34;b&#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&#34;aaa&#34; # ❤ 数组长度 ❤ $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array[@]}&#43;1]=&#34;c&#34; $ array[${#array[@]}&#43;1]=&#34;d&#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&#34;${array[@]}&#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &#34;&gt;&gt;&gt; ${item};&#34; done &gt;&gt;&gt; aaa; &gt;&gt;&gt; b; &gt;&gt;&gt; c; &gt;&gt;&gt; d; &gt;&gt;&gt; 111; &gt;&gt;&gt; 222; &gt;&gt;&gt; 333; &gt;&gt;&gt; 444; Read More   linux shell 数组添加元素  "><meta property="og:title" content="" />
+<meta property="og:description" content="数组操作 # 初始化 $ array=([1]=&#34;a&#34; [2]=&#34;b&#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&#34;aaa&#34; # ❤ 数组长度 ❤ $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array[@]}&#43;1]=&#34;c&#34; $ array[${#array[@]}&#43;1]=&#34;d&#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&#34;${array[@]}&#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &#34;&gt;&gt;&gt; ${item};&#34; done &gt;&gt;&gt; aaa; &gt;&gt;&gt; b; &gt;&gt;&gt; c; &gt;&gt;&gt; d; &gt;&gt;&gt; 111; &gt;&gt;&gt; 222; &gt;&gt;&gt; 333; &gt;&gt;&gt; 444; Read More   linux shell 数组添加元素  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/" />
+<meta property="article:modified_time" content="2020-10-17T23:56:35+08:00" />
+<title>035.array | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/007.zsh/" class="">zsh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/010.var/" class="">变量与参数</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/030.for/" class="">for</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/900.21/" class="">输出从定向</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/901.nohup/" class="">后台运行</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/035.array/" class="active">035.array</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/TODO/" class="">T O D O</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>035.array</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数组操作">数组操作</a>
+      <ul>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="数组操作">数组操作</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 初始化</span>
+$ array<span style="color:#f92672">=([</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;a&#34;</span> <span style="color:#f92672">[</span>2<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">)</span>
+
+<span style="color:#75715e"># ❤ 打印 ❤</span>
+$ echo $array
+a b
+<span style="color:#75715e"># 当做多个元素</span>
+$ echo $array<span style="color:#f92672">[</span>@<span style="color:#f92672">]</span>
+a b
+<span style="color:#75715e"># 当做一个字符串</span>
+$ echo $array<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span>
+a b
+
+<span style="color:#75715e"># 添加修改元素【注意】下标从 1 开始</span>
+$ array<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;aaa&#34;</span>
+
+<span style="color:#75715e"># ❤ 数组长度 ❤</span>
+$ echo <span style="color:#e6db74">${#</span>array[@]<span style="color:#e6db74">}</span>
+<span style="color:#ae81ff">2</span>
+$ echo <span style="color:#e6db74">${#</span>array[*]<span style="color:#e6db74">}</span>
+<span style="color:#ae81ff">2</span>
+
+<span style="color:#75715e"># ❤❤ 追加元素 ❤❤</span> 
+$ array<span style="color:#f92672">[</span><span style="color:#e6db74">${#</span>array[@]<span style="color:#e6db74">}</span>+1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;c&#34;</span>
+$ array<span style="color:#f92672">[</span><span style="color:#e6db74">${#</span>array[@]<span style="color:#e6db74">}</span>+1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#34;d&#34;</span>
+$ echo <span style="color:#e6db74">${</span>array[@]<span style="color:#e6db74">}</span>
+aaa b c d
+$ echo <span style="color:#e6db74">${#</span>array[@]<span style="color:#e6db74">}</span>
+<span style="color:#ae81ff">4</span>
+<span style="color:#75715e"># 批量追加</span>
+$ array<span style="color:#f92672">=(</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>array[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">111</span> <span style="color:#ae81ff">222</span> <span style="color:#ae81ff">333</span> 444<span style="color:#f92672">)</span>
+$ echo <span style="color:#e6db74">${</span>array[@]<span style="color:#e6db74">}</span>
+aaa b c d <span style="color:#ae81ff">111</span> <span style="color:#ae81ff">222</span> <span style="color:#ae81ff">333</span> <span style="color:#ae81ff">444</span>
+
+
+<span style="color:#75715e"># ❤❤❤ 遍历数组 ❤❤❤</span>
+<span style="color:#66d9ef">for</span> item in <span style="color:#e6db74">${</span>array[@]<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">&#34;&gt;&gt;&gt; </span><span style="color:#e6db74">${</span>item<span style="color:#e6db74">}</span><span style="color:#e6db74">;&#34;</span>
+<span style="color:#66d9ef">done</span>
+&gt;&gt;&gt; aaa;
+&gt;&gt;&gt; b;
+&gt;&gt;&gt; c;
+&gt;&gt;&gt; d;
+&gt;&gt;&gt; 111;
+&gt;&gt;&gt; 222;
+&gt;&gt;&gt; 333;
+&gt;&gt;&gt; 444;
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://blog.csdn.net/whatday/article/details/105071216">linux shell 数组添加元素</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/2eed50ed230591625a7e0a37d1802fdc59f9e8c6" title='Last modified by kailbin | Oct 17, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Oct 17, 2020</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/035.array.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数组操作">数组操作</a>
+      <ul>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

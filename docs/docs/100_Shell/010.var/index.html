@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" "><meta property="og:title" content="var" />
-<meta property="og:description" content=" " />
+<meta name="description" content="参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &#34;$*&#34; do echo &#34;\$* Parameter $count=$param&#34; count=$[ $count &#43; 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## ."><meta property="og:title" content="变量与参数" />
+<meta property="og:description" content="参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &#34;$*&#34; do echo &#34;\$* Parameter $count=$param&#34; count=$[ $count &#43; 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/" />
-
-<title>var | Linux</title>
+<meta property="article:modified_time" content="2020-10-17T23:28:56+08:00" />
+<title>变量与参数 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
 
@@ -88,7 +88,17 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/001.zsh/" class="">zsh</a>
+  <a href="/Linux/docs/100_Shell/007.zsh/" class="">zsh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/010.var/" class="active">变量与参数</a>
   
 
 </li>
@@ -119,6 +129,16 @@ https://github.com/alex-shpak/hugo-book
 
   
   <a href="/Linux/docs/100_Shell/901.nohup/" class="">后台运行</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/035.array/" class="">035.array</a>
   
 
 </li>
@@ -209,6 +229,16 @@ https://github.com/alex-shpak/hugo-book
 
       
     
+      
+        <li>
+
+  
+  <a href="/Linux/docs/TODO/" class="">T O D O</a>
+  
+
+</li>
+      
+    
   </ul>
   
 
@@ -250,7 +280,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>var</strong>
+  <strong>变量与参数</strong>
 
   <label for="toc-control">
     <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -262,7 +292,18 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#参数与变量">参数与变量</a>
+      <ul>
+        <li><a href="#shell-参数">Shell 参数</a></li>
+        <li><a href="#shell-执行路径">Shell 执行路径</a></li>
+        <li><a href="#定义变量">定义变量</a></li>
+        <li><a href="#从控制台读取变量">从控制台读取变量</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -272,8 +313,94 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><br/>
-</article>
+  <article class="markdown"><h1 id="参数与变量">参数与变量</h1>
+<h2 id="shell-参数">Shell 参数</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e"># sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123</span>
+<span style="color:#75715e"># sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123</span>
+
+<span style="color:#75715e"># 当前执行的文件名 或 文件绝对路径</span>
+<span style="color:#75715e"># 【注意】根据调用方式的不同，该值可能会返回不同的结果</span>
+echo $0
+
+<span style="color:#75715e"># 第一个参数</span>
+echo $1
+
+<span style="color:#75715e"># 第 10 个参数</span>
+echo <span style="color:#e6db74">${</span>10<span style="color:#e6db74">}</span>
+
+<span style="color:#75715e"># 如果没有是 空字符串</span>
+echo <span style="color:#e6db74">${</span>123<span style="color:#e6db74">}</span>
+
+<span style="color:#75715e"># 获取参数个数（不包含当前文件名）</span>
+echo $#
+
+<span style="color:#75715e"># 所有参数，当成一个字符串</span>
+echo $*
+<span style="color:#75715e">########## 以下代码输出:  $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123</span>
+count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">for</span> param in <span style="color:#e6db74">&#34;</span>$*<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">&#34;\$* Parameter </span>$count<span style="color:#e6db74">=</span>$param<span style="color:#e6db74">&#34;</span>
+    count<span style="color:#f92672">=</span>$<span style="color:#f92672">[</span> $count + <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">done</span>
+
+<span style="color:#75715e"># 所有参数，当独立的单词，可以遍历</span>
+echo $@
+<span style="color:#75715e">########## 以下代码输出</span> 
+<span style="color:#75715e">########## $@ Parameter 1=p1</span>
+<span style="color:#75715e">########## $@ Parameter 2=p2</span>
+<span style="color:#75715e">########## ...</span>
+count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">for</span> param in <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">&#34;\$@ Parameter </span>$count<span style="color:#e6db74">=</span>$param<span style="color:#e6db74">&#34;</span>
+    count<span style="color:#f92672">=</span>$<span style="color:#f92672">[</span> $count + <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">done</span>
+
+
+<span style="color:#75715e"># 参数移除（所有参数向前移动一位，第一个参数被移除）</span>
+shift
+<span style="color:#75715e"># 这里输出 p2， 因为第一个参数被移除了</span>
+echo $1
+</code></pre></div><h2 id="shell-执行路径">Shell 执行路径</h2>
+<blockquote>
+<p>
+  <a href="https://www.cnblogs.com/xuxm2007/p/7554543.html">bash shell 获取当前正在执行脚本的绝对路径</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e"># sh ~/test.sh</span>
+<span style="color:#75715e"># sh test.sh</span>
+
+<span style="color:#75715e"># ❤❤ 1 ❤❤ 获取当前 Shell 脚本所在的 绝对路径</span>
+SHELL_FOLDER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cd <span style="color:#66d9ef">$(</span>dirname $0<span style="color:#66d9ef">)</span>; pwd<span style="color:#66d9ef">)</span>
+echo 1:$SHELL_FOLDER
+
+<span style="color:#75715e"># .</span>
+dirname .profile
+<span style="color:#75715e"># /home/kail</span>
+dirname ~/.profile
+
+
+<span style="color:#75715e"># ❤❤ 2 ❤❤ 获取当前 Shell 脚本所在的 绝对路径</span>
+SHELL_FOLDER<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#66d9ef">$(</span>readlink -f <span style="color:#e6db74">&#34;</span>$0<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">))</span>
+echo 2:$SHELL_FOLDER
+</code></pre></div><h2 id="定义变量">定义变量</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 定义变量，【注意】等号前不能有空格</span>
+count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><h2 id="从控制台读取变量">从控制台读取变量</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e"># bash test.sh</span>
+
+read -p <span style="color:#e6db74">&#34;请输入用户名： &#34;</span> username
+echo $username
+
+read -s -p <span style="color:#e6db74">&#34;请输入密码： &#34;</span> password
+echo $password
+
+read -t <span style="color:#ae81ff">5</span> -p <span style="color:#e6db74">&#34;请在 5s 内 输入内容： &#34;</span> text
+echo $text
+</code></pre></div></article>
  
       
 
@@ -282,6 +409,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/56b7a7205c2c1bc32138518b0a7ffe66ad1d49a1" title='Last modified by kailbin | Oct 17, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Oct 17, 2020</span>
+    </a>
+  </div>
 
 
 
@@ -312,7 +447,18 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#参数与变量">参数与变量</a>
+      <ul>
+        <li><a href="#shell-参数">Shell 参数</a></li>
+        <li><a href="#shell-执行路径">Shell 执行路径</a></li>
+        <li><a href="#定义变量">定义变量</a></li>
+        <li><a href="#从控制台读取变量">从控制台读取变量</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
  
     </aside>
