@@ -157,6 +157,15 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>数组操作</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</guid>
+      <description>数组操作 # 初始化 $ array=([1]=&amp;#34;a&amp;#34; [2]=&amp;#34;b&amp;#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&amp;#34;aaa&amp;#34; # ❤ 数组长度 ❤ $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array[@]}+1]=&amp;#34;c&amp;#34; $ array[${#array[@]}+1]=&amp;#34;d&amp;#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&amp;#34;${array[@]}&amp;#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &amp;#34;&amp;gt;&amp;gt;&amp;gt; ${item};&amp;#34; done &amp;gt;&amp;gt;&amp;gt; aaa; &amp;gt;&amp;gt;&amp;gt; b; &amp;gt;&amp;gt;&amp;gt; c; &amp;gt;&amp;gt;&amp;gt; d; &amp;gt;&amp;gt;&amp;gt; 111; &amp;gt;&amp;gt;&amp;gt; 222; &amp;gt;&amp;gt;&amp;gt; 333; &amp;gt;&amp;gt;&amp;gt; 444; Read More   linux shell 数组添加元素  </description>
+    </item>
+    
+    <item>
       <title>apt</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -190,15 +199,6 @@ Linux htop工具使用详解
       
       <guid>https://hello-world-example.github.io/Linux/_sidebar/</guid>
       <description>故障排查  进程   ps  pstree  top  htop   网络   mtr  tcpdump nslookup route   监控  sysstat     常用命令   ls  du  df  curl  lsof  kill   pkill  killall     权限   chmod  chown  chgrp  chattr  lsattr   字符串操作  grep   *grep    tr   小工具   date  time   网络   ssh   SSH 隧道    ssh-keygen   系统管理   service  chkconfig  systemd   /etc   resolv.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</guid>
-      <description>数组操作 # 初始化 $ array=([1]=&amp;#34;a&amp;#34; [2]=&amp;#34;b&amp;#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&amp;#34;aaa&amp;#34; # ❤ 数组长度 ❤ $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array[@]}+1]=&amp;#34;c&amp;#34; $ array[${#array[@]}+1]=&amp;#34;d&amp;#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&amp;#34;${array[@]}&amp;#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &amp;#34;&amp;gt;&amp;gt;&amp;gt; ${item};&amp;#34; done &amp;gt;&amp;gt;&amp;gt; aaa; &amp;gt;&amp;gt;&amp;gt; b; &amp;gt;&amp;gt;&amp;gt; c; &amp;gt;&amp;gt;&amp;gt; d; &amp;gt;&amp;gt;&amp;gt; 111; &amp;gt;&amp;gt;&amp;gt; 222; &amp;gt;&amp;gt;&amp;gt; 333; &amp;gt;&amp;gt;&amp;gt; 444; Read More   linux shell 数组添加元素  </description>
     </item>
     
     <item>

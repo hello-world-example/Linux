@@ -75,6 +75,11 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</loc>
+    <lastmod>2020-10-17T23:56:35+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</loc>
     <lastmod>2020-09-16T21:40:21+08:00</lastmod>
   </url>
@@ -177,11 +182,6 @@
   <url>
     <loc>https://hello-world-example.github.io/Linux/_sidebar/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</loc>
-    <lastmod>2020-10-17T23:56:35+08:00</lastmod>
   </url>
   
   <url>
@@ -386,6 +386,7 @@
   
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/TODO/</loc>
+    <lastmod>2020-09-24T00:07:11+08:00</lastmod>
   </url>
   
   <url>
