@@ -51,6 +51,15 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>var</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
       <title>date</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/~date/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -101,6 +110,15 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>if</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ssh-keygen 免密登陆</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -129,6 +147,16 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>for</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/</guid>
+      <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for *遍历文件中的每一行  【注意】每一行中不能有空格，遍历的元素实际上是按照空格分割的
+ # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历字符串 strs=&amp;#34;1&amp;#34; strs=&amp;#34;$strs22&amp;#34; strs=&amp;#34;$strs333&amp;#34; strs=&amp;#34;$strs4444&amp;#34; for str in ${strs[@]} do echo ${str}--- done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
+    </item>
+    
+    <item>
       <title>apt</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -138,21 +166,21 @@ Linux htop工具使用详解
     </item>
     
     <item>
-      <title>变量</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</link>
+      <title>输出从定向</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/var/</guid>
-      <description></description>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/</guid>
+      <description>输出从定向 输入输出设备代码    代码 操作符 描述 默认 Java 中表示     0 &amp;lt; 、 &amp;lt;&amp;lt; 标准输入 (stdin)  System.in   1 &amp;gt; 、 &amp;gt;&amp;gt; 、 1&amp;gt; 、 1&amp;gt;&amp;gt; 标准输出 (stdout)，可省略数字 屏幕 System.out   2 2&amp;gt; 、 2&amp;gt;&amp;gt; 标准错误输出 (stderr) 屏幕 System.err    $ ll /dev/std* ... /dev/stdin -&amp;gt; fd/0 ... /dev/stdout -&amp;gt; fd/1 ... /dev/stderr -&amp;gt; fd/2 执行测试代码 NohupMain.java import java.text.SimpleDateFormat; import java.</description>
     </item>
     
     <item>
-      <title>条件语句</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</link>
+      <title>后台运行</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</guid>
-      <description></description>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/</guid>
+      <description>后台运行 概述  command &amp;amp; 后台执行【关闭 当前 Session，任务会停止】 jobs 查看当前 Session 后台任务  fg %jobId 转为前台运行 Ctrl + C 发送 SIGINT(2) 中断前台任务  Ctrl + Z 前台任务转到后台，并暂停 bg %jobId 启动后台暂停的任务  nohup command 忽略所有挂断 SIGHUP(1) 信号  kill 默认发送 SIGTERM(15) 信号 Kill -9 为 SIGKILL(9) 信号    nohup 和 &amp;amp;  nohup 的作用的是 忽略挂断 SIGHUP(1) 信号 SIGHUP(1) 信号在关闭当前 Session 的时候产生，即关闭终端 一般需要配合 &amp;amp; 后台运行命令(同时免疫 SIGINT 和 SIGHUP 信号)，否则默认仍在在 前台执行，当执行 Ctrl + C 或 关闭终端 时 仍然会停止 nohup 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 nohup.</description>
     </item>
     
     <item>
@@ -162,15 +190,6 @@ Linux htop工具使用详解
       
       <guid>https://hello-world-example.github.io/Linux/_sidebar/</guid>
       <description>故障排查  进程   ps  pstree  top  htop   网络   mtr  tcpdump nslookup route   监控  sysstat     常用命令   ls  du  df  curl  lsof  kill   pkill  killall     权限   chmod  chown  chgrp  chattr  lsattr   字符串操作  grep   *grep    tr   小工具   date  time   网络   ssh   SSH 隧道    ssh-keygen   系统管理   service  chkconfig  systemd   /etc   resolv.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</guid>
-      <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
     </item>
     
     <item>

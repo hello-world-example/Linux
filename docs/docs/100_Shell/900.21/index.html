@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="输出从定向 输入输出设备代码    代码 操作符 描述 默认 Java 中表示     0 &lt; 、 &lt;&lt; 标准输入 (stdin)  System.in   1 &gt; 、 &gt;&gt; 、 1&gt; 、 1&gt;&gt; 标准输出 (stdout)，可省略数字 屏幕 System.out   2 2&gt; 、 2&gt;&gt; 标准错误输出 (stderr) 屏幕 System.err    $ ll /dev/std* ... /dev/stdin -&gt; fd/0 ... /dev/stdout -&gt; fd/1 ... /dev/stderr -&gt; fd/2 执行测试代码 NohupMain.java import java.text.SimpleDateFormat; import java."><meta property="og:title" content="输出从定向" />
+<meta property="og:description" content="输出从定向 输入输出设备代码    代码 操作符 描述 默认 Java 中表示     0 &lt; 、 &lt;&lt; 标准输入 (stdin)  System.in   1 &gt; 、 &gt;&gt; 、 1&gt; 、 1&gt;&gt; 标准输出 (stdout)，可省略数字 屏幕 System.out   2 2&gt; 、 2&gt;&gt; 标准错误输出 (stderr) 屏幕 System.err    $ ll /dev/std* ... /dev/stdin -&gt; fd/0 ... /dev/stdout -&gt; fd/1 ... /dev/stderr -&gt; fd/2 执行测试代码 NohupMain.java import java.text.SimpleDateFormat; import java." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/" />
+
+<title>输出从定向 | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/001.zsh/" class="">zsh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/030.for/" class="">for</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/900.21/" class="active">输出从定向</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/901.nohup/" class="">后台运行</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>输出从定向</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#输出从定向">输出从定向</a>
+      <ul>
+        <li><a href="#输入输出设备代码">输入输出设备代码</a></li>
+        <li><a href="#执行测试代码">执行测试代码</a>
+          <ul>
+            <li><a href="#nohupmainjava">NohupMain.java</a></li>
+            <li><a href="#编译运行">编译运行</a></li>
+          </ul>
+        </li>
+        <li><a href="#重定向">重定向</a>
+          <ul>
+            <li><a href="#输出重定向">输出重定向</a></li>
+            <li><a href="#错误输出重定向">错误输出重定向</a></li>
+            <li><a href="#分别重定向">分别重定向</a></li>
+            <li><a href="#输出到同一个文件">输出到同一个文件</a></li>
+            <li><a href="#如何理解-21">如何理解 2&gt;&amp;1</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="输出从定向">输出从定向</h1>
+<h2 id="输入输出设备代码">输入输出设备代码</h2>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th>操作符</th>
+<th>描述</th>
+<th align="center">默认</th>
+<th>Java 中表示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>0</code></td>
+<td><code>&lt;</code> 、 <code>&lt;&lt;</code></td>
+<td>标准输入 (<code>stdin</code>)</td>
+<td align="center"></td>
+<td>System.in</td>
+</tr>
+<tr>
+<td align="center"><code>1</code></td>
+<td><code>&gt;</code> 、 <code>&gt;&gt;</code> 、 <code>1&gt;</code> 、 <code>1&gt;&gt;</code></td>
+<td>标准输出 (<code>stdout</code>)，可省略数字</td>
+<td align="center">屏幕</td>
+<td>System.out</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td><code>2&gt;</code> 、 <code>2&gt;&gt;</code></td>
+<td>标准错误输出 (<code>stderr</code>)</td>
+<td align="center">屏幕</td>
+<td>System.err</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ll /dev/std*
+... /dev/stdin -&gt; fd/0
+... /dev/stdout -&gt; fd/1
+... /dev/stderr -&gt; fd/2
+</code></pre></div><h2 id="执行测试代码">执行测试代码</h2>
+<h3 id="nohupmainjava">NohupMain.java</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.text.SimpleDateFormat<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Date<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.concurrent.TimeUnit<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NohupMain</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+    SimpleDateFormat format <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleDateFormat<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;YYYY-MM-dd HH:mm:ss&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(;</span> <span style="color:#f92672">;)</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;System.out: &#34;</span> <span style="color:#f92672">+</span> format<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">()));</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;System.err: &#34;</span> <span style="color:#f92672">+</span> format<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">()));</span>
+      TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="编译运行">编译运行</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ javac NohupMain.java
+
+$ java NohupMain
+System.out: 2020-10-17 20:48:06
+System.err: 2020-10-17 20:48:06
+System.out: 2020-10-17 20:48:07
+System.err: 2020-10-17 20:48:07
+..
+</code></pre></div><h2 id="重定向">重定向</h2>
+<h3 id="输出重定向">输出重定向</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 标准输出 重定向到 out.txt 文件， 错误输出仍然在控制台</span>
+$ java NohupMain &gt; out.txt
+System.err: 2020-10-17 20:49:37
+System.err: 2020-10-17 20:49:38
+...
+
+$ cat out.txt
+System.out: 2020-10-17 20:49:37
+System.out: 2020-10-17 20:49:38
+..
+</code></pre></div><h3 id="错误输出重定向">错误输出重定向</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 错误输出 重定向到 err.txt 文件， 标准输出仍然在控制台</span>
+$ java NohupMain 2&gt; err.txt
+System.out: 2020-10-17 20:51:59
+System.out: 2020-10-17 20:52:00
+...
+
+$ cat err.txt
+System.err: 2020-10-17 20:51:59
+System.err: 2020-10-17 20:52:00
+..
+</code></pre></div><h3 id="分别重定向">分别重定向</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java NohupMain &gt; out.txt 2&gt; err.txt
+
+$ cat out.txt
+System.out: 2020-10-17 20:53:11
+System.out: 2020-10-17 20:53:12
+...
+
+$ cat err.txt
+System.err: 2020-10-17 20:53:11
+System.err: 2020-10-17 20:53:12
+...
+</code></pre></div><h3 id="输出到同一个文件">输出到同一个文件</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java NohupMain &gt; out.txt 2&gt;&amp;<span style="color:#ae81ff">1</span>
+
+$ cat out.txt
+System.out: 2020-10-17 20:55:26
+System.err: 2020-10-17 20:55:26
+System.out: 2020-10-17 20:55:27
+System.err: 2020-10-17 20:55:27
+...
+</code></pre></div><h3 id="如何理解-21">如何理解 2&gt;&amp;1</h3>
+<ul>
+<li>设备代码可理解为指针，<strong><code>&amp;</code> 理解为取地址符号</strong></li>
+<li><strong><code>&amp;1</code> 则是取 标准输出 的地址</strong></li>
+<li><code>2&gt;</code> 标准错误输出</li>
+<li><strong><code>2&gt;&amp;1</code> 则是把 标准错误输出 重定向到 标准输出</strong></li>
+<li><strong>简写形式</strong>: <code>&gt;&amp;</code>， 如 <code>java NohupMain &gt;&amp; out.txt</code></li>
+</ul>
+<h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://blog.csdn.net/zhaominpro/article/details/82630528">Linux shell中2&gt;&amp;1的含义解释</a></li>
+<li>
+  <a href="https://www.runoob.com/linux/linux-shell-io-redirections.html">hell 输入/输出重定向</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/900.2%3e&amp;1.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#输出从定向">输出从定向</a>
+      <ul>
+        <li><a href="#输入输出设备代码">输入输出设备代码</a></li>
+        <li><a href="#执行测试代码">执行测试代码</a>
+          <ul>
+            <li><a href="#nohupmainjava">NohupMain.java</a></li>
+            <li><a href="#编译运行">编译运行</a></li>
+          </ul>
+        </li>
+        <li><a href="#重定向">重定向</a>
+          <ul>
+            <li><a href="#输出重定向">输出重定向</a></li>
+            <li><a href="#错误输出重定向">错误输出重定向</a></li>
+            <li><a href="#分别重定向">分别重定向</a></li>
+            <li><a href="#输出到同一个文件">输出到同一个文件</a></li>
+            <li><a href="#如何理解-21">如何理解 2&gt;&amp;1</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
