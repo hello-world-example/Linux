@@ -128,6 +128,16 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
+  <a href="/Linux/docs/100_Shell/050.function/" class="">函数 function</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
   <a href="/Linux/docs/100_Shell/900.21/" class="">输出从定向</a>
   
 
@@ -338,7 +348,12 @@ https://github.com/alex-shpak/hugo-book
 <li>一般需要配合 <code>&amp;</code> 后台运行命令(同时免疫 <code>SIGINT</code> 和 <code>SIGHUP</code> 信号)，否则默认仍在在 前台执行，当执行 <code>Ctrl + C</code>  或 关闭终端 时 仍然会停止</li>
 <li><code>nohup</code> 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 <code>nohup.out</code> 文件中</li>
 <li>如果 当前目录的 <code>nohup.out</code> 文件不可写，则为 <code>~/nohup.out</code></li>
-<li><strong>常见搭配方式</strong>：<code>nohup Command &gt; xxx.log 2&gt;&amp;1 &amp;</code></li>
+<li><strong>常见搭配方式</strong>
+<ul>
+<li><code>nohup Command &gt; xxx.log 2&gt;&amp;1 &amp;</code>  日志输出到 xxx.log</li>
+<li><code>nohup Command &gt; /dev/null 2&gt;&amp;1 &amp;</code> 日志不输出</li>
+</ul>
+</li>
 </ul>
 <h2 id="read-more">Read More</h2>
 <ul>

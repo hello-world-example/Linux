@@ -175,6 +175,21 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>函数 function</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/</guid>
+      <description>function 函数 函数定义 #!/bin/bash  function foo() { echo &amp;#34;foo function&amp;#34; } # function 可写可不写 bar() { echo &amp;#34;bar function&amp;#34; # 默认是最后一条命令的运行结果 # 只能返回数字，范围 0~255 return 255 } # 调用两个函数 foo # foo 函数的返回 code echo $? bar # bar 函数的返回 code echo $?  【输出】
+foo function
+0
+bar function
+255
+ 函数参数  同 Shell 文件参数，@see 变量与参数
+ 取值    取参 描述     $# 传递到脚本或函数的参数个数   $* 以一个单字符串显示所有向脚本传递的参数   $@ 每个参数，参数列表       $$ 脚本运行的当前进程ID号   $!</description>
+    </item>
+    
+    <item>
       <title>输出从定向</title>
       <link>https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

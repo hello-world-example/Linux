@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="function 函数 函数定义 #!/bin/bash  function foo() { echo &#34;foo function&#34; } # function 可写可不写 bar() { echo &#34;bar function&#34; # 默认是最后一条命令的运行结果 # 只能返回数字，范围 0~255 return 255 } # 调用两个函数 foo # foo 函数的返回 code echo $? bar # bar 函数的返回 code echo $?  【输出】
+foo function
+0
+bar function
+255
+ 函数参数  同 Shell 文件参数，@see 变量与参数
+ 取值    取参 描述     $# 传递到脚本或函数的参数个数   $* 以一个单字符串显示所有向脚本传递的参数   $@ 每个参数，参数列表       $$ 脚本运行的当前进程ID号   $!"><meta property="og:title" content="函数 function" />
+<meta property="og:description" content="function 函数 函数定义 #!/bin/bash  function foo() { echo &#34;foo function&#34; } # function 可写可不写 bar() { echo &#34;bar function&#34; # 默认是最后一条命令的运行结果 # 只能返回数字，范围 0~255 return 255 } # 调用两个函数 foo # foo 函数的返回 code echo $? bar # bar 函数的返回 code echo $?  【输出】
+foo function
+0
+bar function
+255
+ 函数参数  同 Shell 文件参数，@see 变量与参数
+ 取值    取参 描述     $# 传递到脚本或函数的参数个数   $* 以一个单字符串显示所有向脚本传递的参数   $@ 每个参数，参数列表       $$ 脚本运行的当前进程ID号   $!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/" />
+
+<title>函数 function | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/007.zsh/" class="">zsh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/010.var/" class="">变量与参数</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/030.for/" class="">for</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/035.array/" class="">数组操作</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/050.function/" class="active">函数 function</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/900.21/" class="">输出从定向</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/901.nohup/" class="">后台运行</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/TODO/" class="">T O D O</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>函数 function</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#function-函数">function 函数</a>
+      <ul>
+        <li><a href="#函数定义">函数定义</a></li>
+        <li><a href="#函数参数">函数参数</a>
+          <ul>
+            <li><a href="#取值">取值</a></li>
+            <li><a href="#示例">示例</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="function-函数">function 函数</h1>
+<h2 id="函数定义">函数定义</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> foo<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  echo <span style="color:#e6db74">&#34;foo function&#34;</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># function 可写可不写</span>
+bar<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  echo <span style="color:#e6db74">&#34;bar function&#34;</span>
+  <span style="color:#75715e"># 默认是最后一条命令的运行结果</span>
+  <span style="color:#75715e"># 只能返回数字，范围 0~255</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">255</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e"># 调用两个函数</span>
+foo
+<span style="color:#75715e"># foo 函数的返回 code</span>
+echo $?
+
+bar
+<span style="color:#75715e"># bar 函数的返回 code</span>
+echo $?
+</code></pre></div><blockquote>
+<p>【输出】</p>
+<p>foo function<br>
+0<br>
+bar function<br>
+255</p>
+</blockquote>
+<h2 id="函数参数">函数参数</h2>
+<blockquote>
+<p>同 Shell 文件参数，@see 
+  <a href="../010.var/">变量与参数</a></p>
+</blockquote>
+<h3 id="取值">取值</h3>
+<table>
+<thead>
+<tr>
+<th align="center">取参</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>$#</code></td>
+<td>传递到脚本或函数的参数个数</td>
+</tr>
+<tr>
+<td align="center"><code>$*</code></td>
+<td>以一个单字符串显示所有向脚本传递的参数</td>
+</tr>
+<tr>
+<td align="center"><code>$@</code></td>
+<td>每个参数，参数列表</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"><code>$$</code></td>
+<td>脚本运行的当前进程ID号</td>
+</tr>
+<tr>
+<td align="center"><code>$!</code></td>
+<td>后台运行的最后一个进程的ID号</td>
+</tr>
+<tr>
+<td align="center"><code>$-</code></td>
+<td>显示Shell使用的当前选项，与set命令功能相同。</td>
+</tr>
+<tr>
+<td align="center"><code>$?</code></td>
+<td>显示最后命令的退出状态。0 表示没有错误，其他任何值表明有错误。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示例">示例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> param<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    echo <span style="color:#e6db74">&#34;当前 shell 文件名 ： </span>$0<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前函数第 1 个参数：  </span>$1<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前函数第 10个参数：  </span><span style="color:#e6db74">${</span>10<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前函数参数个数   ：  </span>$#<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前函数&#39;所有&#39;参数 ：  </span>$*<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前函数&#39;每个&#39;参数 ：  </span>$@<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前进程ID       ：   </span>$$<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;最后一个进程ID    ：   </span>$!<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;当前选项         ：   </span>$-<span style="color:#e6db74">&#34;</span>
+    echo <span style="color:#e6db74">&#34;退出状态         ：   </span>$?<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+
+param <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">33</span> <span style="color:#ae81ff">44</span> <span style="color:#ae81ff">55</span> <span style="color:#ae81ff">66</span> <span style="color:#ae81ff">77</span> <span style="color:#ae81ff">88</span> <span style="color:#ae81ff">99</span> <span style="color:#ae81ff">1010</span> <span style="color:#ae81ff">1111</span>
+</code></pre></div><blockquote>
+<p>【输出】</p>
+<p>当前 shell 文件名 ： ./function.sh<br>
+当前函数第 1 个参数：  11<br>
+当前函数第 10个参数：  1010</p>
+<p>当前函数参数个数   ：  11<br>
+当前函数'所有'参数 ：  11 22 33 44 55 66 77 88 99 1010 1111<br>
+当前函数'每个'参数 ：  11 22 33 44 55 66 77 88 99 1010 1111</p>
+<p>当前进程ID       ：   55176<br>
+最后一个进程ID    ：<br>
+当前选项         ：   hB<br>
+退出状态         ：   0</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/050.function.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#function-函数">function 函数</a>
+      <ul>
+        <li><a href="#函数定义">函数定义</a></li>
+        <li><a href="#函数参数">函数参数</a>
+          <ul>
+            <li><a href="#取值">取值</a></li>
+            <li><a href="#示例">示例</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
