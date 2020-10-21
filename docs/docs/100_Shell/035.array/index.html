@@ -8,7 +8,7 @@
 <meta property="og:description" content="数组操作 # 初始化 $ array=([1]=&#34;a&#34; [2]=&#34;b&#34;) $ array=(&#34;a&#34; &#34;b&#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&#34;aaa&#34; # ❤ 数组长度 ❤ $ echo ${#array} 2 $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array}&#43;1]=&#34;c&#34; $ array[${#array}&#43;1]=&#34;d&#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&#34;${array[@]}&#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &#34;&gt;&gt;&gt; ${item};&#34; done &gt;&gt;&gt; aaa; &gt;&gt;&gt; b; &gt;&gt;&gt; c; &gt;&gt;&gt; d; &gt;&gt;&gt; 111; &gt;&gt;&gt; 222; &gt;&gt;&gt; 333; &gt;&gt;&gt; 444; Read More   linux shell 数组添加元素  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/" />
-
+<meta property="article:modified_time" content="2020-10-21T16:02:19+08:00" />
 <title>数组操作 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -396,6 +396,14 @@ aaa b c d <span style="color:#ae81ff">111</span> <span style="color:#ae81ff">222
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/233b95c5ce0e09e8f0444edef0b37f94002c9633" title='Last modified by kailbin | Oct 21, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Oct 21, 2020</span>
+    </a>
+  </div>
 
 
 

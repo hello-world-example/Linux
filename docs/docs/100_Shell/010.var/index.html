@@ -8,7 +8,7 @@
 <meta property="og:description" content="参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &#34;$*&#34; do echo &#34;\$* Parameter $count=$param&#34; count=$[ $count &#43; 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/" />
-
+<meta property="article:modified_time" content="2020-10-17T23:28:56+08:00" />
 <title>变量与参数 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -439,6 +439,14 @@ echo $text
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/56b7a7205c2c1bc32138518b0a7ffe66ad1d49a1" title='Last modified by kailbin | Oct 17, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Oct 17, 2020</span>
+    </a>
+  </div>
 
 
 

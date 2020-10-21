@@ -8,7 +8,7 @@
 <meta property="og:description" content="后台运行 概述  command &amp; 后台执行【关闭 当前 Session，任务会停止】 jobs 查看当前 Session 后台任务  fg %jobId 转为前台运行 Ctrl &#43; C 发送 SIGINT(2) 中断前台任务  Ctrl &#43; Z 前台任务转到后台，并暂停 bg %jobId 启动后台暂停的任务  nohup command 忽略所有挂断 SIGHUP(1) 信号  kill 默认发送 SIGTERM(15) 信号 Kill -9 为 SIGKILL(9) 信号    nohup 和 &amp;  nohup 的作用的是 忽略挂断 SIGHUP(1) 信号 SIGHUP(1) 信号在关闭当前 Session 的时候产生，即关闭终端 一般需要配合 &amp; 后台运行命令(同时免疫 SIGINT 和 SIGHUP 信号)，否则默认仍在在 前台执行，当执行 Ctrl &#43; C 或 关闭终端 时 仍然会停止 nohup 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 nohup." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/" />
-
+<meta property="article:modified_time" content="2020-10-18T21:54:50+08:00" />
 <title>后台运行 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -381,6 +381,14 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
+
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/36143b6c052d86873b7902c5146911041571f6fc" title='Last modified by kailbin | Oct 18, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Oct 18, 2020</span>
+    </a>
+  </div>
 
 
 
