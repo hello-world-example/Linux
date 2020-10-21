@@ -8,10 +8,6 @@
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/~zsh/</loc>
-  </url>
-  
-  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</loc>
     <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
@@ -19,6 +15,18 @@
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/htop/</loc>
     <lastmod>2020-08-30T21:31:41+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/007.zsh/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string___/</loc>
   </url>
   
   <url>
@@ -47,6 +55,10 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if___/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</loc>
     <lastmod>2020-08-30T21:31:41+08:00</lastmod>
   </url>
@@ -62,21 +74,24 @@
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</loc>
     <lastmod>2020-09-16T21:40:21+08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/</loc>
+  </url>
+  
+  <url>
     <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/</loc>
-    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/~var/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
   
@@ -161,12 +176,15 @@
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Linux/_sidebar/</loc>
-    <lastmod>2020-08-30T16:08:14+08:00</lastmod>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/</loc>
   </url>
   
   <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</loc>
+    <loc>https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hello-world-example.github.io/Linux/_sidebar/</loc>
     <lastmod>2020-08-30T16:08:14+08:00</lastmod>
   </url>
   
@@ -368,10 +386,6 @@
   <url>
     <loc>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</loc>
     <lastmod>2020-09-20T02:09:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hello-world-example.github.io/Linux/docs/TODO/</loc>
   </url>
   
   <url>

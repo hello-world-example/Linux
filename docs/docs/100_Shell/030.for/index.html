@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="循环 while # while read line ; do echo $line ; done &lt; file.txt while read line do echo $line done &lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&lt;=10;i&#43;&#43;));do echo $(expr $i \* 4);done for((i=1; i&lt;=10; i&#43;&#43;)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  "><meta property="og:title" content="" />
-<meta property="og:description" content="循环 while # while read line ; do echo $line ; done &lt; file.txt while read line do echo $line done &lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&lt;=10;i&#43;&#43;));do echo $(expr $i \* 4);done for((i=1; i&lt;=10; i&#43;&#43;)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  " />
+<meta name="description" content="while # while read line ; do echo $line ; done &lt; file.txt while read line do echo $line done &lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for *遍历文件中的每一行  【注意】每一行中不能有空格，遍历的元素实际上是按照空格分割的
+ # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历字符串  可能有兼容性问题"><meta property="og:title" content="for 循环语句" />
+<meta property="og:description" content="while # while read line ; do echo $line ; done &lt; file.txt while read line do echo $line done &lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for *遍历文件中的每一行  【注意】每一行中不能有空格，遍历的元素实际上是按照空格分割的
+ # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历字符串  可能有兼容性问题" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/" />
-<meta property="article:modified_time" content="2020-08-30T16:08:14+08:00" />
-<title>Foreach | Linux</title>
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/" />
+
+<title>for 循环语句 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
 
@@ -88,7 +90,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/~zsh/" class="">zsh</a>
+  <a href="/Linux/docs/100_Shell/007.zsh/" class="">zsh</a>
   
 
 </li>
@@ -98,7 +100,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/~var/" class="">变量与参数</a>
+  <a href="/Linux/docs/100_Shell/010.var/" class="">变量与参数</a>
   
 
 </li>
@@ -108,7 +110,67 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/Foreach/" class="active">Foreach</a>
+  <a href="/Linux/docs/100_Shell/011.var_string___/" class="">String 变量处理</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/020.if___/" class="">if 条件语句</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/030.for/" class="active">for 循环语句</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/035.array/" class="">数组操作</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/050.function/" class="">函数 function</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/900.21/" class="">输出从定向</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/901.nohup/" class="">后台运行</a>
   
 
 </li>
@@ -199,16 +261,6 @@ https://github.com/alex-shpak/hugo-book
 
       
     
-      
-        <li>
-
-  
-  <a href="/Linux/docs/TODO/" class="">T O D O</a>
-  
-
-</li>
-      
-    
   </ul>
   
 
@@ -250,7 +302,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Foreach</strong>
+  <strong>for 循环语句</strong>
 
   <label for="toc-control">
     <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -264,12 +316,13 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#循环">循环</a>
+    <li>
       <ul>
         <li><a href="#while">while</a></li>
         <li><a href="#for">for</a>
           <ul>
-            <li><a href="#遍历文件中的每一行">遍历文件中的每一行</a></li>
+            <li><a href="#遍历文件中的每一行">*遍历文件中的每一行</a></li>
+            <li><a href="#遍历字符串">遍历字符串</a></li>
             <li><a href="#遍历当前文件夹">遍历当前文件夹</a></li>
             <li><a href="#1-10-乘以4-输出">1-10 乘以4 输出</a></li>
             <li><a href="#序列输出">序列输出</a></li>
@@ -290,8 +343,7 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="循环">循环</h1>
-<h2 id="while">while</h2>
+  <article class="markdown"><h2 id="while">while</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># while read line ; do echo $line ; done &lt; file.txt</span>
 
 <span style="color:#66d9ef">while</span> read line
@@ -305,12 +357,28 @@ cat file.txt | <span style="color:#66d9ef">while</span> read line
     echo $line
 <span style="color:#66d9ef">done</span>
 </code></pre></div><h2 id="for">for</h2>
-<h3 id="遍历文件中的每一行">遍历文件中的每一行</h3>
+<h3 id="遍历文件中的每一行">*遍历文件中的每一行</h3>
+<blockquote>
+<p>【注意】每一行中不能有空格，遍历的元素实际上是按照空格分割的</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># for line in `cat file.txt`; do echo $line; done</span>
 
 <span style="color:#66d9ef">for</span> line in <span style="color:#e6db74">`</span>cat /tmp/file.txt<span style="color:#e6db74">`</span>
 <span style="color:#66d9ef">do</span>
     echo $line
+<span style="color:#66d9ef">done</span>
+</code></pre></div><h3 id="遍历字符串">遍历字符串</h3>
+<blockquote>
+<p>可能有兼容性问题</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">strs<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>
+strs<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$strs<span style="color:#e6db74"> 22&#34;</span>
+strs<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$strs<span style="color:#e6db74"> 333&#34;</span>
+strs<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$strs<span style="color:#e6db74"> 4444&#34;</span>
+
+<span style="color:#66d9ef">for</span> str in <span style="color:#e6db74">${</span>strs[@]<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">do</span>
+    echo <span style="color:#e6db74">${</span>str<span style="color:#e6db74">}</span>;
 <span style="color:#66d9ef">done</span>
 </code></pre></div><h3 id="遍历当前文件夹">遍历当前文件夹</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>ls<span style="color:#e6db74">`</span>
@@ -357,18 +425,10 @@ cat file.txt | <span style="color:#66d9ef">while</span> read line
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/eeaedb03ff377a78f1795d45459e917c45bae3bd" title='Last modified by kailbin | Aug 30, 2020' target="_blank" rel="noopener">
-      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Aug 30, 2020</span>
-    </a>
-  </div>
-
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/Foreach.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/030.for.md" target="_blank" rel="noopener">
       <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -396,12 +456,13 @@ cat file.txt | <span style="color:#66d9ef">while</span> read line
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#循环">循环</a>
+    <li>
       <ul>
         <li><a href="#while">while</a></li>
         <li><a href="#for">for</a>
           <ul>
-            <li><a href="#遍历文件中的每一行">遍历文件中的每一行</a></li>
+            <li><a href="#遍历文件中的每一行">*遍历文件中的每一行</a></li>
+            <li><a href="#遍历字符串">遍历字符串</a></li>
             <li><a href="#遍历当前文件夹">遍历当前文件夹</a></li>
             <li><a href="#1-10-乘以4-输出">1-10 乘以4 输出</a></li>
             <li><a href="#序列输出">序列输出</a></li>

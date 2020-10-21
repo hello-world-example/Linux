@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="后台运行 概述  command &amp; 后台执行【关闭 当前 Session，任务会停止】 jobs 查看当前 Session 后台任务  fg %jobId 转为前台运行 Ctrl &#43; C 发送 SIGINT(2) 中断前台任务  Ctrl &#43; Z 前台任务转到后台，并暂停 bg %jobId 启动后台暂停的任务  nohup command 忽略所有挂断 SIGHUP(1) 信号  kill 默认发送 SIGTERM(15) 信号 Kill -9 为 SIGKILL(9) 信号    nohup 和 &amp;  nohup 的作用的是 忽略挂断 SIGHUP(1) 信号 SIGHUP(1) 信号在关闭当前 Session 的时候产生，即关闭终端 一般需要配合 &amp; 后台运行命令(同时免疫 SIGINT 和 SIGHUP 信号)，否则默认仍在在 前台执行，当执行 Ctrl &#43; C 或 关闭终端 时 仍然会停止 nohup 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 nohup."><meta property="og:title" content="后台运行" />
+<meta property="og:description" content="后台运行 概述  command &amp; 后台执行【关闭 当前 Session，任务会停止】 jobs 查看当前 Session 后台任务  fg %jobId 转为前台运行 Ctrl &#43; C 发送 SIGINT(2) 中断前台任务  Ctrl &#43; Z 前台任务转到后台，并暂停 bg %jobId 启动后台暂停的任务  nohup command 忽略所有挂断 SIGHUP(1) 信号  kill 默认发送 SIGTERM(15) 信号 Kill -9 为 SIGKILL(9) 信号    nohup 和 &amp;  nohup 的作用的是 忽略挂断 SIGHUP(1) 信号 SIGHUP(1) 信号在关闭当前 Session 的时候产生，即关闭终端 一般需要配合 &amp; 后台运行命令(同时免疫 SIGINT 和 SIGHUP 信号)，否则默认仍在在 前台执行，当执行 Ctrl &#43; C 或 关闭终端 时 仍然会停止 nohup 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 nohup." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/" />
+
+<title>后台运行 | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/007.zsh/" class="">zsh</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/010.var/" class="">变量与参数</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/011.var_string___/" class="">String 变量处理</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/020.if___/" class="">if 条件语句</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/030.for/" class="">for 循环语句</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/035.array/" class="">数组操作</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/050.function/" class="">函数 function</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/900.21/" class="">输出从定向</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/100_Shell/901.nohup/" class="active">后台运行</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>后台运行</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#后台运行">后台运行</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#nohup-和-">nohup 和 &amp;</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="后台运行">后台运行</h1>
+<h2 id="概述">概述</h2>
+<ul>
+<li><code>command &amp;</code> 后台执行【关闭 当前 Session，任务会停止】</li>
+<li><code>jobs</code> 查看当前 Session 后台任务</li>
+<li></li>
+<li><code>fg %jobId</code> 转为前台运行</li>
+<li><code>Ctrl + C</code> 发送 <code>SIGINT(2)</code> 中断前台任务</li>
+<li></li>
+<li><code>Ctrl + Z</code> 前台任务转到后台，并暂停</li>
+<li><code>bg %jobId</code> 启动后台暂停的任务</li>
+<li></li>
+<li><code>nohup command</code> 忽略所有挂断 <code>SIGHUP(1)</code> 信号
+<ul>
+<li><code>kill</code> 默认发送 <code>SIGTERM(15)</code> 信号</li>
+<li><code>Kill -9</code> 为 <code>SIGKILL(9)</code> 信号</li>
+</ul>
+</li>
+</ul>
+<h2 id="nohup-和-">nohup 和 &amp;</h2>
+<ul>
+<li><code>nohup</code> 的作用的是 忽略挂断 <code>SIGHUP(1)</code> 信号</li>
+<li><code>SIGHUP(1)</code> 信号在关闭当前 Session 的时候产生，即关闭终端</li>
+<li>一般需要配合 <code>&amp;</code> 后台运行命令(同时免疫 <code>SIGINT</code> 和 <code>SIGHUP</code> 信号)，否则默认仍在在 前台执行，当执行 <code>Ctrl + C</code>  或 关闭终端 时 仍然会停止</li>
+<li><code>nohup</code> 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 <code>nohup.out</code> 文件中</li>
+<li>如果 当前目录的 <code>nohup.out</code> 文件不可写，则为 <code>~/nohup.out</code></li>
+<li><strong>常见搭配方式</strong>
+<ul>
+<li><code>nohup Command &gt; xxx.log 2&gt;&amp;1 &amp;</code>  日志输出到 xxx.log</li>
+<li><code>nohup Command &gt; /dev/null 2&gt;&amp;1 &amp;</code> 日志不输出</li>
+</ul>
+</li>
+</ul>
+<h2 id="read-more">Read More</h2>
+<ul>
+<li>
+  <a href="https://www.jb51.net/article/169783.htm">Linux nohup实现后台运行程序及查看（nohup与&amp;）</a></li>
+<li>
+  <a href="https://www.cnblogs.com/lr-ting/archive/2012/09/18/2691179.html">Linux下查看支持的信号列表</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/901.nohup.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#后台运行">后台运行</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#nohup-和-">nohup 和 &amp;</a></li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

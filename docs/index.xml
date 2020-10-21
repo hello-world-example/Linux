@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>zsh</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/~zsh/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/~zsh/</guid>
-      <description>zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &amp;gt;&amp;gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &amp;gt;&amp;gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github.</description>
-    </item>
-    
-    <item>
       <title>top</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -48,6 +39,33 @@
  Read More   官网
 Linux htop工具使用详解
  </description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/007.zsh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/007.zsh/</guid>
+      <description>zsh 切换 zsh $ chsh -s /bin/zsh # 查看 zsh 版本 $ /bin/zsh --version zsh 5.3 (x86_64-apple-darwin17.0) # 切换回 bash $ chsh -s /bin/bash oh-my-zsh # clone 仓库 $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh # 拷贝一份 zsh 模板 $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 环境变量  .zshrc : zsh 的用户环境变量文件 .bash_profile : bash 的用户环境变量文件  zsh 继承 bash 的环境变量配置  cat &#39;source ~/.bash_profile&#39; &amp;gt;&amp;gt; ~/.zshrc  cat &#39;source /etc/profile&#39; &amp;gt;&amp;gt; ~/.zshrc     使用 agnoster 主题   主题列表： https://github.</description>
+    </item>
+    
+    <item>
+      <title>变量与参数</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</guid>
+      <description>参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &amp;#34;$*&amp;#34; do echo &amp;#34;\$* Parameter $count=$param&amp;#34; count=$[ $count + 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## .</description>
+    </item>
+    
+    <item>
+      <title>String 变量处理</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string___/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string___/</guid>
+      <description>String 变量处理 速记  三个特殊符号在键盘上的位置 # $ %  $ 用来取值 # 在 $ 的左边，删除字符串的左边的内容，需要配合 * ，如：${str#*/} ## 是贪婪匹配，从左往右，# 是匹配到第一个，## 是匹配到最后一个，如： ${str##*/} % 在 $ 的右边，删除字符串的右边的内容，需要配合 * ，如：${str%/*} %% 是贪婪匹配，从右往左，% 是匹配到倒数第一个，%% 是匹配到开头第一个，如： ${str%%/*}   字符串替换  ${VALUE/OLD/NEW} 替换第一个，如： ${str/\//.} ${VALUE//OLD/NEW} 替换所有，如： ${str//\//.}   字符串截取  ${VALUE:OFFSET:LENGTH} 从左开始向右截取，如：${str:1} 、 ${str:1:2} ${VALUE:0-OFFSET:LENGTH} 从右开始向由截取，如：${str:0-1} 、 ${str:0-3:2}   变量默认值替换  ${VALUE:-WORD}：当变量未定义或者值为空时，返回值为 WORD 的内容，否则返回变量的值 ${VALUE:=WORD}：当变量未定义或者值为空时，返回 WORD 的值的同时并将 WORD 赋值给 VALUE，否则返回变量的值 ${VALUE:+WORD}：当变量 已赋值 时，其值才用 WORD 替换，否则不进行任何替换 ${VALUE:?</description>
     </item>
     
     <item>
@@ -101,6 +119,15 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>if 条件语句</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if___/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if___/</guid>
+      <description>条件语句 语法结构 # 【注意 1】语句块内并不能为空 # 【注意 2】不要吝啬空格（与变量的定义不同，变量等号前后不能有空格） if [ expr ]; then echo &amp;#34;if&amp;#34; elif [ expr ]; then echo &amp;#34;elif&amp;#34; else echo &amp;#34;else&amp;#34; fi  test expr 和 [ expr ] 效果相同  是 Shell 命令 whereis [ =》 /bin/[， man [ 可查看命令帮助 用于 判断文件、判断字符串 等 逻辑组合使用 -a 、 -o   [[ expr ]] 支持 模式匹配  == 精确匹配： [[ hello == &amp;quot;hell?&amp;quot; ]] 为 false == 模糊匹配： [[ hello == hell?</description>
+    </item>
+    
+    <item>
       <title>ssh-keygen 免密登陆</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/260_Auth/Ssh-keygen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -129,6 +156,25 @@ Linux htop工具使用详解
     </item>
     
     <item>
+      <title>for 循环语句</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/030.for/</guid>
+      <description>while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for *遍历文件中的每一行  【注意】每一行中不能有空格，遍历的元素实际上是按照空格分割的
+ # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历字符串  可能有兼容性问题</description>
+    </item>
+    
+    <item>
+      <title>数组操作</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/035.array/</guid>
+      <description>数组操作 # 初始化 $ array=([1]=&amp;#34;a&amp;#34; [2]=&amp;#34;b&amp;#34;) $ array=(&amp;#34;a&amp;#34; &amp;#34;b&amp;#34;) # ❤ 打印 ❤ $ echo $array a b # 当做多个元素 $ echo $array[@] a b # 当做一个字符串 $ echo $array[*] a b # 添加修改元素【注意】下标从 1 开始 $ array[1]=&amp;#34;aaa&amp;#34; # ❤ 数组长度 ❤ $ echo ${#array} 2 $ echo ${#array[@]} 2 $ echo ${#array[*]} 2 # ❤❤ 追加元素 ❤❤ $ array[${#array}+1]=&amp;#34;c&amp;#34; $ array[${#array}+1]=&amp;#34;d&amp;#34; $ echo ${array[@]} aaa b c d $ echo ${#array[@]} 4 # 批量追加 $ array=(&amp;#34;${array[@]}&amp;#34; 111 222 333 444) $ echo ${array[@]} aaa b c d 111 222 333 444 # ❤❤❤ 遍历数组 ❤❤❤ for item in ${array[@]} do echo &amp;#34;&amp;gt;&amp;gt;&amp;gt; ${item};&amp;#34; done &amp;gt;&amp;gt;&amp;gt; aaa; &amp;gt;&amp;gt;&amp;gt; b; &amp;gt;&amp;gt;&amp;gt; c; &amp;gt;&amp;gt;&amp;gt; d; &amp;gt;&amp;gt;&amp;gt; 111; &amp;gt;&amp;gt;&amp;gt; 222; &amp;gt;&amp;gt;&amp;gt; 333; &amp;gt;&amp;gt;&amp;gt; 444; Read More   linux shell 数组添加元素  </description>
+    </item>
+    
+    <item>
       <title>apt</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -138,21 +184,36 @@ Linux htop工具使用详解
     </item>
     
     <item>
-      <title>变量与参数</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/~var/</link>
+      <title>函数 function</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/~var/</guid>
-      <description>参数与变量 Shell 参数 #!/bin/bash # sh ~/test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # sh test.sh p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 # 当前执行的文件名 或 文件绝对路径 # 【注意】根据调用方式的不同，该值可能会返回不同的结果 echo $0 # 第一个参数 echo $1 # 第 10 个参数 echo ${10} # 如果没有是 空字符串 echo ${123} # 获取参数个数（不包含当前文件名） echo $# # 所有参数，当成一个字符串 echo $* ########## 以下代码输出: $* Parameter 1=p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p123 count=1 for param in &amp;#34;$*&amp;#34; do echo &amp;#34;\$* Parameter $count=$param&amp;#34; count=$[ $count + 1 ] done # 所有参数，当独立的单词，可以遍历 echo $@ ########## 以下代码输出 ########## $@ Parameter 1=p1 ########## $@ Parameter 2=p2 ########## .</description>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/</guid>
+      <description>function 函数 函数定义 #!/bin/bash  function foo() { echo &amp;#34;foo function&amp;#34; } # function 可写可不写 bar() { echo &amp;#34;bar function&amp;#34; # 默认是最后一条命令的运行结果 # 只能返回数字，范围 0~255 return 255 } # 调用两个函数 foo # foo 函数的返回 code echo $? bar # bar 函数的返回 code echo $?  【输出】
+foo function
+0
+bar function
+255
+ 函数参数  同 Shell 文件参数，@see 变量与参数
+ 取值    取参 描述     $# 传递到脚本或函数的参数个数   $* 以一个单字符串显示所有向脚本传递的参数   $@ 每个参数，参数列表       $$ 脚本运行的当前进程ID号   $!</description>
     </item>
     
     <item>
-      <title>条件语句</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</link>
+      <title>输出从定向</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/if/</guid>
-      <description></description>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/900.21/</guid>
+      <description>输出从定向 输入输出设备代码    代码 操作符 描述 默认 Java 中表示     0 &amp;lt; 、 &amp;lt;&amp;lt; 标准输入 (stdin)  System.in   1 &amp;gt; 、 &amp;gt;&amp;gt; 、 1&amp;gt; 、 1&amp;gt;&amp;gt; 标准输出 (stdout)，可省略数字 屏幕 System.out   2 2&amp;gt; 、 2&amp;gt;&amp;gt; 标准错误输出 (stderr) 屏幕 System.err    $ ll /dev/std* ... /dev/stdin -&amp;gt; fd/0 ... /dev/stdout -&amp;gt; fd/1 ... /dev/stderr -&amp;gt; fd/2 执行测试代码 NohupMain.java import java.text.SimpleDateFormat; import java.</description>
+    </item>
+    
+    <item>
+      <title>后台运行</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/901.nohup/</guid>
+      <description>后台运行 概述  command &amp;amp; 后台执行【关闭 当前 Session，任务会停止】 jobs 查看当前 Session 后台任务  fg %jobId 转为前台运行 Ctrl + C 发送 SIGINT(2) 中断前台任务  Ctrl + Z 前台任务转到后台，并暂停 bg %jobId 启动后台暂停的任务  nohup command 忽略所有挂断 SIGHUP(1) 信号  kill 默认发送 SIGTERM(15) 信号 Kill -9 为 SIGKILL(9) 信号    nohup 和 &amp;amp;  nohup 的作用的是 忽略挂断 SIGHUP(1) 信号 SIGHUP(1) 信号在关闭当前 Session 的时候产生，即关闭终端 一般需要配合 &amp;amp; 后台运行命令(同时免疫 SIGINT 和 SIGHUP 信号)，否则默认仍在在 前台执行，当执行 Ctrl + C 或 关闭终端 时 仍然会停止 nohup 执行的 Command 程序 如果没有重定向输出，默认输出到 当前目录的 nohup.</description>
     </item>
     
     <item>
@@ -162,15 +223,6 @@ Linux htop工具使用详解
       
       <guid>https://hello-world-example.github.io/Linux/_sidebar/</guid>
       <description>故障排查  进程   ps  pstree  top  htop   网络   mtr  tcpdump nslookup route   监控  sysstat     常用命令   ls  du  df  curl  lsof  kill   pkill  killall     权限   chmod  chown  chgrp  chattr  lsattr   字符串操作  grep   *grep    tr   小工具   date  time   网络   ssh   SSH 隧道    ssh-keygen   系统管理   service  chkconfig  systemd   /etc   resolv.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/Foreach/</guid>
-      <description>循环 while # while read line ; do echo $line ; done &amp;lt; file.txt while read line do echo $line done &amp;lt; file.txt # at file.txt | while read line ; do echo $line ; done cat file.txt | while read line do echo $line done for 遍历文件中的每一行 # for line in `cat file.txt`; do echo $line; done for line in `cat /tmp/file.txt` do echo $line done 遍历当前文件夹 for i in `ls` do echo $i done 1-10 乘以4 输出 # for((i=1;i&amp;lt;=10;i++));do echo $(expr $i \* 4);done for((i=1; i&amp;lt;=10; i++)); do echo $(expr $i \* 4); done 序列输出 for i in 1 2 4 5 do echo $i; done for i in `seq 1 5` do echo $i; done 100 以内5的倍数 for i in `seq 100` do if((i%5==0)) then echo $i continue fi done Read More   shell:读取文件的每一行内容并输出  </description>
     </item>
     
     <item>
@@ -571,15 +623,6 @@ chmod o+t dir chmod 1777 dir 用ls -l，可以看到有类似这样的权限：-
       
       <guid>https://hello-world-example.github.io/Linux/docs/900_FAQ/System-Version/</guid>
       <description>查看系统版本 CentOS $ cat /etc/centos-release CentOS release 6.7 (Final) Ubuntu $ cat /etc/lsb-release DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION=&amp;#34;Ubuntu 20.04.1 LTS&amp;#34; Common $ cat /proc/version Linux version 2.6.32-431.29.2.el6.x86_64 (root@xxx) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-11) (GCC) ) #1 SMP Wed Sep 16 11:10:09 CST 2015 # 内核版本 $ uname -r 2.6.32-431.29.2.el6.x86_64 # 架构 $ uname -i x86_64 $ uname -a Linux localhost 2.6.32-431.29.2.el6.x86_64 #1 SMP Wed Sep 16 11:10:09 CST 2015 x86_64 x86_64 x86_64 GNU/Linux </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/TODO/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/TODO/</guid>
-      <description> Shell 变量，校验是否存在  </description>
     </item>
     
     <item>
