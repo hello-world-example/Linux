@@ -95,7 +95,31 @@ echo 2:$SHELL_FOLDER
 ```bash
 # 定义变量，【注意】等号前不能有空格
 count=1
+
+# 校验变量是否存在
+if [ $count ] ; then
+    echo "存在"
+fi
+
+# 校验变量是否存在
+if [ ! $count ] ; then
+    echo "不存在"
+fi
 ```
+
+
+
+## 变量替换 TODO
+
+```bash
+
+# 变量未定义或者值为空时，返回值为 word 的内容
+${value:-word} 
+
+${value:+word} 
+```
+
+
 
 
 
@@ -116,6 +140,10 @@ echo $text
 ```
 
 
+
+## Read More
+
+- 
 
 
 
