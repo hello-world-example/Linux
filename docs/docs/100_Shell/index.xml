@@ -19,7 +19,7 @@
     </item>
     
     <item>
-      <title>变量与参数</title>
+      <title>var 变量与参数</title>
       <link>https://hello-world-example.github.io/Linux/docs/100_Shell/010.var/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -28,21 +28,21 @@
     </item>
     
     <item>
-      <title>String 变量处理</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string___/</link>
+      <title>var 字符串处理</title>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string___/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string/</guid>
       <description>String 变量处理 速记  三个特殊符号在键盘上的位置 # $ %  $ 用来取值 # 在 $ 的左边，删除字符串的左边的内容，需要配合 * ，如：${str#*/} ## 是贪婪匹配，从左往右，# 是匹配到第一个，## 是匹配到最后一个，如： ${str##*/} % 在 $ 的右边，删除字符串的右边的内容，需要配合 * ，如：${str%/*} %% 是贪婪匹配，从右往左，% 是匹配到倒数第一个，%% 是匹配到开头第一个，如： ${str%%/*}   字符串替换  ${VALUE/OLD/NEW} 替换第一个，如： ${str/\//.} ${VALUE//OLD/NEW} 替换所有，如： ${str//\//.}   字符串截取  ${VALUE:OFFSET:LENGTH} 从左开始向右截取，如：${str:1} 、 ${str:1:2} ${VALUE:0-OFFSET:LENGTH} 从右开始向由截取，如：${str:0-1} 、 ${str:0-3:2}   变量默认值替换  ${VALUE:-WORD}：当变量未定义或者值为空时，返回值为 WORD 的内容，否则返回变量的值 ${VALUE:=WORD}：当变量未定义或者值为空时，返回 WORD 的值的同时并将 WORD 赋值给 VALUE，否则返回变量的值 ${VALUE:+WORD}：当变量 已赋值 时，其值才用 WORD 替换，否则不进行任何替换 ${VALUE:?</description>
     </item>
     
     <item>
       <title>if 条件语句</title>
-      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if___/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if___/</guid>
-      <description>条件语句 语法结构 # 【注意 1】语句块内并不能为空 # 【注意 2】不要吝啬空格（与变量的定义不同，变量等号前后不能有空格） if [ expr ]; then echo &amp;#34;if&amp;#34; elif [ expr ]; then echo &amp;#34;elif&amp;#34; else echo &amp;#34;else&amp;#34; fi  test expr 和 [ expr ] 效果相同  是 Shell 命令 whereis [ =》 /bin/[， man [ 可查看命令帮助 用于 判断文件、判断字符串 等 逻辑组合使用 -a 、 -o   [[ expr ]] 支持 模式匹配  == 精确匹配： [[ hello == &amp;quot;hell?&amp;quot; ]] 为 false == 模糊匹配： [[ hello == hell?</description>
+      <guid>https://hello-world-example.github.io/Linux/docs/100_Shell/020.if/</guid>
+      <description>条件语句 语法结构 # 【注意 1】语句块内并不能为空 # 【注意 2】不要吝啬空格（与变量的定义不同，变量等号前后不能有空格） if [ expr ]; then echo &amp;#34;if&amp;#34; elif [ expr ]; then echo &amp;#34;elif&amp;#34; else echo &amp;#34;else&amp;#34; fi 速记  test expr 和 [ expr ] 效果相同  是 Shell 命令，通过 whereis [ =》 /bin/[， man [ 可查看命令帮助 用于 判断文件、判断字符串 ，支持 == 、!= 判断整数时，使用 -eq 、 -gt 形式 逻辑组合使用 -a 、 -o   [[ expr ]] 支持 模式匹配  == 精确匹配： [[ hello == &amp;quot;hell?</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@
     </item>
     
     <item>
-      <title>函数 function</title>
+      <title>function 函数</title>
       <link>https://hello-world-example.github.io/Linux/docs/100_Shell/050.function/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

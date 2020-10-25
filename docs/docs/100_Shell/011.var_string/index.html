@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="String 变量处理 速记  三个特殊符号在键盘上的位置 # $ %  $ 用来取值 # 在 $ 的左边，删除字符串的左边的内容，需要配合 * ，如：${str#*/} ## 是贪婪匹配，从左往右，# 是匹配到第一个，## 是匹配到最后一个，如： ${str##*/} % 在 $ 的右边，删除字符串的右边的内容，需要配合 * ，如：${str%/*} %% 是贪婪匹配，从右往左，% 是匹配到倒数第一个，%% 是匹配到开头第一个，如： ${str%%/*}   字符串替换  ${VALUE/OLD/NEW} 替换第一个，如： ${str/\//.} ${VALUE//OLD/NEW} 替换所有，如： ${str//\//.}   字符串截取  ${VALUE:OFFSET:LENGTH} 从左开始向右截取，如：${str:1} 、 ${str:1:2} ${VALUE:0-OFFSET:LENGTH} 从右开始向由截取，如：${str:0-1} 、 ${str:0-3:2}   变量默认值替换  ${VALUE:-WORD}：当变量未定义或者值为空时，返回值为 WORD 的内容，否则返回变量的值 ${VALUE:=WORD}：当变量未定义或者值为空时，返回 WORD 的值的同时并将 WORD 赋值给 VALUE，否则返回变量的值 ${VALUE:&#43;WORD}：当变量 已赋值 时，其值才用 WORD 替换，否则不进行任何替换 ${VALUE:?"><meta property="og:title" content="String 变量处理" />
+<meta name="description" content="String 变量处理 速记  三个特殊符号在键盘上的位置 # $ %  $ 用来取值 # 在 $ 的左边，删除字符串的左边的内容，需要配合 * ，如：${str#*/} ## 是贪婪匹配，从左往右，# 是匹配到第一个，## 是匹配到最后一个，如： ${str##*/} % 在 $ 的右边，删除字符串的右边的内容，需要配合 * ，如：${str%/*} %% 是贪婪匹配，从右往左，% 是匹配到倒数第一个，%% 是匹配到开头第一个，如： ${str%%/*}   字符串替换  ${VALUE/OLD/NEW} 替换第一个，如： ${str/\//.} ${VALUE//OLD/NEW} 替换所有，如： ${str//\//.}   字符串截取  ${VALUE:OFFSET:LENGTH} 从左开始向右截取，如：${str:1} 、 ${str:1:2} ${VALUE:0-OFFSET:LENGTH} 从右开始向由截取，如：${str:0-1} 、 ${str:0-3:2}   变量默认值替换  ${VALUE:-WORD}：当变量未定义或者值为空时，返回值为 WORD 的内容，否则返回变量的值 ${VALUE:=WORD}：当变量未定义或者值为空时，返回 WORD 的值的同时并将 WORD 赋值给 VALUE，否则返回变量的值 ${VALUE:&#43;WORD}：当变量 已赋值 时，其值才用 WORD 替换，否则不进行任何替换 ${VALUE:?"><meta property="og:title" content="var 字符串处理" />
 <meta property="og:description" content="String 变量处理 速记  三个特殊符号在键盘上的位置 # $ %  $ 用来取值 # 在 $ 的左边，删除字符串的左边的内容，需要配合 * ，如：${str#*/} ## 是贪婪匹配，从左往右，# 是匹配到第一个，## 是匹配到最后一个，如： ${str##*/} % 在 $ 的右边，删除字符串的右边的内容，需要配合 * ，如：${str%/*} %% 是贪婪匹配，从右往左，% 是匹配到倒数第一个，%% 是匹配到开头第一个，如： ${str%%/*}   字符串替换  ${VALUE/OLD/NEW} 替换第一个，如： ${str/\//.} ${VALUE//OLD/NEW} 替换所有，如： ${str//\//.}   字符串截取  ${VALUE:OFFSET:LENGTH} 从左开始向右截取，如：${str:1} 、 ${str:1:2} ${VALUE:0-OFFSET:LENGTH} 从右开始向由截取，如：${str:0-1} 、 ${str:0-3:2}   变量默认值替换  ${VALUE:-WORD}：当变量未定义或者值为空时，返回值为 WORD 的内容，否则返回变量的值 ${VALUE:=WORD}：当变量未定义或者值为空时，返回 WORD 的值的同时并将 WORD 赋值给 VALUE，否则返回变量的值 ${VALUE:&#43;WORD}：当变量 已赋值 时，其值才用 WORD 替换，否则不进行任何替换 ${VALUE:?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string___/" />
-
-<title>String 变量处理 | Linux</title>
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string/" />
+<meta property="article:modified_time" content="2020-10-21T18:47:53+08:00" />
+<title>var 字符串处理 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
 
@@ -98,7 +98,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/010.var/" class="">变量与参数</a>
+  <a href="/Linux/docs/100_Shell/010.var/" class="">var 变量与参数</a>
   
 
 </li>
@@ -108,7 +108,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/011.var_string___/" class="active">String 变量处理</a>
+  <a href="/Linux/docs/100_Shell/011.var_string/" class="active">var 字符串处理</a>
   
 
 </li>
@@ -118,7 +118,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/020.if___/" class="">if 条件语句</a>
+  <a href="/Linux/docs/100_Shell/020.if/" class="">if 条件语句</a>
   
 
 </li>
@@ -148,7 +148,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/100_Shell/050.function/" class="">函数 function</a>
+  <a href="/Linux/docs/100_Shell/050.function/" class="">function 函数</a>
   
 
 </li>
@@ -300,7 +300,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>String 变量处理</strong>
+  <strong>var 字符串处理</strong>
 
   <label for="toc-control">
     <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -318,7 +318,6 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#速记">速记</a></li>
         <li><a href="#示例">示例</a></li>
-        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
   </ul>
@@ -366,11 +365,44 @@ https://github.com/alex-shpak/hugo-book
 </li>
 </ul>
 <h2 id="示例">示例</h2>
-<h2 id="read-more">Read More</h2>
-<ul>
-<li></li>
-</ul>
-</article>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;123/465/789&#34;</span>
+
+echo $str<span style="color:#e6db74">&#34; == 123/465/789&#34;</span>
+echo
+echo <span style="color:#e6db74">&#34;字符串长度&#34;</span>
+echo <span style="color:#e6db74">${#</span>str<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 11&#34;</span>
+echo
+echo <span style="color:#e6db74">&#34;删除左侧&#34;</span>
+echo <span style="color:#e6db74">${</span>str#*/<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 456/789&#34;</span>
+echo <span style="color:#e6db74">${</span>str##*/<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 789&#34;</span>
+echo
+echo <span style="color:#e6db74">&#34;删除右侧&#34;</span>
+echo <span style="color:#e6db74">${</span>str%/*<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 123/456&#34;</span>
+echo <span style="color:#e6db74">${</span>str%%/*<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 123&#34;</span>
+echo
+echo <span style="color:#e6db74">&#34;字符串替换&#34;</span>
+echo <span style="color:#e6db74">${</span>str/<span style="color:#ae81ff">\/</span>/.<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 123.456/789&#34;</span>
+echo <span style="color:#e6db74">${</span>str//<span style="color:#ae81ff">\/</span>/.<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 123.456.789&#34;</span>
+echo
+echo <span style="color:#e6db74">&#34;字符串截取&#34;</span>
+echo <span style="color:#e6db74">${</span>str:1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 23/465/789&#34;</span>
+echo <span style="color:#e6db74">${</span>str:1:2<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 23&#34;</span>
+echo <span style="color:#e6db74">${</span>str:0-1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 9&#34;</span>
+echo <span style="color:#e6db74">${</span>str:0-3:2<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 78&#34;</span>
+echo
+echo <span style="color:#e6db74">&#34;变量默认值&#34;</span>
+str<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+echo <span style="color:#e6db74">${</span>str<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;123&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 123&#34;</span>
+echo <span style="color:#e6db74">${</span>str<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == &#39;&#39;&#34;</span>
+echo <span style="color:#e6db74">${</span>str:=<span style="color:#e6db74">&#34;345&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 345&#34;</span>
+echo <span style="color:#e6db74">${</span>str<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 345&#34;</span>
+
+echo <span style="color:#e6db74">${</span>str:?<span style="color:#e6db74">&#34;Error Message&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; == 345 -- 无错误信息&#34;</span>
+str<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+echo <span style="color:#e6db74">${</span>str:?<span style="color:#e6db74">&#34;Error Message&#34;</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; -- 这里报错&#34;</span>
+</code></pre></div></article>
  
       
 
@@ -380,10 +412,18 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+  <div>
+    
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/4906cabe48ca2447c4e3161f495ffce92b54dff4" title='Last modified by kailbin | Oct 21, 2020' target="_blank" rel="noopener">
+      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Oct 21, 2020</span>
+    </a>
+  </div>
+
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/011.var_string___.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/100_Shell/011.var_string.md" target="_blank" rel="noopener">
       <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -415,7 +455,6 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#速记">速记</a></li>
         <li><a href="#示例">示例</a></li>
-        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
   </ul>
