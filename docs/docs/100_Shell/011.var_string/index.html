@@ -8,7 +8,7 @@
 <meta property="og:description" content="String 变量处理 速记  三个特殊符号在键盘上的位置 # $ %  $ 用来取值 # 在 $ 的左边，删除字符串的左边的内容，需要配合 * ，如：${str#*/} ## 是贪婪匹配，从左往右，# 是匹配到第一个，## 是匹配到最后一个，如： ${str##*/} % 在 $ 的右边，删除字符串的右边的内容，需要配合 * ，如：${str%/*} %% 是贪婪匹配，从右往左，% 是匹配到倒数第一个，%% 是匹配到开头第一个，如： ${str%%/*}   字符串替换  ${VALUE/OLD/NEW} 替换第一个，如： ${str/\//.} ${VALUE//OLD/NEW} 替换所有，如： ${str//\//.}   字符串截取  ${VALUE:OFFSET:LENGTH} 从左开始向右截取，如：${str:1} 、 ${str:1:2} ${VALUE:0-OFFSET:LENGTH} 从右开始向由截取，如：${str:0-1} 、 ${str:0-3:2}   变量默认值替换  ${VALUE:-WORD}：当变量未定义或者值为空时，返回值为 WORD 的内容，否则返回变量的值 ${VALUE:=WORD}：当变量未定义或者值为空时，返回 WORD 的值的同时并将 WORD 赋值给 VALUE，否则返回变量的值 ${VALUE:&#43;WORD}：当变量 已赋值 时，其值才用 WORD 替换，否则不进行任何替换 ${VALUE:?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/100_Shell/011.var_string/" />
-<meta property="article:modified_time" content="2020-10-21T18:47:53+08:00" />
+<meta property="article:modified_time" content="2020-10-25T16:57:44+08:00" />
 <title>var 字符串处理 | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -414,9 +414,9 @@ echo <span style="color:#e6db74">${</span>str:?<span style="color:#e6db74">&#34;
 
   <div>
     
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/4906cabe48ca2447c4e3161f495ffce92b54dff4" title='Last modified by kailbin | Oct 21, 2020' target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/1527b910cd47223b3f5f436fd12b3d3b35731974" title='Last modified by kailbin | Oct 25, 2020' target="_blank" rel="noopener">
       <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Oct 21, 2020</span>
+      <span>Oct 25, 2020</span>
     </a>
   </div>
 

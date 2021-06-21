@@ -7,6 +7,7 @@ HuGo/themes/book
 .settings
 .classpath
 .factorypath
+.DS_Store
 
 # 私密信息不提交
 key.properties

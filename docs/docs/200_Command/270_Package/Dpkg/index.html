@@ -9,8 +9,8 @@
 <meta property="og:description" content="dpkg (Debian Package) 常用 # 查询过滤 $ dpkg -l | grep &lt;package&gt; # 卸载 $ dpkg -P package-name # 删除软件包（包括配置信息） -P --purge $ dpkg -r package-name # 删除软件包（保留配置信息） -r --remove # 安装 $ dpkg -i &lt;package-name.deb&gt; 案例 【查询】文件属于哪个包  -S 后面必须跟文件，不能跟 链接
  $ dpkg -S /bin/ls coreutils: /bin/ls $ dpkg -S /bin/ip iproute2: /bin/ip 【查询】已安装包 “安装到何处” $ dpkg -L coreutils | grep bin /bin /bin/cat /bin/chgrp /bin/chmod /bin/chown /bin/cp /bin/date /bin/dd ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Dpkg/" />
-<meta property="article:modified_time" content="2020-09-16T16:36:13+08:00" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/dpkg/" />
+
 <title>dpkg | Linux</title>
 <link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
 
@@ -270,7 +270,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/200_Command/270_Package/Rpm/" class="">rpm</a>
+  <a href="/Linux/docs/200_Command/270_Package/rpm/" class="">rpm</a>
   
 
 </li>
@@ -280,7 +280,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/200_Command/270_Package/Yum/" class="">yum</a>
+  <a href="/Linux/docs/200_Command/270_Package/yum/" class="">yum</a>
   
 
 </li>
@@ -290,7 +290,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/200_Command/270_Package/Dpkg/" class="active">dpkg</a>
+  <a href="/Linux/docs/200_Command/270_Package/dpkg/" class="active">dpkg</a>
   
 
 </li>
@@ -300,7 +300,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/Linux/docs/200_Command/270_Package/Apt/" class="">apt</a>
+  <a href="/Linux/docs/200_Command/270_Package/apt/" class="">apt</a>
   
 
 </li>
@@ -592,18 +592,10 @@ $ ll /var/lib/dpkg/info
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/commit/54b42d448194fd19da11fef6ed405a191906d7e9" title='Last modified by kailbin | Sep 16, 2020' target="_blank" rel="noopener">
-      <img src="/Linux/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Sep 16, 2020</span>
-    </a>
-  </div>
-
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/Dpkg.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/270_Package/dpkg.md" target="_blank" rel="noopener">
       <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="perf 子命令列表 # 会输出所有的子命令 $ perf -h    命令 作用     record 收集采样信息，并将其记录在数据文件中   report 读取 perf record 创建的数据文件，并给出热点分析结果   timechart 针对测试期间系统行为进行可视化的工具   evlist 列出数据文件 perf.data 中所有性能事件。   list 列出当前系统支持的所有性能事件。包括硬件性能事件、软件性能事件以及检查点   top 类似于 top 命令，对系统性能进行实时分析       annotate 解析perf record生成的perf.data文件，显示被注释的代码。   archive 根据数据文件记录的build-id，将所有被采样到的elf文件打包。利用此压缩包，可以再任何机器上分析数据文件中记录的采样数据。   bench perf中内置的benchmark，目前包括两套针对调度器和内存管理子系统的benchmark。   buildid-cache 管理perf的buildid缓存，每个elf文件都有一个独一无二的buildid。buildid被perf用来关联性能数据与elf文件。   buildid-list 列出数据文件中记录的所有buildid。   diff 对比两个数据文件的差异。能够给出每个符号（函数）在热点分析上的具体差异。   inject 该工具读取perf record工具记录的事件流，并将其定向到标准输出。在被分析代码中的任何一点，都可以向事件流中注入其它事件。   kmem 针对内核内存（slab）子系统进行追踪测量的工具   kvm 用来追踪测试运行在KVM虚拟机上的Guest OS。   lock 分析内核中的锁信息，包括锁的争用情况，等待延迟等。   mem 内存存取情况   sched 针对调度器子系统的分析工具。   stat 执行某个命令，收集特定进程的性能概况，包括CPI、Cache丢失率等。   test perf对当前软硬件平台进行健全性测试，可用此工具测试当前的软硬件平台是否能支持perf的所有功能。   trace 关于syscall的工具。   probe 用于定义动态检查点    record -a 记录所有 CPU 事件 -o 指定录取保存数据的文件名，如：cycle."><meta property="og:title" content="perf（CPU）" />
+<meta property="og:description" content="perf 子命令列表 # 会输出所有的子命令 $ perf -h    命令 作用     record 收集采样信息，并将其记录在数据文件中   report 读取 perf record 创建的数据文件，并给出热点分析结果   timechart 针对测试期间系统行为进行可视化的工具   evlist 列出数据文件 perf.data 中所有性能事件。   list 列出当前系统支持的所有性能事件。包括硬件性能事件、软件性能事件以及检查点   top 类似于 top 命令，对系统性能进行实时分析       annotate 解析perf record生成的perf.data文件，显示被注释的代码。   archive 根据数据文件记录的build-id，将所有被采样到的elf文件打包。利用此压缩包，可以再任何机器上分析数据文件中记录的采样数据。   bench perf中内置的benchmark，目前包括两套针对调度器和内存管理子系统的benchmark。   buildid-cache 管理perf的buildid缓存，每个elf文件都有一个独一无二的buildid。buildid被perf用来关联性能数据与elf文件。   buildid-list 列出数据文件中记录的所有buildid。   diff 对比两个数据文件的差异。能够给出每个符号（函数）在热点分析上的具体差异。   inject 该工具读取perf record工具记录的事件流，并将其定向到标准输出。在被分析代码中的任何一点，都可以向事件流中注入其它事件。   kmem 针对内核内存（slab）子系统进行追踪测量的工具   kvm 用来追踪测试运行在KVM虚拟机上的Guest OS。   lock 分析内核中的锁信息，包括锁的争用情况，等待延迟等。   mem 内存存取情况   sched 针对调度器子系统的分析工具。   stat 执行某个命令，收集特定进程的性能概况，包括CPI、Cache丢失率等。   test perf对当前软硬件平台进行健全性测试，可用此工具测试当前的软硬件平台是否能支持perf的所有功能。   trace 关于syscall的工具。   probe 用于定义动态检查点    record -a 记录所有 CPU 事件 -o 指定录取保存数据的文件名，如：cycle." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/perf/" />
+
+<title>perf（CPU） | Linux</title>
+<link rel="icon" href="/Linux/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/Linux/book.min.d436f463c9471cfab26a8b71cd2f50b6abf5225806391453da4ca111d1834fef.css" integrity="sha256-1Db0Y8lHHPqyaotxzS9Qtqv1IlgGORRT2kyhEdGDT&#43;8=">
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/Linux"><span>Linux</span>
+  </a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/100_Shell/" class="collapsed ">Shell</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/" class="collapsed ">Command</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/210_Common/" class="collapsed ">常用工具</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/" class="collapsed ">故障排查</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/lsof/" class="">lsof ( List Open Files)</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/perf/" class="active">perf（CPU）</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/top/" class="">top</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/htop/" class="">htop</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/Linux/docs/200_Command/220_Troubleshooting/mtr/" class="">mtr</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/230_Network/" class="collapsed ">Network</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/240_Disk/" class="collapsed ">磁盘</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/250_String/" class="collapsed ">字符串操作</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/260_Auth/" class="collapsed ">账户权限</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/270_Package/" class="collapsed ">Package..</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/280_System/" class="collapsed ">系统管理</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/200_Command/290_Compression/" class="collapsed ">解压缩</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/300_Configuration/" class="collapsed ">文件和配置</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/Linux/docs/900_FAQ/" class="">FAQ</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/Linux/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>perf（CPU）</strong>
+
+  <label for="toc-control">
+    <img src="/Linux/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#perf">perf</a>
+      <ul>
+        <li><a href="#子命令列表">子命令列表</a></li>
+        <li><a href="#record">record</a></li>
+        <li><a href="#report">report</a></li>
+        <li><a href="#faq">FAQ</a>
+          <ul>
+            <li><a href="#docker-内部使用-perf">Docker 内部使用 perf</a></li>
+            <li><a href="#couldnt-record-kernel-reference-relocation-symbol">Couldn&rsquo;t record kernel reference relocation symbol</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="perf">perf</h1>
+<h2 id="子命令列表">子命令列表</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 会输出所有的子命令</span>
+$ perf -h
+</code></pre></div><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">record</td>
+<td>收集采样信息，并将其记录在数据文件中</td>
+</tr>
+<tr>
+<td align="center">report</td>
+<td>读取 <code>perf record</code> 创建的数据文件，并给出热点分析结果</td>
+</tr>
+<tr>
+<td align="center">timechart</td>
+<td>针对测试期间系统行为进行可视化的工具</td>
+</tr>
+<tr>
+<td align="center">evlist</td>
+<td>列出数据文件 <code>perf.data</code> 中所有性能事件。</td>
+</tr>
+<tr>
+<td align="center">list</td>
+<td>列出当前系统支持的所有性能事件。包括硬件性能事件、软件性能事件以及检查点</td>
+</tr>
+<tr>
+<td align="center">top</td>
+<td>类似于 top 命令，对系统性能进行实时分析</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">annotate</td>
+<td>解析perf record生成的perf.data文件，显示被注释的代码。</td>
+</tr>
+<tr>
+<td align="center">archive</td>
+<td>根据数据文件记录的build-id，将所有被采样到的elf文件打包。利用此压缩包，可以再任何机器上分析数据文件中记录的采样数据。</td>
+</tr>
+<tr>
+<td align="center">bench</td>
+<td>perf中内置的benchmark，目前包括两套针对调度器和内存管理子系统的benchmark。</td>
+</tr>
+<tr>
+<td align="center">buildid-cache</td>
+<td>管理perf的buildid缓存，每个elf文件都有一个独一无二的buildid。buildid被perf用来关联性能数据与elf文件。</td>
+</tr>
+<tr>
+<td align="center">buildid-list</td>
+<td>列出数据文件中记录的所有buildid。</td>
+</tr>
+<tr>
+<td align="center">diff</td>
+<td>对比两个数据文件的差异。能够给出每个符号（函数）在热点分析上的具体差异。</td>
+</tr>
+<tr>
+<td align="center">inject</td>
+<td>该工具读取perf record工具记录的事件流，并将其定向到标准输出。在被分析代码中的任何一点，都可以向事件流中注入其它事件。</td>
+</tr>
+<tr>
+<td align="center">kmem</td>
+<td>针对内核内存（slab）子系统进行追踪测量的工具</td>
+</tr>
+<tr>
+<td align="center">kvm</td>
+<td>用来追踪测试运行在KVM虚拟机上的Guest OS。</td>
+</tr>
+<tr>
+<td align="center">lock</td>
+<td>分析内核中的锁信息，包括锁的争用情况，等待延迟等。</td>
+</tr>
+<tr>
+<td align="center">mem</td>
+<td>内存存取情况</td>
+</tr>
+<tr>
+<td align="center">sched</td>
+<td>针对调度器子系统的分析工具。</td>
+</tr>
+<tr>
+<td align="center">stat</td>
+<td>执行某个命令，收集特定进程的性能概况，包括CPI、Cache丢失率等。</td>
+</tr>
+<tr>
+<td align="center">test</td>
+<td>perf对当前软硬件平台进行健全性测试，可用此工具测试当前的软硬件平台是否能支持perf的所有功能。</td>
+</tr>
+<tr>
+<td align="center">trace</td>
+<td>关于syscall的工具。</td>
+</tr>
+<tr>
+<td align="center">probe</td>
+<td>用于定义动态检查点</td>
+</tr>
+</tbody>
+</table>
+<h2 id="record">record</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-a  记录所有 CPU 事件
+-o  指定录取保存数据的文件名，如：cycle.perf
+
+-p  process id
+-t  thread id
+-g  使能函数调用图功能
+
+-e 	指定事件， 使用 <span style="color:#e6db74">&#39;perf list&#39;</span> 查看可用的事件
+-C  指定 CPU 的事件
+
+<span style="color:#75715e"># 如：</span>
+$ perf record -a -o cycle.perf -g -p &lt;PID&gt;
+</code></pre></div><h2 id="report">report</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"></code></pre></div><h2 id="faq">FAQ</h2>
+<h3 id="docker-内部使用-perf">Docker 内部使用 perf</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 创建容器时增加 --privileged 参数，获取宿主机 root 权限，默认只有一般用户权限</span>
+$ docker run -d --privileged ..
+</code></pre></div><h3 id="couldnt-record-kernel-reference-relocation-symbol">Couldn&rsquo;t record kernel reference relocation symbol</h3>
+<blockquote>
+<p>
+  <a href="https://stackoverflow.com/questions/21284906/perf-couldnt-record-kernel-reference-relocation-symbol">perf: Couldn&rsquo;t record kernel reference relocation symbol - Stack Overflow</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ echo <span style="color:#ae81ff">0</span> &gt; /proc/sys/kernel/kptr_restrict
+</code></pre></div><h2 id="read-more">Read More</h2>
+<ul>
+<li>
+<p>
+  <a href="https://www.cnblogs.com/arnoldlu/p/6241297.html">系统级性能分析工具 perf 的介绍与使用 - ArnoldLu - 博客园 (cnblogs.com)</a></p>
+</li>
+<li>
+<p>
+  <a href="https://perf.wiki.kernel.org/index.php/Main_Page">Perf Wiki (kernel.org)</a></p>
+</li>
+<li>
+<p>
+  <a href="http://www.brendangregg.com/perf.html">Linux perf Examples (brendangregg.com)</a></p>
+</li>
+<li>
+<p>
+  <a href="http://www.brendangregg.com/flamegraphs.html">Flame Graphs (brendangregg.com)</a></p>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/hello-world-example/Linux/edit/master/HuGo/content/docs/200_Command/220_Troubleshooting/perf.md" target="_blank" rel="noopener">
+      <img src="/Linux/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#perf">perf</a>
+      <ul>
+        <li><a href="#子命令列表">子命令列表</a></li>
+        <li><a href="#record">record</a></li>
+        <li><a href="#report">report</a></li>
+        <li><a href="#faq">FAQ</a>
+          <ul>
+            <li><a href="#docker-内部使用-perf">Docker 内部使用 perf</a></li>
+            <li><a href="#couldnt-record-kernel-reference-relocation-symbol">Couldn&rsquo;t record kernel reference relocation symbol</a></li>
+          </ul>
+        </li>
+        <li><a href="#read-more">Read More</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

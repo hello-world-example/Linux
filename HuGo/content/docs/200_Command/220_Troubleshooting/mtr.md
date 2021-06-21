@@ -1,3 +1,8 @@
+---
+title: "mtr"
+weight: 11
+---
+
 # mtr
 
 常用的 `ping`，`tracert`，`nslookup` 一般用来判断主机的网络连通性，其实 Linux 下有一个更好用的网络联通性判断工具，它可以结合  `ping`、`tracert`、`nslookup`  来判断网络的相关特性，这个命令就是 `mtr`。`mtr` 全称 **my traceroute**，是一个把 ping 和 traceroute 合并到一个程序的网络诊断工具。

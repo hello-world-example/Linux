@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>perf（CPU）</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/perf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/perf/</guid>
+      <description>perf 子命令列表 # 会输出所有的子命令 $ perf -h    命令 作用     record 收集采样信息，并将其记录在数据文件中   report 读取 perf record 创建的数据文件，并给出热点分析结果   timechart 针对测试期间系统行为进行可视化的工具   evlist 列出数据文件 perf.data 中所有性能事件。   list 列出当前系统支持的所有性能事件。包括硬件性能事件、软件性能事件以及检查点   top 类似于 top 命令，对系统性能进行实时分析       annotate 解析perf record生成的perf.data文件，显示被注释的代码。   archive 根据数据文件记录的build-id，将所有被采样到的elf文件打包。利用此压缩包，可以再任何机器上分析数据文件中记录的采样数据。   bench perf中内置的benchmark，目前包括两套针对调度器和内存管理子系统的benchmark。   buildid-cache 管理perf的buildid缓存，每个elf文件都有一个独一无二的buildid。buildid被perf用来关联性能数据与elf文件。   buildid-list 列出数据文件中记录的所有buildid。   diff 对比两个数据文件的差异。能够给出每个符号（函数）在热点分析上的具体差异。   inject 该工具读取perf record工具记录的事件流，并将其定向到标准输出。在被分析代码中的任何一点，都可以向事件流中注入其它事件。   kmem 针对内核内存（slab）子系统进行追踪测量的工具   kvm 用来追踪测试运行在KVM虚拟机上的Guest OS。   lock 分析内核中的锁信息，包括锁的争用情况，等待延迟等。   mem 内存存取情况   sched 针对调度器子系统的分析工具。   stat 执行某个命令，收集特定进程的性能概况，包括CPI、Cache丢失率等。   test perf对当前软硬件平台进行健全性测试，可用此工具测试当前的软硬件平台是否能支持perf的所有功能。   trace 关于syscall的工具。   probe 用于定义动态检查点    record -a 记录所有 CPU 事件 -o 指定录取保存数据的文件名，如：cycle.</description>
+    </item>
+    
+    <item>
       <title>top</title>
       <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/top/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -79,10 +88,10 @@ Linux htop工具使用详解
     
     <item>
       <title>rpm</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Rpm/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/rpm/</guid>
       <description>rpm (Redhat Package Manager) 常用 # 查询过滤 $ rpm -qa | grep &amp;lt;package&amp;gt; # 查询软件包名，不包含版本 $ rpm -q &amp;lt;package_no_version&amp;gt; # 卸载 $ rpm -e &amp;lt;package_full_name&amp;gt; # 安装并显示进度 $ rpm -ivh &amp;lt;package.rpm&amp;gt; 案例 【查询】文件属于哪个包 $ rpm -qf /usr/bin/ls coreutils-8.22-24.el7.x86_64 $ rpm -qf /usr/sbin/ip iproute-4.11.0-25.el7.x86_64 【查询】已安装包 &amp;ldquo;安装到何处&amp;rdquo; $ rpm -ql coreutils-8.22-24.el7.x86_64 | grep /bin .. /usr/bin/cp /usr/bin/csplit /usr/bin/cut /usr/bin/date /usr/bin/dd /usr/bin/df .. 【查看】已安装软件 &amp;ldquo;包信息 &amp;quot; # rpm -qi coreutils $ rpm -qi coreutils-8.</description>
     </item>
     
@@ -106,6 +115,22 @@ Linux htop工具使用详解
  i 光标前 a 光标后 I 行前 A 行后 o 下一行 O 上一行    跳跃
  ^ 行首 $ 行尾 指定行 &amp;lt;行号&amp;gt;gg 文首 gg 文尾 GG    编辑
  u 撤销 Ctrl + r 取消撤销 删除单个字符 x 剪切当前行 dd 复制当前行 yy 粘贴行 p    Command Mode  设置行号 :set nu 打开高亮 :set hls  关闭高亮 :set nohls 查找 :/&amp;lt;string&amp;gt;  向下查找 n 向上查找 N   替换 %s/&amp;lt;old_str&amp;gt;/&amp;lt;new_str&amp;gt;/g  窗口  :split 水平分割窗口 :vsplit 垂直分割窗口 :close 关闭创库 Ctrl + w 切换窗口    案例 命令帮助 :help :w 执行外部命令 :!</description>
+    </item>
+    
+    <item>
+      <title>mtr</title>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</guid>
+      <description>mtr 常用的 ping，tracert，nslookup 一般用来判断主机的网络连通性，其实 Linux 下有一个更好用的网络联通性判断工具，它可以结合 ping、tracert、nslookup 来判断网络的相关特性，这个命令就是 mtr。mtr 全称 my traceroute，是一个把 ping 和 traceroute 合并到一个程序的网络诊断工具。
+traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测，ICMP在某些路由节点的优先级要比其他数据包低，所以测试得到的数据可能低于实际情况。
+常用命令   无参数（mtr &amp;lt;host&amp;gt;）：会不停的发送 CMP报文 进行探测
+  -r | -report : 会向主机发送 10 个 ICMP 包，然后直接输出结果
+ 一般情况下 mtr 前几跳都是本地 ISP，后几跳属于服务商比如 Google 数据中心，中间跳数则是中间节点，如果发现前几跳异常，需要联系本地 ISP 服务提供上，相反如果后几跳出现问题，则需要联系服务提供商，中间几跳出现问题，则两边无法完全解决问题
+   -c： -r 参数来生成报告，只会发送10个数据包 ， 可以通过 -c 制定发送数据包的个数
+  -s：定ping数据包的大小 ，如果设置为负数，则数据包大小是随机数
+  统计项说明  Host：显示的是IP地址或本机域名 Loss% 到达此节点的数据包丢包率，显示的每个对应IP的丢包率（TODO） Snt 发送包的数量 Last 最后一包的返回延时 Avg 平均延时 Best 最低延时 Wrst 最差延时 StDev 方差（稳定性）  Read More   mtr 查看路由网络连通性  traviscross/mtr 工具： 在线 traceroute  </description>
     </item>
     
     <item>
@@ -138,19 +163,19 @@ Linux htop工具使用详解
     
     <item>
       <title>yum</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Yum/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Yum/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/yum/</guid>
       <description>yum (Yellow dog Update Modifier)  自动化地 升级/安装/移除 rpm包，收集 rpm包 的相关信息，检查依赖性并自动提示用户解决 关键之处是要有可靠的 repository，可以是 HTTP、FTP、本地 站点 /etc/yum.conf 配置文件 /etc/yum.repos.d/ 仓库配置  常用命令 # 查看帮助 $ yum help # 查找软件包 $ yum list | grep &amp;lt;package&amp;gt; # 查找已安装的包 $ yum list installed # 安装 $ yum install &amp;lt;package&amp;gt; $ yum reinstall &amp;lt;package&amp;gt; # 卸载 $ yum remove &amp;lt;package&amp;gt; # 查看包信息 $ yum info &amp;lt;package&amp;gt; # 查看日志 $ tail -fn 400 /var/log/yum.log 更新 # 查看可用的更新 $ yum check-update #【慎用】更新所有 rpm 包，也升级系统内核 $ yum update # 指定更新 $ yum update bash.</description>
     </item>
     
     <item>
       <title>dpkg</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Dpkg/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/dpkg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Dpkg/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/dpkg/</guid>
       <description>dpkg (Debian Package) 常用 # 查询过滤 $ dpkg -l | grep &amp;lt;package&amp;gt; # 卸载 $ dpkg -P package-name # 删除软件包（包括配置信息） -P --purge $ dpkg -r package-name # 删除软件包（保留配置信息） -r --remove # 安装 $ dpkg -i &amp;lt;package-name.deb&amp;gt; 案例 【查询】文件属于哪个包  -S 后面必须跟文件，不能跟 链接
  $ dpkg -S /bin/ls coreutils: /bin/ls $ dpkg -S /bin/ip iproute2: /bin/ip 【查询】已安装包 “安装到何处” $ dpkg -L coreutils | grep bin /bin /bin/cat /bin/chgrp /bin/chmod /bin/chown /bin/cp /bin/date /bin/dd .</description>
     </item>
@@ -176,10 +201,10 @@ Linux htop工具使用详解
     
     <item>
       <title>apt</title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</link>
+      <link>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/apt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/Apt/</guid>
+      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/270_Package/apt/</guid>
       <description>APT (Advanced Packaging Tool)  apt = apt-get 、 apt-cache 、 apt-config 最常用命令选项的集合 aptitude 是一个带 UI 的管理工具，也可以非 UI 方式运行  常用命令 # 查看帮助 $ sudo apt help # 查找软件包 $ sudo apt list | grep &amp;lt;package&amp;gt; # 查找已安装的包 $ sudo apt list &amp;lt;package&amp;gt; # 安装 $ sudo apt install &amp;lt;package&amp;gt; $ sudo apt reinstall &amp;lt;package&amp;gt; # 卸载 $ sudo apt remove &amp;lt;package&amp;gt; # 删除未使用到的包 $ sudo apt autoremove # 查看包信息 $ sudo apt show -a &amp;lt;package&amp;gt; # 查看日志 $ tail -fn 200 /var/log/apt/history.</description>
     </item>
     
@@ -309,22 +334,6 @@ bar function
       <guid>https://hello-world-example.github.io/Linux/docs/200_Command/210_Common/time/</guid>
       <description>在执行的命令前加上 time，显示命令执行时间
 time command </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hello-world-example.github.io/Linux/docs/200_Command/220_Troubleshooting/mtr/</guid>
-      <description>mtr 常用的 ping，tracert，nslookup 一般用来判断主机的网络连通性，其实 Linux 下有一个更好用的网络联通性判断工具，它可以结合 ping、tracert、nslookup 来判断网络的相关特性，这个命令就是 mtr。mtr 全称 my traceroute，是一个把 ping 和 traceroute 合并到一个程序的网络诊断工具。
-traceroute 默认使用UDP数据包探测，而mtr默认使用ICMP报文探测，ICMP在某些路由节点的优先级要比其他数据包低，所以测试得到的数据可能低于实际情况。
-常用命令   无参数（mtr &amp;lt;host&amp;gt;）：会不停的发送 CMP报文 进行探测
-  -r | -report : 会向主机发送 10 个 ICMP 包，然后直接输出结果
- 一般情况下 mtr 前几跳都是本地 ISP，后几跳属于服务商比如 Google 数据中心，中间跳数则是中间节点，如果发现前几跳异常，需要联系本地 ISP 服务提供上，相反如果后几跳出现问题，则需要联系服务提供商，中间几跳出现问题，则两边无法完全解决问题
-   -c： -r 参数来生成报告，只会发送10个数据包 ， 可以通过 -c 制定发送数据包的个数
-  -s：定ping数据包的大小 ，如果设置为负数，则数据包大小是随机数
-  统计项说明  Host：显示的是IP地址或本机域名 Loss% 到达此节点的数据包丢包率，显示的每个对应IP的丢包率（TODO） Snt 发送包的数量 Last 最后一包的返回延时 Avg 平均延时 Best 最低延时 Wrst 最差延时 StDev 方差（稳定性）  Read More   mtr 查看路由网络连通性  traviscross/mtr 工具： 在线 traceroute  </description>
     </item>
     
     <item>
